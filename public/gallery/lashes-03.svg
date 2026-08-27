@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Vorher und Nachher: Volume Lashes">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#151020"/>
+      <stop offset="55%" stop-color="#0d0c12"/>
+      <stop offset="100%" stop-color="#191128"/>
+    </linearGradient>
+    <radialGradient id="sclera" cx="50%" cy="42%">
+      <stop offset="0%" stop-color="#fbf9ff"/>
+      <stop offset="58%" stop-color="#e7e1f2"/>
+      <stop offset="100%" stop-color="#aea4c2"/>
+    </radialGradient>
+    <radialGradient id="iris" cx="42%" cy="36%">
+      <stop offset="0%" stop-color="#d8c8ff"/>
+      <stop offset="34%" stop-color="#a983f7"/>
+      <stop offset="72%" stop-color="#6b3ac0"/>
+      <stop offset="100%" stop-color="#2a1650"/>
+    </radialGradient>
+    <linearGradient id="lash" x1="0" y1="1" x2="0.25" y2="0">
+      <stop offset="0%" stop-color="#050409"/>
+      <stop offset="62%" stop-color="#1c1428"/>
+      <stop offset="100%" stop-color="#a983f7"/>
+    </linearGradient>
+    <radialGradient id="socket" cx="50%" cy="45%">
+      <stop offset="0%" stop-color="#c0a7ff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#c0a7ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="divider" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9061e8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#c0a7ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#9061e8" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <clipPath id="clip-a"><path d="M14 75.0 C65.0 13.0 195.0 13.0 246.0 75.0 C195.0 119.0 65.0 119.0 14 75.0 Z"/></clipPath>
+    <clipPath id="clip-b"><path d="M14 75.0 C65.0 13.0 195.0 13.0 246.0 75.0 C195.0 119.0 65.0 119.0 14 75.0 Z"/></clipPath>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="960" cy="144" r="360" fill="#7844cf" opacity="0.12"/>
+  <circle cx="180" cy="792" r="312" fill="#5f33a6" opacity="0.10"/>
+  <line x1="600" y1="126" x2="600" y2="774" stroke="url(#divider)" stroke-width="2"/>
+  <g transform="translate(40.0 360.0) scale(2.0)">
+    <g>
+      <ellipse cx="130.0" cy="69.0" rx="127.4" ry="86.2" fill="url(#socket)"/>
+      <g stroke="url(#lash)" fill="none" stroke-linecap="round">
+      <path d="M35.95 89.16 Q38.45 94.12 41.50 95.78" stroke="url(#lash)" stroke-width="0.89" opacity="0.54"/>
+      <path d="M45.35 93.33 Q47.98 99.23 51.20 101.19" stroke="url(#lash)" stroke-width="1.03" opacity="0.57"/>
+      <path d="M55.38 96.98 Q58.15 104.01 61.55 106.35" stroke="url(#lash)" stroke-width="0.85" opacity="0.40"/>
+      <path d="M65.94 100.11 Q68.40 107.18 71.40 109.54" stroke="url(#lash)" stroke-width="1.10" opacity="0.52"/>
+      <path d="M76.96 102.72 Q79.78 112.00 83.21 115.09" stroke="url(#lash)" stroke-width="0.78" opacity="0.35"/>
+      <path d="M88.36 104.81 Q90.78 114.07 93.73 117.15" stroke="url(#lash)" stroke-width="1.09" opacity="0.55"/>
+      <path d="M100.05 106.37 Q102.39 116.97 105.26 120.51" stroke="url(#lash)" stroke-width="0.83" opacity="0.49"/>
+      <path d="M111.95 107.41 Q113.36 115.14 115.08 117.72" stroke="url(#lash)" stroke-width="0.93" opacity="0.58"/>
+      <path d="M123.97 107.93 Q125.59 119.08 127.58 122.79" stroke="url(#lash)" stroke-width="0.78" opacity="0.49"/>
+      <path d="M136.03 107.93 Q137.09 117.54 138.37 120.75" stroke="url(#lash)" stroke-width="0.65" opacity="0.63"/>
+      <path d="M148.05 107.41 Q148.76 116.95 149.63 120.13" stroke="url(#lash)" stroke-width="1.00" opacity="0.59"/>
+      <path d="M159.95 106.37 Q160.28 114.80 160.69 117.61" stroke="url(#lash)" stroke-width="1.09" opacity="0.55"/>
+      <path d="M171.64 104.81 Q171.69 115.68 171.76 119.30" stroke="url(#lash)" stroke-width="1.05" opacity="0.54"/>
+      <path d="M183.04 102.72 Q182.79 110.93 182.50 113.67" stroke="url(#lash)" stroke-width="0.98" opacity="0.58"/>
+      <path d="M194.06 100.11 Q193.50 108.87 192.81 111.79" stroke="url(#lash)" stroke-width="1.07" opacity="0.51"/>
+      <path d="M204.62 96.98 Q204.01 103.17 203.26 105.24" stroke="url(#lash)" stroke-width="1.03" opacity="0.45"/>
+      <path d="M214.65 93.33 Q213.59 101.16 212.30 103.77" stroke="url(#lash)" stroke-width="0.92" opacity="0.57"/>
+      <path d="M224.05 89.16 Q222.87 96.05 221.42 98.35" stroke="url(#lash)" stroke-width="1.08" opacity="0.44"/>
+      </g>
+      <g clip-path="url(#clip-a)">
+        <path d="M14 75.0 C65.0 13.0 195.0 13.0 246.0 75.0 C195.0 119.0 65.0 119.0 14 75.0 Z" fill="url(#sclera)"/>
+        <g transform="translate(-2.4 0)">
+          <circle cx="130.0" cy="73.0" r="31" fill="url(#iris)"/>
+          <circle cx="130.0" cy="73.0" r="31" fill="none" stroke="#1b0f33" stroke-width="3.4" opacity="0.75"/>
+          <circle cx="130.0" cy="73.0" r="12.5" fill="#050409"/>
+          <circle cx="125.0" cy="66.0" r="5" fill="#ffffff" opacity="0.9"/>
+          <circle cx="137.0" cy="80.0" r="2.4" fill="#ffffff" opacity="0.45"/>
+        </g>
+        <ellipse cx="130.0" cy="55.0" rx="54" ry="12" fill="#ffffff" opacity="0.14" filter="url(#soft)"/>
+        <path d="M14 75.0 C65.0 13.0 195.0 13.0 246.0 75.0" fill="none" stroke="#1a1424" stroke-width="12" opacity="0.4"/>
+      </g>
+      <path d="M14 75.0 C65.0 13.0 195.0 13.0 246.0 75.0" fill="none" stroke="#0a0810" stroke-width="4.6" stroke-linecap="round"/>
+      <g stroke="url(#lash)" fill="none" stroke-linecap="round">
+      
+      <path d="M26.51 62.29 C24.53 61.03 23.66 59.71 21.81 59.29" stroke="url(#lash)" stroke-width="0.97" opacity="0.71"/>
+      <path d="M42.02 51.12 C39.98 49.04 39.40 46.93 37.17 46.16" stroke="url(#lash)" stroke-width="0.68" opacity="0.84"/>
+      <path d="M59.51 42.19 C57.78 39.47 57.58 37.14 55.40 35.71" stroke="url(#lash)" stroke-width="0.58" opacity="0.98"/>
+      <path d="M78.55 35.48 C77.27 32.24 77.63 29.62 75.52 27.75" stroke="url(#lash)" stroke-width="0.92" opacity="0.87"/>
+      <path d="M98.69 31.01 C97.89 26.93 98.85 23.95 96.79 21.28" stroke="url(#lash)" stroke-width="0.97" opacity="0.85"/>
+      <path d="M119.49 28.78 C119.41 24.59 120.82 21.84 119.31 18.80" stroke="url(#lash)" stroke-width="0.65" opacity="0.86"/>
+      <path d="M140.51 28.78 C141.25 24.01 139.88 20.51 142.28 17.41" stroke="url(#lash)" stroke-width="0.66" opacity="0.95"/>
+      <path d="M161.31 31.01 C162.86 26.47 162.59 23.23 165.00 20.19" stroke="url(#lash)" stroke-width="0.62" opacity="0.89"/>
+      <path d="M181.45 35.48 C183.42 31.96 183.44 28.94 186.13 27.11" stroke="url(#lash)" stroke-width="0.63" opacity="0.75"/>
+      <path d="M200.49 42.19 C203.32 38.84 204.08 35.86 207.22 34.22" stroke="url(#lash)" stroke-width="1.11" opacity="0.90"/>
+      <path d="M217.98 51.12 C220.91 48.85 222.03 46.41 224.94 45.71" stroke="url(#lash)" stroke-width="0.85" opacity="0.96"/>
+      <path d="M233.49 62.29 C235.97 61.15 237.18 59.60 239.39 59.57" stroke="url(#lash)" stroke-width="0.73" opacity="0.71"/>
+      </g>
+    </g></g>
+  <g transform="translate(640.0 360.0) scale(2.0)">
+    <g>
+      <ellipse cx="130.0" cy="69.0" rx="127.4" ry="86.2" fill="url(#socket)"/>
+      <g stroke="url(#lash)" fill="none" stroke-linecap="round">
+      <path d="M35.95 89.16 Q38.15 93.54 40.84 94.99" stroke="url(#lash)" stroke-width="0.73" opacity="0.52"/>
+      <path d="M45.35 93.33 Q48.18 99.66 51.63 101.76" stroke="url(#lash)" stroke-width="0.77" opacity="0.58"/>
+      <path d="M55.38 96.98 Q58.14 103.97 61.52 106.31" stroke="url(#lash)" stroke-width="0.76" opacity="0.58"/>
+      <path d="M65.94 100.11 Q68.41 107.21 71.42 109.57" stroke="url(#lash)" stroke-width="0.77" opacity="0.44"/>
+      <path d="M76.96 102.72 Q79.24 110.24 82.03 112.74" stroke="url(#lash)" stroke-width="0.90" opacity="0.59"/>
+      <path d="M88.36 104.81 Q90.54 113.14 93.20 115.92" stroke="url(#lash)" stroke-width="0.86" opacity="0.37"/>
+      <path d="M100.05 106.37 Q102.25 116.34 104.95 119.67" stroke="url(#lash)" stroke-width="1.05" opacity="0.53"/>
+      <path d="M111.95 107.41 Q113.82 117.66 116.11 121.08" stroke="url(#lash)" stroke-width="1.07" opacity="0.35"/>
+      <path d="M123.97 107.93 Q125.20 116.41 126.71 119.23" stroke="url(#lash)" stroke-width="0.79" opacity="0.42"/>
+      <path d="M136.03 107.93 Q137.14 118.01 138.49 121.36" stroke="url(#lash)" stroke-width="1.06" opacity="0.61"/>
+      <path d="M148.05 107.41 Q148.71 116.27 149.52 119.22" stroke="url(#lash)" stroke-width="1.03" opacity="0.48"/>
+      <path d="M159.95 106.37 Q160.36 116.85 160.87 120.34" stroke="url(#lash)" stroke-width="1.08" opacity="0.37"/>
+      <path d="M171.64 104.81 Q171.68 113.46 171.74 116.34" stroke="url(#lash)" stroke-width="0.69" opacity="0.53"/>
+      <path d="M183.04 102.72 Q182.75 112.42 182.40 115.65" stroke="url(#lash)" stroke-width="0.88" opacity="0.48"/>
+      <path d="M194.06 100.11 Q193.51 108.69 192.84 111.54" stroke="url(#lash)" stroke-width="0.70" opacity="0.38"/>
+      <path d="M204.62 96.98 Q203.93 104.01 203.08 106.35" stroke="url(#lash)" stroke-width="0.68" opacity="0.49"/>
+      <path d="M214.65 93.33 Q213.84 99.33 212.85 101.33" stroke="url(#lash)" stroke-width="0.77" opacity="0.58"/>
+      <path d="M224.05 89.16 Q222.89 95.91 221.48 98.16" stroke="url(#lash)" stroke-width="0.85" opacity="0.51"/>
+      </g>
+      <g clip-path="url(#clip-b)">
+        <path d="M14 75.0 C65.0 13.0 195.0 13.0 246.0 75.0 C195.0 119.0 65.0 119.0 14 75.0 Z" fill="url(#sclera)"/>
+        <g transform="translate(-2.4 0)">
+          <circle cx="130.0" cy="73.0" r="31" fill="url(#iris)"/>
+          <circle cx="130.0" cy="73.0" r="31" fill="none" stroke="#1b0f33" stroke-width="3.4" opacity="0.75"/>
+          <circle cx="130.0" cy="73.0" r="12.5" fill="#050409"/>
+          <circle cx="125.0" cy="66.0" r="5" fill="#ffffff" opacity="0.9"/>
+          <circle cx="137.0" cy="80.0" r="2.4" fill="#ffffff" opacity="0.45"/>
+        </g>
+        <ellipse cx="130.0" cy="55.0" rx="54" ry="12" fill="#ffffff" opacity="0.14" filter="url(#soft)"/>
+        <path d="M14 75.0 C65.0 13.0 195.0 13.0 246.0 75.0" fill="none" stroke="#1a1424" stroke-width="12" opacity="0.4"/>
+      </g>
+      <path d="M14 75.0 C65.0 13.0 195.0 13.0 246.0 75.0" fill="none" stroke="#0a0810" stroke-width="4.6" stroke-linecap="round"/>
+      <g stroke="url(#lash)" fill="none" stroke-linecap="round">
+      <path d="M22.99 65.44 C19.18 63.31 17.43 60.73 13.92 60.38" stroke="url(#lash)" stroke-width="1.20" opacity="0.80"/>
+      <path d="M30.18 59.29 C26.52 56.64 25.05 53.73 21.47 52.97" stroke="url(#lash)" stroke-width="0.91" opacity="0.89"/>
+      <path d="M37.94 53.71 C33.93 50.03 32.54 46.43 28.39 44.95" stroke="url(#lash)" stroke-width="0.86" opacity="0.70"/>
+      <path d="M46.22 48.68 C42.50 44.44 41.39 40.73 37.36 38.58" stroke="url(#lash)" stroke-width="1.33" opacity="0.74"/>
+      <path d="M54.97 44.21 C51.26 38.96 50.40 34.68 46.12 31.70" stroke="url(#lash)" stroke-width="1.26" opacity="0.75"/>
+      <path d="M64.14 40.30 C60.65 34.15 60.56 28.88 55.83 25.66" stroke="url(#lash)" stroke-width="1.20" opacity="0.89"/>
+      <path d="M73.67 36.95 C70.56 30.00 70.74 24.64 66.27 20.41" stroke="url(#lash)" stroke-width="1.26" opacity="0.91"/>
+      <path d="M83.49 34.16 C81.15 27.25 81.99 21.99 77.91 17.72" stroke="url(#lash)" stroke-width="1.03" opacity="0.83"/>
+      <path d="M93.57 31.92 C91.71 24.21 93.14 18.58 89.14 13.56" stroke="url(#lash)" stroke-width="0.95" opacity="0.77"/>
+      <path d="M103.84 30.25 C102.50 21.29 105.00 14.83 100.65 8.93" stroke="url(#lash)" stroke-width="0.71" opacity="0.76"/>
+      <path d="M114.25 29.13 C113.74 20.80 116.57 15.06 113.03 9.31" stroke="url(#lash)" stroke-width="0.87" opacity="0.89"/>
+      <path d="M124.74 28.57 C124.98 18.97 128.63 12.75 125.31 5.72" stroke="url(#lash)" stroke-width="1.14" opacity="0.82"/>
+      <path d="M135.26 28.57 C136.20 20.11 134.39 14.58 137.50 8.43" stroke="url(#lash)" stroke-width="0.79" opacity="0.84"/>
+      <path d="M145.75 29.13 C147.64 19.67 145.68 12.94 150.25 6.61" stroke="url(#lash)" stroke-width="1.40" opacity="0.99"/>
+      <path d="M156.16 30.25 C158.93 20.78 157.48 13.70 162.75 7.70" stroke="url(#lash)" stroke-width="1.23" opacity="0.85"/>
+      <path d="M166.43 31.92 C169.72 23.52 168.89 16.87 174.26 11.91" stroke="url(#lash)" stroke-width="0.75" opacity="0.93"/>
+      <path d="M176.51 34.16 C180.47 26.22 180.31 19.70 185.95 15.26" stroke="url(#lash)" stroke-width="0.73" opacity="0.95"/>
+      <path d="M186.33 36.95 C190.75 29.84 191.23 23.81 196.86 20.03" stroke="url(#lash)" stroke-width="1.21" opacity="0.75"/>
+      <path d="M195.86 40.30 C200.48 34.26 201.36 28.70 206.85 25.91" stroke="url(#lash)" stroke-width="1.05" opacity="0.78"/>
+      <path d="M205.03 44.21 C209.98 38.91 211.41 33.88 216.82 31.60" stroke="url(#lash)" stroke-width="0.83" opacity="0.90"/>
+      <path d="M213.78 48.68 C218.90 44.23 220.77 39.82 225.98 38.09" stroke="url(#lash)" stroke-width="1.21" opacity="0.86"/>
+      <path d="M222.06 53.71 C227.55 49.91 229.88 45.96 235.12 44.66" stroke="url(#lash)" stroke-width="0.99" opacity="0.93"/>
+      <path d="M229.82 59.29 C235.19 56.42 237.70 52.96 242.59 52.45" stroke="url(#lash)" stroke-width="1.01" opacity="0.70"/>
+      <path d="M237.01 65.44 C242.52 63.28 245.34 60.23 250.13 60.31" stroke="url(#lash)" stroke-width="0.75" opacity="0.92"/>
+      <path d="M22.14 66.24 C16.39 63.15 13.73 58.88 8.45 58.89" stroke="url(#lash)" stroke-width="1.42" opacity="0.86"/>
+      <path d="M27.41 61.53 C20.24 56.79 17.24 51.04 10.33 50.24" stroke="url(#lash)" stroke-width="1.93" opacity="0.93"/>
+      <path d="M33.02 57.13 C26.36 51.84 23.72 46.67 17.17 44.54" stroke="url(#lash)" stroke-width="1.77" opacity="0.76"/>
+      <path d="M38.94 53.05 C32.35 46.84 30.10 40.89 23.26 38.26" stroke="url(#lash)" stroke-width="1.32" opacity="0.93"/>
+      <path d="M45.16 49.28 C38.67 42.07 37.12 34.72 29.71 32.13" stroke="url(#lash)" stroke-width="1.62" opacity="0.80"/>
+      <path d="M51.64 45.82 C44.46 36.47 43.25 27.48 34.55 23.55" stroke="url(#lash)" stroke-width="1.80" opacity="0.95"/>
+      <path d="M58.37 42.68 C52.18 33.20 51.60 24.66 43.65 20.12" stroke="url(#lash)" stroke-width="1.62" opacity="0.87"/>
+      <path d="M65.31 39.85 C59.78 29.82 59.21 21.96 52.13 15.96" stroke="url(#lash)" stroke-width="1.60" opacity="0.93"/>
+      <path d="M72.46 37.34 C66.96 25.42 68.00 15.17 59.37 8.96" stroke="url(#lash)" stroke-width="1.50" opacity="0.91"/>
+      <path d="M79.78 35.14 C74.44 21.04 76.06 9.82 67.07 1.57" stroke="url(#lash)" stroke-width="1.63" opacity="0.89"/>
+      <path d="M87.25 33.25 C83.23 19.95 85.79 9.38 77.68 1.57" stroke="url(#lash)" stroke-width="1.35" opacity="0.90"/>
+      <path d="M94.85 31.68 C91.24 15.98 94.63 4.29 86.26 -5.71" stroke="url(#lash)" stroke-width="1.18" opacity="0.70"/>
+      <path d="M102.55 30.42 C100.14 15.46 103.90 4.82 96.82 -5.20" stroke="url(#lash)" stroke-width="1.92" opacity="0.84"/>
+      <path d="M110.33 29.48 C108.80 13.24 113.53 2.11 106.69 -9.19" stroke="url(#lash)" stroke-width="1.71" opacity="0.97"/>
+      <path d="M118.18 28.85 C117.67 11.14 123.99 -0.82 116.96 -13.32" stroke="url(#lash)" stroke-width="1.33" opacity="0.97"/>
+      <path d="M126.06 28.54 C126.65 11.81 132.65 1.24 127.48 -11.28" stroke="url(#lash)" stroke-width="1.22" opacity="0.80"/>
+      <path d="M133.94 28.54 C135.58 12.28 131.20 1.27 137.84 -10.18" stroke="url(#lash)" stroke-width="1.10" opacity="0.79"/>
+      <path d="M141.82 28.85 C144.70 11.57 139.71 -1.31 148.67 -12.30" stroke="url(#lash)" stroke-width="1.76" opacity="0.94"/>
+      <path d="M149.67 29.48 C153.73 12.11 150.97 -0.11 159.35 -11.88" stroke="url(#lash)" stroke-width="1.46" opacity="0.82"/>
+      <path d="M157.45 30.42 C162.24 14.69 160.04 2.94 168.85 -7.04" stroke="url(#lash)" stroke-width="1.49" opacity="0.96"/>
+      <path d="M165.15 31.68 C171.04 16.12 169.17 3.64 179.18 -5.38" stroke="url(#lash)" stroke-width="1.73" opacity="0.72"/>
+      <path d="M172.75 33.25 C179.39 18.76 178.93 7.35 188.55 -1.26" stroke="url(#lash)" stroke-width="1.02" opacity="0.98"/>
+      <path d="M180.22 35.14 C187.88 21.05 187.86 9.09 198.46 1.59" stroke="url(#lash)" stroke-width="1.69" opacity="0.78"/>
+      <path d="M187.54 37.34 C195.89 24.26 196.79 12.90 207.41 6.21" stroke="url(#lash)" stroke-width="0.98" opacity="0.74"/>
+      <path d="M194.69 39.85 C204.00 27.34 206.05 16.58 216.87 10.06" stroke="url(#lash)" stroke-width="1.74" opacity="0.98"/>
+      <path d="M201.63 42.68 C210.77 32.14 213.19 22.43 223.39 17.58" stroke="url(#lash)" stroke-width="1.27" opacity="0.93"/>
+      <path d="M208.36 45.82 C218.92 35.36 222.14 24.85 233.51 20.93" stroke="url(#lash)" stroke-width="1.12" opacity="0.96"/>
+      <path d="M214.84 49.28 C224.98 40.71 228.51 31.26 238.99 28.88" stroke="url(#lash)" stroke-width="1.77" opacity="0.79"/>
+      <path d="M221.06 53.05 C230.89 46.03 234.80 37.88 244.46 36.34" stroke="url(#lash)" stroke-width="1.12" opacity="0.87"/>
+      <path d="M226.98 57.13 C236.65 51.39 241.02 44.89 250.01 43.47" stroke="url(#lash)" stroke-width="1.67" opacity="0.83"/>
+      <path d="M232.59 61.53 C242.88 56.59 247.86 49.35 257.09 49.76" stroke="url(#lash)" stroke-width="1.88" opacity="0.83"/>
+      <path d="M237.86 66.24 C246.51 63.02 251.03 57.73 258.46 58.56" stroke="url(#lash)" stroke-width="1.73" opacity="0.95"/>
+      </g>
+    </g></g>
+  
+    <text x="300" y="144" text-anchor="middle" font-family="Jost, Helvetica, Arial, sans-serif" font-size="26" letter-spacing="9" fill="#ece9f3" opacity="0.55">VORHER</text>
+    <text x="900" y="144" text-anchor="middle" font-family="Jost, Helvetica, Arial, sans-serif" font-size="26" letter-spacing="9" fill="#c0a7ff">NACHHER</text>
+</svg>

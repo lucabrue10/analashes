@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="Illustration des Behandlungsraums von Anna Blush Lashes">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1628"/>
+      <stop offset="60%" stop-color="#100e16"/>
+      <stop offset="100%" stop-color="#0a0910"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#171320"/>
+      <stop offset="100%" stop-color="#08070c"/>
+    </linearGradient>
+    <linearGradient id="bed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#332e45"/>
+      <stop offset="100%" stop-color="#1a1626"/>
+    </linearGradient>
+    <radialGradient id="lamp" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#e8d9c5" stop-opacity="0.8"/>
+      <stop offset="55%" stop-color="#c0a7ff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#c0a7ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9061e8"/>
+      <stop offset="100%" stop-color="#d8c8ff"/>
+    </linearGradient>
+    <linearGradient id="sheet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9c1dd"/>
+      <stop offset="100%" stop-color="#8f86a8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="1250" fill="url(#wall)"/>
+  <rect y="880" width="1000" height="370" fill="url(#floor)"/>
+  <circle cx="700" cy="330" r="420" fill="url(#lamp)"/>
+  <circle cx="180" cy="1010" r="300" fill="#5f33a6" opacity="0.10"/>
+
+  <!-- Wandbögen -->
+  <g opacity="0.22" stroke="#c0a7ff" stroke-width="1.6" fill="none">
+    <rect x="90" y="150" width="250" height="520" rx="125"/>
+    <rect x="370" y="230" width="180" height="440" rx="90"/>
+  </g>
+
+  <!-- Neon-Schriftzug -->
+  <g transform="translate(120 430)">
+    <text font-family="Cormorant Garamond, Georgia, serif" font-size="92" font-style="italic" fill="none" stroke="url(#neon)" stroke-width="2.6" opacity="0.95">lashes</text>
+    <text font-family="Cormorant Garamond, Georgia, serif" font-size="92" font-style="italic" fill="#c0a7ff" opacity="0.18">lashes</text>
+  </g>
+
+  <!-- Ringlicht -->
+  <g transform="translate(720 330)">
+    <circle r="165" fill="none" stroke="#e8d9c5" stroke-width="18" opacity="0.6"/>
+    <circle r="165" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.32"/>
+    <circle r="146" fill="#c0a7ff" opacity="0.05"/>
+    <rect x="-7" y="165" width="14" height="420" fill="#2e2a3d"/>
+    <rect x="-70" y="580" width="140" height="14" rx="7" fill="#241f31"/>
+  </g>
+
+  <!-- Behandlungsliege -->
+  <g>
+    <rect x="60" y="880" width="880" height="130" rx="65" fill="url(#bed)"/>
+    <path d="M60 905 h880 v22 H60 Z" fill="#c0a7ff" opacity="0.10"/>
+    <rect x="140" y="838" width="240" height="62" rx="31" fill="#3a3450"/>
+    <rect x="150" y="846" width="220" height="46" rx="23" fill="url(#sheet)" opacity="0.35"/>
+    <rect x="120" y="1010" width="28" height="170" rx="14" fill="#211e2c"/>
+    <rect x="852" y="1010" width="28" height="170" rx="14" fill="#211e2c"/>
+    <ellipse cx="500" cy="1195" rx="470" ry="42" fill="#000000" opacity="0.55"/>
+  </g>
+
+  <!-- Rollwagen mit Werkzeugen -->
+  <g transform="translate(880 950)">
+    <rect x="-80" y="0" width="160" height="14" rx="7" fill="#2e2a3d"/>
+    <rect x="-80" y="86" width="160" height="12" rx="6" fill="#241f31"/>
+    <rect x="-7" y="14" width="14" height="200" fill="#241f31"/>
+    <g fill="#c0a7ff" opacity="0.9">
+      <rect x="-60" y="-30" width="11" height="30" rx="5.5"/>
+      <rect x="-40" y="-40" width="11" height="40" rx="5.5"/>
+      <rect x="-20" y="-24" width="11" height="24" rx="5.5"/>
+    </g>
+    <rect x="8" y="-26" width="54" height="26" rx="7" fill="#e8d9c5" opacity="0.7"/>
+  </g>
+
+  <!-- Vase mit Zweigen -->
+  <g transform="translate(70 880)">
+    <path d="M0 0 h76 l-13 132 h-50 Z" fill="#211e2c"/>
+    <g stroke="#9061e8" stroke-width="3" fill="none" opacity="0.85">
+      <path d="M38 0 C10 -90 -22 -122 -46 -156"/>
+      <path d="M38 0 C68 -78 100 -110 134 -132"/>
+      <path d="M38 0 C38 -100 44 -142 50 -188"/>
+    </g>
+    <g fill="#c0a7ff" opacity="0.55">
+      <circle cx="-46" cy="-156" r="7"/>
+      <circle cx="134" cy="-132" r="7"/>
+      <circle cx="50" cy="-188" r="8"/>
+    </g>
+  </g>
+</svg>
