@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Eyes } from "@/components/hero/Eyes";
+import { HeroEyes } from "@/components/hero/HeroEyes";
 import { Button } from "@/components/ui/Button";
 import { site, whatsappLink } from "@/lib/site";
 
@@ -49,7 +49,7 @@ export function Hero() {
       <motion.div style={{ y: eyesY, opacity: fade, filter: blur }} className="relative z-10 w-full">
         <div className="relative">
           <div className="opacity-[0.94]">
-            <Eyes />
+            <HeroEyes />
           </div>
 
           {/* Dunkler Balken über der Augenpartie – nimmt die Augen zurück,

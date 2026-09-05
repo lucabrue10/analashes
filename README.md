@@ -33,13 +33,34 @@ app/
 components/
   Navbar.tsx        Logo links, Hamburger rechts, Fullscreen-Overlay-Menü
   Footer.tsx
-  hero/Eyes.tsx     SVG-Augen: Wimpern auf dem Lidbogen, Blickfolge, Blinzeln
+  hero/Eyes.tsx     Gezeichnete Augen: Wimpern, Iris, Blickfolge, Blinzeln
+  hero/PhotoEyes.tsx  Fotovariante: Iris als bewegliche Ebene über dem Bild
+  hero/HeroEyes.tsx   Wählt Foto oder Zeichnung
   sections/         Hero, Services, Pricing, Studio, Gallery, Testimonials,
                     Faq, BookingCta, Contact
   ui/               Button, Logo, Reveal (Scroll-Animationen), SectionHeading
 lib/site.ts         Alle Inhalte: Kontaktdaten, Leistungen, Preise, Galerie …
 scripts/            Generator für die Vorher-/Nachher-SVGs
 ```
+
+## Hero: gezeichnete Augen oder echtes Foto
+
+Standardmäßig zeigt der Hero die gezeichneten Augen (`components/hero/Eyes.tsx`).
+Für echten Fotorealismus lässt sich stattdessen ein Foto einsetzen, bei dem nur
+die Iris dem Mauszeiger folgt:
+
+1. Foto nach `public/hero/` legen (JPG oder WebP, mindestens 1600 px breit).
+2. `npm run dev` starten und `/kalibrierung` öffnen.
+3. Foto laden, je Auge in die Pupillenmitte und dann auf den Irisrand klicken;
+   optional die Lidspalte markieren.
+4. Den ausgegebenen Block in `lib/heroPhoto.ts` eintragen.
+
+Die bewegte Iris wird auf die Lidspalte begrenzt und läuft an den Rändern weich
+aus, damit weder ein doppelter Irisrand noch eine verschobene Lidkante sichtbar
+wird. Ein kleiner Ausschlag wirkt dabei natürlicher als ein großer – etwa ein
+Fünftel des Irisradius. Steht in `lib/heroPhoto.ts` `null`, greift automatisch
+wieder die gezeichnete Variante; die Seite `/kalibrierung` ist nicht indexiert
+und kann nach dem Einrichten gelöscht werden.
 
 ## Inhalte anpassen
 
