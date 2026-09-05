@@ -102,13 +102,15 @@ def eye(uid, count, max_len, under_count, under_len, width_scale, seed, gaze=0.0
         <path d="{SHAPE}" fill="url(#sclera)"/>
         <g transform="translate({ix:.1f} 0)">
           <circle cx="{CX}" cy="{CY - 2}" r="31" fill="url(#iris)"/>
-          <circle cx="{CX}" cy="{CY - 2}" r="31" fill="none" stroke="#1b0f33" stroke-width="3.4" opacity="0.75"/>
+          <circle cx="{CX}" cy="{CY - 2}" r="31" fill="none" stroke="#0c0618" stroke-width="4.2" opacity="0.9"/>
           <circle cx="{CX}" cy="{CY - 2}" r="12.5" fill="#050409"/>
-          <circle cx="{CX - 5}" cy="{CY - 9}" r="5" fill="#ffffff" opacity="0.9"/>
-          <circle cx="{CX + 7}" cy="{CY + 5}" r="2.4" fill="#ffffff" opacity="0.45"/>
+          <circle cx="{CX - 5}" cy="{CY - 9}" r="4" fill="#ffffff" opacity="0.5"/>
+          <circle cx="{CX + 7}" cy="{CY + 5}" r="2" fill="#ffffff" opacity="0.22"/>
         </g>
-        <ellipse cx="{CX}" cy="{CY - 20}" rx="54" ry="12" fill="#ffffff" opacity="0.14" filter="url(#soft)"/>
-        <path d="{LID_TOP}" fill="none" stroke="#1a1424" stroke-width="12" opacity="0.4"/>
+        <ellipse cx="{CX}" cy="{CY - 20}" rx="54" ry="12" fill="#ffffff" opacity="0.07" filter="url(#soft)"/>
+        <path d="{LID_TOP}" fill="none" stroke="#100b18" stroke-width="14" opacity="0.6"/>
+        <path d="{SHAPE}" fill="url(#inner)"/>
+        <ellipse cx="{CX}" cy="{CY - 2}" rx="{CX * 0.72}" ry="{CY * 0.62}" fill="url(#corner)"/>
       </g>
       <path d="{LID_TOP}" fill="none" stroke="#0a0810" stroke-width="4.6" stroke-linecap="round"/>
       <g stroke="url(#lash)" fill="none" stroke-linecap="round">
@@ -125,21 +127,30 @@ DEFS = '''
       <stop offset="55%" stop-color="#0d0c12"/>
       <stop offset="100%" stop-color="#191128"/>
     </linearGradient>
-    <radialGradient id="sclera" cx="50%" cy="42%">
-      <stop offset="0%" stop-color="#fbf9ff"/>
-      <stop offset="58%" stop-color="#e7e1f2"/>
-      <stop offset="100%" stop-color="#aea4c2"/>
+    <radialGradient id="sclera" cx="50%" cy="44%">
+      <stop offset="0%" stop-color="#cdc6d6"/>
+      <stop offset="52%" stop-color="#aca4bb"/>
+      <stop offset="100%" stop-color="#5f5872"/>
+    </radialGradient>
+    <linearGradient id="inner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0810" stop-opacity="0.75"/>
+      <stop offset="45%" stop-color="#0a0810" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0a0810" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="corner" cx="50%" cy="50%">
+      <stop offset="55%" stop-color="#0a0810" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0810" stop-opacity="0.85"/>
     </radialGradient>
     <radialGradient id="iris" cx="42%" cy="36%">
-      <stop offset="0%" stop-color="#d8c8ff"/>
-      <stop offset="34%" stop-color="#a983f7"/>
-      <stop offset="72%" stop-color="#6b3ac0"/>
-      <stop offset="100%" stop-color="#2a1650"/>
+      <stop offset="0%" stop-color="#9c86c8"/>
+      <stop offset="34%" stop-color="#6f52a8"/>
+      <stop offset="72%" stop-color="#3d2668"/>
+      <stop offset="100%" stop-color="#150b28"/>
     </radialGradient>
     <linearGradient id="lash" x1="0" y1="1" x2="0.25" y2="0">
-      <stop offset="0%" stop-color="#050409"/>
-      <stop offset="62%" stop-color="#1c1428"/>
-      <stop offset="100%" stop-color="#a983f7"/>
+      <stop offset="0%" stop-color="#030207"/>
+      <stop offset="72%" stop-color="#140e1e"/>
+      <stop offset="100%" stop-color="#8f6bd0"/>
     </linearGradient>
     <radialGradient id="socket" cx="50%" cy="45%">
       <stop offset="0%" stop-color="#c0a7ff" stop-opacity="0.16"/>

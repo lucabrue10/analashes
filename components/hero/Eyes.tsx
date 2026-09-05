@@ -206,21 +206,31 @@ function Eye({ seed, mirrored = false, px, py }: EyeProps) {
       focusable="false"
     >
       <defs>
-        <radialGradient id={`sclera-${uid}`} cx="50%" cy="42%">
-          <stop offset="0%" stopColor="#fbf9ff" />
-          <stop offset="58%" stopColor="#e7e1f2" />
-          <stop offset="100%" stopColor="#aea4c2" />
+        <radialGradient id={`sclera-${uid}`} cx="50%" cy="44%">
+          <stop offset="0%" stopColor="#cdc6d6" />
+          <stop offset="52%" stopColor="#aca4bb" />
+          <stop offset="100%" stopColor="#5f5872" />
+        </radialGradient>
+        {/* Lidschatten von oben, Schatten in den Augenwinkeln */}
+        <linearGradient id={`inner-${uid}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#0a0810" stopOpacity="0.75" />
+          <stop offset="45%" stopColor="#0a0810" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#0a0810" stopOpacity="0.4" />
+        </linearGradient>
+        <radialGradient id={`corner-${uid}`} cx="50%" cy="50%">
+          <stop offset="55%" stopColor="#0a0810" stopOpacity="0" />
+          <stop offset="100%" stopColor="#0a0810" stopOpacity="0.85" />
         </radialGradient>
         <radialGradient id={`iris-${uid}`} cx="42%" cy="36%">
-          <stop offset="0%" stopColor="#d8c8ff" />
-          <stop offset="34%" stopColor="#a983f7" />
-          <stop offset="72%" stopColor="#6b3ac0" />
-          <stop offset="100%" stopColor="#2a1650" />
+          <stop offset="0%" stopColor="#9c86c8" />
+          <stop offset="34%" stopColor="#6f52a8" />
+          <stop offset="72%" stopColor="#3d2668" />
+          <stop offset="100%" stopColor="#150b28" />
         </radialGradient>
         <linearGradient id={`lash-${uid}`} x1="0" y1="1" x2="0.25" y2="0">
-          <stop offset="0%" stopColor="#050409" />
-          <stop offset="62%" stopColor="#1c1428" />
-          <stop offset="100%" stopColor="#a983f7" />
+          <stop offset="0%" stopColor="#030207" />
+          <stop offset="72%" stopColor="#140e1e" />
+          <stop offset="100%" stopColor="#8f6bd0" />
         </linearGradient>
         <linearGradient id={`lidline-${uid}`} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#0a0810" stopOpacity="0.35" />
@@ -228,7 +238,7 @@ function Eye({ seed, mirrored = false, px, py }: EyeProps) {
           <stop offset="100%" stopColor="#0a0810" stopOpacity="0.35" />
         </linearGradient>
         <radialGradient id={`socket-${uid}`} cx="50%" cy="45%">
-          <stop offset="0%" stopColor="#c0a7ff" stopOpacity="0.16" />
+          <stop offset="0%" stopColor="#c0a7ff" stopOpacity="0.09" />
           <stop offset="100%" stopColor="#c0a7ff" stopOpacity="0" />
         </radialGradient>
         <filter id={`soft-${uid}`} x="-50%" y="-50%" width="200%" height="200%">
@@ -254,7 +264,7 @@ function Eye({ seed, mirrored = false, px, py }: EyeProps) {
 
           <motion.g style={{ x: irisX, y: irisY }}>
             <circle cx={CX} cy={CY - 2} r="31" fill={`url(#iris-${uid})`} />
-            <g stroke="#3a2064" strokeWidth="0.7" opacity="0.5">
+            <g stroke="#1e1136" strokeWidth="0.7" opacity="0.55">
               {Array.from({ length: 28 }).map((_, i) => {
                 const a = (i / 28) * Math.PI * 2;
                 return (
@@ -268,15 +278,15 @@ function Eye({ seed, mirrored = false, px, py }: EyeProps) {
                 );
               })}
             </g>
-            <circle cx={CX} cy={CY - 2} r="31" fill="none" stroke="#1b0f33" strokeWidth="3.4" opacity="0.75" />
-            <circle cx={CX} cy={CY - 2} r="20" fill="#c0a7ff" opacity="0.12" />
+            <circle cx={CX} cy={CY - 2} r="31" fill="none" stroke="#0c0618" strokeWidth="4.2" opacity="0.9" />
+            <circle cx={CX} cy={CY - 2} r="20" fill="#c0a7ff" opacity="0.06" />
           </motion.g>
 
           {/* Pupille bewegt sich einen Hauch weiter – das erzeugt Tiefe */}
           <motion.g style={{ x: pupilX, y: pupilY }}>
             <circle cx={CX} cy={CY - 2} r="12.5" fill="#050409" />
-            <circle cx={CX - 5} cy={CY - 9} r="5" fill="#ffffff" opacity="0.92" />
-            <circle cx={CX + 7} cy={CY + 5} r="2.4" fill="#ffffff" opacity="0.5" />
+            <circle cx={CX - 5} cy={CY - 9} r="4" fill="#ffffff" opacity="0.5" />
+            <circle cx={CX + 7} cy={CY + 5} r="2" fill="#ffffff" opacity="0.22" />
           </motion.g>
 
           <motion.ellipse
@@ -285,12 +295,14 @@ function Eye({ seed, mirrored = false, px, py }: EyeProps) {
             rx="54"
             ry="12"
             fill="#ffffff"
-            opacity="0.16"
+            opacity="0.07"
             filter={`url(#soft-${uid})`}
             style={{ x: shineX }}
           />
 
-          <path d={LID_TOP} fill="none" stroke="#1a1424" strokeWidth="12" opacity="0.4" />
+          <path d={LID_TOP} fill="none" stroke="#100b18" strokeWidth="14" opacity="0.6" />
+          <path d={EYE_SHAPE} fill={`url(#inner-${uid})`} />
+          <ellipse cx={CX} cy={CY - 2} rx={CX * 0.72} ry={CY * 0.62} fill={`url(#corner-${uid})`} />
         </g>
 
         <path d={LID_TOP} fill="none" stroke={`url(#lidline-${uid})`} strokeWidth="4.6" strokeLinecap="round" />

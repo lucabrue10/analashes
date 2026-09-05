@@ -47,7 +47,18 @@ export function Hero() {
       </div>
 
       <motion.div style={{ y: eyesY, opacity: fade, filter: blur }} className="relative z-10 w-full">
-        <Eyes />
+        <div className="relative">
+          <div className="opacity-[0.85]">
+            <Eyes />
+          </div>
+
+          {/* Dunkler Balken über der Augenpartie – nimmt die Augen zurück,
+              damit der Titel die Bühne behält */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-1/2 h-[150%] -translate-y-1/2 bg-[linear-gradient(to_bottom,transparent_0%,rgba(6,5,9,0.38)_20%,rgba(6,5,9,0.6)_50%,rgba(6,5,9,0.38)_80%,transparent_100%)] [mask-image:linear-gradient(to_right,transparent_0%,black_16%,black_84%,transparent_100%)]"
+          />
+        </div>
       </motion.div>
 
       <motion.div
