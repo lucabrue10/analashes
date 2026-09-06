@@ -1,22 +1,23 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { site, whatsappLink } from "@/lib/site";
 
+/** Weiche Kanten, damit das Foto nicht als Rechteck im dunklen Hero steht. */
+const EDGE_FADE = [
+  "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+  "linear-gradient(to bottom, transparent 0%, black 10%, black 86%, transparent 100%)",
+].join(", ");
 
-/**
- * Die Augen kommen als Prop herein: Ob Foto oder Zeichnung, entscheidet eine
- * Server-Komponente (components/hero/HeroEyes.tsx) – hier läuft Client-Code.
- */
-export function Hero({ eyes }: { eyes: ReactNode }) {
+export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
   // Sanfter Parallax beim Herausscrollen
-  const eyesY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 140]);
+  const bannerY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 140]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -60]);
   const fade = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
   const blur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", reduceMotion ? "blur(0px)" : "blur(6px)"]);
@@ -48,8 +49,45 @@ export function Hero({ eyes }: { eyes: ReactNode }) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--color-ink-950)_78%)]" />
       </div>
 
-      <motion.div style={{ y: eyesY, opacity: fade, filter: blur }} className="relative z-10 w-full">
-        {eyes}
+      {/* Banner an der Stelle, an der vorher die gezeichneten Augen standen */}
+      <motion.div
+        style={{ y: bannerY, opacity: fade, filter: blur }}
+        className="relative z-10 w-full px-5 sm:px-8"
+      >
+        <div
+          className="relative mx-auto w-full max-w-5xl overflow-hidden"
+          style={{
+            // Kanten weich auslaufen lassen, damit das Foto nicht als Rechteck
+            // im dunklen Hero steht
+            WebkitMaskImage: EDGE_FADE,
+            maskImage: EDGE_FADE,
+            WebkitMaskComposite: "source-in",
+            maskComposite: "intersect",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/hero-banner.jpg"
+            alt="Nahaufnahme zweier Augen mit Wimpernverlängerung"
+            width={1069}
+            height={203}
+            className="w-full brightness-[0.58] contrast-[1.12] saturate-[0.72]"
+          />
+          {/* Randabdunklung und ein Hauch Lila, damit das Foto zur Marke passt */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_58%_70%_at_50%_50%,transparent_0%,rgba(8,7,11,0.55)_58%,rgba(8,7,11,0.95)_100%)]"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-lilac-700/25 mix-blend-soft-light"
+          />
+          {/* Schatten von oben und unten – das Foto sinkt in den Hintergrund ein */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,11,0.75)_0%,transparent_28%,transparent_66%,rgba(8,7,11,0.85)_100%)]"
+          />
+        </div>
       </motion.div>
 
       <motion.div
