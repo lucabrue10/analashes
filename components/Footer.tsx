@@ -85,6 +85,11 @@ export function Footer() {
             </a>
           </p>
         </div>
+
+        <p className="mt-8 text-center text-[10px] tracking-[0.28em] text-white/25 uppercase">
+          Designed by{" "}
+          <span className="text-white/40">Adversify Marketing</span>
+        </p>
       </div>
     </footer>
   );
