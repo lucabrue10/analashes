@@ -131,8 +131,14 @@ export function Hero() {
         style={{ y: bannerY, opacity: fade, filter: blur }}
         className="relative z-10 w-full"
       >
+        {/* Feine Linie über dem Band */}
         <div
-          className="relative w-full overflow-hidden"
+          aria-hidden
+          className="h-px w-full bg-[linear-gradient(to_right,transparent_0%,rgba(255,255,255,0.55)_18%,rgba(255,255,255,0.55)_82%,transparent_100%)]"
+        />
+
+        <div
+          className="relative my-4 w-full overflow-hidden sm:my-5"
           style={{
             WebkitMaskImage: EDGE_FADE,
             maskImage: EDGE_FADE,
@@ -177,6 +183,12 @@ export function Hero() {
             ))}
           </motion.div>
         </div>
+
+        {/* … und dieselbe Linie darunter */}
+        <div
+          aria-hidden
+          className="h-px w-full bg-[linear-gradient(to_right,transparent_0%,rgba(255,255,255,0.55)_18%,rgba(255,255,255,0.55)_82%,transparent_100%)]"
+        />
       </motion.div>
 
       <motion.div
