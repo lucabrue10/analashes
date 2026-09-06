@@ -54,9 +54,9 @@ export function Footer() {
             <h2 className="text-[10px] tracking-[0.3em] text-white/40 uppercase">Kontakt</h2>
             <address className="mt-5 space-y-2.5 text-sm text-white/55 not-italic">
               <p>
-                {site.district} · {site.postalCode} {site.city}
+                {site.street}
                 <br />
-                <span className="text-white/40">{site.street}</span>
+                {site.postalCode} {site.city}
               </p>
               <p>
                 <a href={`tel:${site.phoneHref}`} className="transition-colors duration-500 hover:text-lilac-100">
@@ -77,10 +77,10 @@ export function Footer() {
             © {year} {site.name}. Alle Rechte vorbehalten.
           </p>
           <p className="flex gap-6">
-            <a href="#kontakt" className="transition-colors duration-500 hover:text-white/70">
+            <a href="/impressum" className="transition-colors duration-500 hover:text-white/70">
               Impressum
             </a>
-            <a href="#kontakt" className="transition-colors duration-500 hover:text-white/70">
+            <a href="/datenschutz" className="transition-colors duration-500 hover:text-white/70">
               Datenschutz
             </a>
           </p>

@@ -141,9 +141,9 @@ export function Contact() {
                 <address className="mt-3 text-sm leading-relaxed text-white/70 not-italic">
                   {site.name}
                   <br />
-                  {site.district} · {site.postalCode} {site.city}
+                  {site.street}
                   <br />
-                  <span className="text-white/45">{site.street}</span>
+                  {site.postalCode} {site.city} · {site.district}
                 </address>
                 <a
                   href={site.mapsLink}

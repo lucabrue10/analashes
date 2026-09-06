@@ -42,7 +42,7 @@ export function MapEmbed() {
 
       <p className="relative text-[10px] tracking-[0.34em] text-lilac-200/80 uppercase">Anfahrt</p>
       <p className="relative mt-4 font-[family-name:var(--font-display)] text-2xl text-white">
-        {site.district} · {site.postalCode} {site.city}
+        {site.street} · {site.city}
       </p>
       <p className="relative mt-4 max-w-sm text-sm leading-relaxed text-white/50">
         Die Karte wird von Google geladen. Dabei wird deine IP-Adresse an Google übertragen – deshalb

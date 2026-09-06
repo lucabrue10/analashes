@@ -10,23 +10,25 @@ export const site = {
     "aanaa.lashes – Wimpernverlängerung in Frankfurt am Main, Riedberg. Classic, Hybrid, Volume, Mega Volume und UV Lashes sowie Schulungen – individuell gestylt für einen natürlich eleganten Blick.",
   url: "https://lashes.adversify.de",
   locale: "de_DE",
-  phone: "+49 69 123 456 78",
-  phoneHref: "+496912345678",
-  whatsapp: "496912345678",
+  phone: "0155 60878913",
+  phoneHref: "+4915560878913",
+  whatsapp: "4915560878913",
   whatsappText: "Hallo Anna, ich möchte gerne einen Termin buchen.",
   instagram: "https://instagram.com/aanaa.lashes",
   instagramHandle: "@aanaa.lashes",
-  email: "hallo@aanaa-lashes.de",
-  /** Genaue Anschrift wird erst mit der Terminbestätigung geteilt */
-  street: "Adresse nach Terminvereinbarung",
+  email: "ana.chickenwings@icloud.com",
+  /** Inhaberin – für Impressum und verantwortliche Stelle */
+  owner: "Ana Catarina De Oliveira Akhouaji",
+  street: "Ernst-Abbe-Straße 8",
   district: "Riedberg",
   postalCode: "60438",
   city: "Frankfurt am Main",
   country: "DE",
   bookingUrl: "#kontakt",
-  mapsEmbed: "https://www.google.com/maps?q=Riedberg,+60438+Frankfurt+am+Main&output=embed",
+  mapsEmbed:
+    "https://www.google.com/maps?q=Ernst-Abbe-Stra%C3%9Fe+8,+60438+Frankfurt+am+Main&output=embed",
   mapsLink:
-    "https://www.google.com/maps/search/?api=1&query=Riedberg,+60438+Frankfurt+am+Main",
+    "https://www.google.com/maps/search/?api=1&query=Ernst-Abbe-Stra%C3%9Fe+8,+60438+Frankfurt+am+Main",
 } as const;
 
 export const whatsappLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(

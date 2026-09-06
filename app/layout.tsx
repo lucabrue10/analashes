@@ -66,6 +66,7 @@ const jsonLd = {
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
+    streetAddress: site.street,
     postalCode: site.postalCode,
     addressLocality: site.city,
     addressRegion: site.district,
