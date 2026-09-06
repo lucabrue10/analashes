@@ -37,14 +37,15 @@ export const whatsappLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComp
 
 export type NavItem = { label: string; href: string };
 
+// Reihenfolge wie auf der Seite
 export const navItems: NavItem[] = [
   { label: "Start", href: "#start" },
+  { label: "Galerie", href: "#galerie" },
+  { label: "Bewertungen", href: "#bewertungen" },
   { label: "Leistungen", href: "#leistungen" },
   { label: "Preise", href: "#preise" },
   { label: "Studio", href: "#studio" },
-  { label: "Galerie", href: "#galerie" },
   { label: "Pflege", href: "#pflege" },
-  { label: "Bewertungen", href: "#bewertungen" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 

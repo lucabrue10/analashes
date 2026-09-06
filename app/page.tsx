@@ -19,11 +19,11 @@ export default function Home() {
       <main id="inhalt">
         <Hero />
         <Gallery />
+        <Testimonials />
         <Services />
         <Pricing />
         <Studio />
         <Ablauf />
-        <Testimonials />
         <Faq />
         <BookingCta />
         <Contact />
