@@ -45,19 +45,19 @@ scripts/            Generator für die Vorher-/Nachher-SVGs
 
 ## Hero: gezeichnete Augen oder echtes Foto
 
-Der Hero kann ein echtes Foto zeigen, bei dem nur die Iris dem Mauszeiger
-folgt. Dafür genügt es, die Bilddatei abzulegen:
+Der Hero zeigt `public/hero/augen.jpg`, wobei nur die Iris dem Mauszeiger folgt.
+Die Kalibrierung dazu steht in `lib/heroPhoto.ts`; die Bildmaße liest die Seite
+beim Build selbst aus der Datei.
 
-1. Foto als `public/hero/augen.jpg` speichern (JPG, PNG oder WebP, ab 1600 px
-   Breite). Die Maße liest die Seite beim Build selbst aus der Datei.
-2. Fertig – liegt die Datei da, wird sie verwendet; fehlt sie, greift
-   automatisch die gezeichnete Variante.
+Ein anderes Foto einsetzen:
 
-`lib/heroPhoto.ts` ist auf eine Nahaufnahme im Hochformat vorkalibriert. Sitzt
-die Iris in deinem Foto woanders, `npm run dev` starten, `/kalibrierung`
-öffnen, das Foto laden, je Auge in die Pupillenmitte und dann auf den Irisrand
-klicken und die ausgegebenen Werte übernehmen. Alle Werte sind Anteile des
-Bildes (0 bis 1), bleiben bei einem Austausch in anderer Auflösung also gültig.
+1. Datei als `public/hero/augen.jpg` ablegen (JPG, PNG oder WebP, ab 1600 px
+   Breite). Fehlt die Datei, greift automatisch die gezeichnete Variante.
+2. `npm run dev` starten, `/kalibrierung` öffnen, das Foto laden, in die
+   Pupillenmitte und dann auf den Irisrand klicken.
+3. Die ausgegebenen Werte in `lib/heroPhoto.ts` übernehmen. Alle Werte sind
+   Anteile des Bildes (0 bis 1), bleiben bei einem Austausch in anderer
+   Auflösung also gültig.
 
 Worauf es beim Ergebnis ankommt: Die bewegte Iris wird auf die Lidspalte
 (`opening`) begrenzt, damit sie nie über Lidkante oder Wimpern malt, und deckt

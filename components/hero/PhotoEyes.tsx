@@ -119,12 +119,13 @@ export function PhotoEyes({ photo, width, height }: Props) {
         maskComposite: "intersect",
       }}
     >
-      <svg
-        viewBox={`${crop.x} ${crop.y} ${crop.w} ${crop.h}`}
-        className="h-auto w-full"
-        role="img"
-        aria-label={photo.alt}
-      >
+      <div className="relative">
+        <svg
+          viewBox={`${crop.x} ${crop.y} ${crop.w} ${crop.h}`}
+          className="h-auto w-full brightness-[0.72] contrast-[1.08] saturate-[0.82]"
+          role="img"
+          aria-label={photo.alt}
+        >
         <defs>
           <radialGradient id={`feather-${uid}`} cx="50%" cy="50%">
             <stop offset="0%" stopColor="#ffffff" />
@@ -137,7 +138,18 @@ export function PhotoEyes({ photo, width, height }: Props) {
             </clipPath>
           ))}
           {eyes.map((eye, i) => (
-            <mask key={`mask-${i}`} id={`iris-mask-${uid}-${i}`} maskUnits="userSpaceOnUse">
+            <mask
+              key={`mask-${i}`}
+              id={`iris-mask-${uid}-${i}`}
+              maskUnits="userSpaceOnUse"
+              // Ohne expliziten Bereich gilt die Maske nur für einen Ausschnitt
+              // rund um den sichtbaren Bildbereich – bei gesetztem `crop` liegt
+              // die Iris dann außerhalb und die Ebene verschwindet komplett.
+              x={0}
+              y={0}
+              width={width}
+              height={height}
+            >
               {/* Quer weiter gedehnt als hoch – der Blick wandert vor allem seitlich */}
               <ellipse
                 cx={eye.cx}
@@ -167,7 +179,18 @@ export function PhotoEyes({ photo, width, height }: Props) {
             </motion.g>
           </g>
         ))}
-      </svg>
+        </svg>
+
+        {/* Randabdunklung und ein Hauch Lila, damit das Foto zur Marke passt */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_62%_72%_at_50%_48%,transparent_0%,rgba(8,7,11,0.35)_62%,rgba(8,7,11,0.85)_100%)]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-lilac-700/25 mix-blend-soft-light"
+        />
+      </div>
     </div>
   );
 }
