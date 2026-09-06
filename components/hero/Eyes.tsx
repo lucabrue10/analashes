@@ -12,7 +12,7 @@ import {
 import { useEffect, useId, useMemo, useRef } from "react";
 
 const VB_W = 300;
-const VB_H = 170;
+const VB_H = 180;
 
 type Pt = { x: number; y: number };
 const pt = (x: number, y: number): Pt => ({ x, y });
@@ -94,7 +94,7 @@ function buildLashes(
   maxLength: number,
   opts: { lengthScale?: number; widthScale?: number; from?: number; to?: number; tintFrom?: number } = {},
 ): Lash[] {
-  const { lengthScale = 1, widthScale = 1, from = 0.08, to = 0.95, tintFrom = 0.62 } = opts;
+  const { lengthScale = 1, widthScale = 1, from = 0.08, to = 0.96, tintFrom = 0.84 } = opts;
   const out: Lash[] = [];
 
   for (let i = 0; i < count; i++) {
@@ -103,12 +103,16 @@ function buildLashes(
     const tan = curveTangent(UPPER, u);
     const normal = { x: tan.y, y: -tan.x };
 
-    // Fächer: innen steil, nach außen gleichmäßig geneigt
-    const dir = rotate(normal, (u - 0.42) * 1.05);
+    // Fächer: innen steil, nach außen zunehmend flach – der Schwung des Sets
+    const dir = rotate(normal, (u - 0.36) * 1.0 + Math.pow(Math.max(u - 0.55, 0) / 0.45, 2) * 0.34);
 
-    // Länge: eine einzige weiche Glocke, außen betont
+    // Länge: weiche Glocke mit klarem Übergewicht nach außen
     const bell = Math.sin(Math.PI * Math.min(Math.max(u, 0.02), 0.98));
-    const len = maxLength * lengthScale * (0.42 + 0.58 * bell) * (0.74 + 0.46 * u);
+    // Sanfte Bündelung zu Spitzen – die Modulation bleibt so klein,
+    // dass sich benachbarte Wimpern trotzdem nicht kreuzen
+    const cluster = 1 + 0.07 * Math.cos(2 * Math.PI * 4.5 * u);
+    const len =
+      maxLength * lengthScale * (0.34 + 0.66 * bell) * (0.52 + 1.06 * Math.pow(u, 1.35)) * cluster;
 
     const tip = { x: root.x + dir.x * len, y: root.y + dir.y * len };
     // Der Curl dreht stetig durch – kein Vorzeichenwechsel, keine Kreuzung
@@ -117,7 +121,7 @@ function buildLashes(
     const c2 = { x: tip.x - flick.x * len * 0.34, y: tip.y - flick.y * len * 0.34 };
 
     out.push({
-      d: strand(root, c1, c2, tip, (1.7 + 0.9 * bell) * widthScale),
+      d: strand(root, c1, c2, tip, (1.5 + 1.0 * bell) * (0.85 + 0.75 * u) * widthScale),
       tinted: u > tintFrom,
     });
   }
@@ -170,8 +174,8 @@ function Eye({ mirrored = false, px, py }: EyeProps) {
   const reduceMotion = useReducedMotion();
   const blink = useMotionValue(1);
 
-  const underLashes = useMemo(() => buildLashes(26, 50, { lengthScale: 0.58, widthScale: 0.72 }), []);
-  const lashes = useMemo(() => buildLashes(32, 50), []);
+  const underLashes = useMemo(() => buildLashes(30, 50, { lengthScale: 0.56, widthScale: 0.78 }), []);
+  const lashes = useMemo(() => buildLashes(38, 50), []);
   const lowerLashes = useMemo(() => buildLowerLashes(12), []);
 
   // Das ganze Auge wird gespiegelt – damit beide Augen gleich blicken, wird
@@ -220,9 +224,9 @@ function Eye({ mirrored = false, px, py }: EyeProps) {
     >
       <defs>
         <radialGradient id={`sclera-${uid}`} cx="48%" cy="46%">
-          <stop offset="0%" stopColor="#8b8496" />
-          <stop offset="50%" stopColor="#6b6478" />
-          <stop offset="100%" stopColor="#3a3546" />
+          <stop offset="0%" stopColor="#c3bcc8" />
+          <stop offset="50%" stopColor="#9c94a6" />
+          <stop offset="100%" stopColor="#514b5c" />
         </radialGradient>
         <linearGradient id={`shade-${uid}`} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#0d0912" stopOpacity="0.85" />
@@ -234,10 +238,10 @@ function Eye({ mirrored = false, px, py }: EyeProps) {
           <stop offset="100%" stopColor="#120d18" stopOpacity="0.9" />
         </radialGradient>
         <radialGradient id={`iris-${uid}`} cx="44%" cy="36%">
-          <stop offset="0%" stopColor="#6f639a" />
-          <stop offset="40%" stopColor="#493c73" />
-          <stop offset="76%" stopColor="#261d44" />
-          <stop offset="100%" stopColor="#0f0a1e" />
+          <stop offset="0%" stopColor="#b6c6d6" />
+          <stop offset="36%" stopColor="#7e93ab" />
+          <stop offset="72%" stopColor="#44566e" />
+          <stop offset="100%" stopColor="#18212e" />
         </radialGradient>
         <linearGradient id={`lash-${uid}`} x1="0" y1="1" x2="0.15" y2="0">
           <stop offset="0%" stopColor="#050409" />
@@ -245,11 +249,14 @@ function Eye({ mirrored = false, px, py }: EyeProps) {
         </linearGradient>
         <linearGradient id={`tip-${uid}`} x1="0" y1="1" x2="0.15" y2="0">
           <stop offset="0%" stopColor="#050409" />
-          <stop offset="58%" stopColor="#181125" />
-          <stop offset="100%" stopColor="#a98ae6" />
+          <stop offset="70%" stopColor="#1a1327" />
+          <stop offset="100%" stopColor="#7d64ad" />
         </linearGradient>
         <filter id={`soft-${uid}`} x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="4" />
+        </filter>
+        <filter id={`brow-${uid}`} x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="9" />
         </filter>
         <clipPath id={`eye-${uid}`}>
           <path d={EYE_SHAPE} />
@@ -257,6 +264,15 @@ function Eye({ mirrored = false, px, py }: EyeProps) {
       </defs>
 
       <g transform={mirrored ? `translate(${VB_W} 0) scale(-1 1)` : undefined}>
+        {/* Braue nur als weiche Schattierung – sie rahmt das Auge, ohne
+            Aufmerksamkeit zu ziehen */}
+        <path
+          d="M34 30 C96 -4 214 -2 276 26 C214 12 96 12 34 30 Z"
+          fill="#241c2c"
+          opacity="0.55"
+          filter={`url(#brow-${uid})`}
+        />
+
         <motion.g style={{ scaleY: blink, originY: 130 / VB_H, originX: 0.5 }}>
           <g fill={`url(#lash-${uid})`} opacity="0.5">
             {lowerLashes.map((l, i) => (
