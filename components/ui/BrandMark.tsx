@@ -1,47 +1,53 @@
 import { join } from "node:path";
 import { existsSync } from "node:fs";
+import { hasTransparency } from "@/lib/imageSize";
 import { site } from "@/lib/site";
 import { Logo } from "./Logo";
 import { Wordmark } from "./Wordmark";
 
-/**
- * Mögliche Dateinamen, in dieser Reihenfolge:
- * `logo-freigestellt.png` ist die aufbereitete Fassung ohne Hintergrund und
- * wird unverändert gezeigt. Liegt nur das Original mit weißem Grund vor, wird
- * es notdürftig umgekehrt – das ist als Zwischenlösung gedacht.
- */
-const PREPARED = ["/logo-freigestellt.png", "/logo-freigestellt.webp", "/logo.svg"];
-const RAW = ["/logo.png", "/logo.webp", "/logo.jpg", "/logo.jpeg"];
+/** Mögliche Dateinamen des Logos, in dieser Reihenfolge. */
+const CANDIDATES = [
+  "/logo-freigestellt.png",
+  "/logo-freigestellt.webp",
+  "/logo.svg",
+  "/logo.png",
+  "/logo.webp",
+  "/logo.jpg",
+  "/logo.jpeg",
+];
 
-function find(files: string[]): string | null {
-  for (const file of files) {
-    if (existsSync(join(process.cwd(), "public", file))) return file;
+function findLogo(): { src: string; transparent: boolean } | null {
+  for (const src of CANDIDATES) {
+    const path = join(process.cwd(), "public", src);
+    if (existsSync(path)) return { src, transparent: hasTransparency(path) };
   }
   return null;
 }
 
 /**
- * Zeigt das echte Logo, sobald es unter `public/logo.png` liegt – sonst die
- * gesetzte Wortmarke.
+ * Zeigt das echte Logo, sobald es unter `public/` liegt – sonst die gesetzte
+ * Wortmarke.
  *
- * Das Logo ist schwarze Zeichnung auf Weiß. `invert` dreht es zu heller
- * Zeichnung auf Schwarz, `mix-blend-screen` lässt das Schwarz verschwinden –
- * damit steht die Marke sauber auf dem dunklen Hintergrund, ohne dass eine
- * freigestellte Fassung nötig wäre.
+ * Die Behandlung richtet sich danach, ob die Datei einen Alphakanal hat:
+ * Ein freigestelltes Logo wird über `brightness-0 invert` vollflächig hell
+ * eingefärbt – so sind sowohl die schwarze Zeichnung als auch der helle
+ * Schriftzug auf dunklem Grund gut sichtbar. Ein Logo mit weißem Hintergrund
+ * wird umgekehrt und der Hintergrund über `mix-blend-screen` weggerechnet;
+ * das ist eine Notlösung, weil das Ergebnis von der Umgebung abhängt.
  */
 export function BrandMark({ size = "nav" }: { size?: "nav" | "footer" }) {
-  const prepared = find(PREPARED);
-  const raw = prepared ? null : find(RAW);
-  const logo = prepared ?? raw;
+  const logo = findLogo();
   const height = size === "nav" ? "h-11 sm:h-12" : "h-20";
 
   if (logo) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={logo}
+        src={logo.src}
         alt={site.name}
-        className={`w-auto object-contain ${height} ${raw ? "mix-blend-screen invert" : ""}`}
+        className={`w-auto object-contain ${height} ${
+          logo.transparent ? "brightness-0 invert" : "mix-blend-screen invert"
+        }`}
       />
     );
   }
