@@ -97,6 +97,34 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--color-ink-950)_78%)]" />
       </div>
 
+      {/* Die Wortmarke steht zwischen Logo und Laufband */}
+      <motion.div
+        style={{ y: contentY, opacity: fade }}
+        className="relative z-10 container-x mb-4 flex flex-col items-center text-center sm:mb-6"
+      >
+        <h1
+          id="hero-titel"
+          className="font-[family-name:var(--font-script)] text-[clamp(3.6rem,13vw,10rem)] leading-[1.15] font-normal"
+        >
+          <span className="sr-only">{site.name}</span>
+          {/* Ein einziger Textlauf – nur so bleiben die Buchstaben der
+              Schreibschrift durchgehend verbunden */}
+          <motion.span
+            aria-hidden
+            initial={{ opacity: 0, y: 40, filter: "blur(14px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{
+              delay: 0.62,
+              duration: 1.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="text-gradient block pb-[0.12em]"
+          >
+            {site.name}
+          </motion.span>
+        </h1>
+      </motion.div>
+
       {/* Laufband: Die Aufnahmen ziehen endlos von rechts nach links durch
           und blenden an den Rändern weich ein und aus */}
       <motion.div
@@ -153,7 +181,7 @@ export function Hero() {
 
       <motion.div
         style={{ y: contentY, opacity: fade }}
-        className="relative z-10 container-x mt-10 flex flex-col items-center text-center sm:mt-12"
+        className="relative z-10 container-x mt-9 flex flex-col items-center text-center sm:mt-11"
       >
         <motion.span
           initial={{ opacity: 0, y: 14 }}
@@ -163,28 +191,6 @@ export function Hero() {
         >
           Lash Studio · {site.district}, {site.city}
         </motion.span>
-
-        <h1
-          id="hero-titel"
-          className="mt-7 font-[family-name:var(--font-script)] text-[clamp(3.6rem,13vw,10rem)] leading-[1.15] font-normal"
-        >
-          <span className="sr-only">{site.name}</span>
-          {/* Ein einziger Textlauf – nur so bleiben die Buchstaben der
-              Schreibschrift durchgehend verbunden */}
-          <motion.span
-            aria-hidden
-            initial={{ opacity: 0, y: 40, filter: "blur(14px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{
-              delay: 0.62,
-              duration: 1.2,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="text-gradient block pb-[0.12em]"
-          >
-            {site.name}
-          </motion.span>
-        </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
