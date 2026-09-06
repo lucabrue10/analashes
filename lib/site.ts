@@ -2,7 +2,7 @@ export const site = {
   name: "aanaa.lashes",
   /** Wortmarke in zwei Teilen – der Punkt bleibt der Akzent dazwischen. */
   nameParts: { first: "aanaa", second: "lashes" },
-  slogan: "Luxuriöse Wimpernverlängerungen für deinen perfekten Look",
+  slogan: "Wimpernverlängerungen für deinen perfekten Look",
   /** Claim und Augenzwinkern aus dem Instagram-Profil */
   claim: "Sets with me · Lashes with Ana",
   warning: "Warning: These lashes cause obsession.",
