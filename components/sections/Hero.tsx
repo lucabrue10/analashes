@@ -1,40 +1,67 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { site, whatsappLink } from "@/lib/site";
 
-/** Die beiden Aufnahmen des Bandes. `position` hält die Augen im Ausschnitt. */
+/** Die Aufnahmen des Laufbands – sie wiederholen sich endlos. */
 const BANNER = [
+  { src: "/banner/band-1.jpg", alt: "Wimpernverlängerung an braunen Augen" },
   {
-    src: "/hero-banner.jpg",
-    alt: "Nahaufnahme zweier Augen mit Wimpernverlängerung",
-    position: "50% 50%",
+    src: "/banner/band-2.jpg",
+    alt: "Wimpernverlängerung an blauen Augen, offener Blick",
   },
-  {
-    src: "/hero-banner-2.jpg",
-    alt: "Nahaufnahme eines Wimpernsets mit deutlichem Schwung nach außen",
-    position: "50% 38%",
-  },
+  { src: "/banner/band-3.jpg", alt: "Volles Wimpernset an braunen Augen" },
+  { src: "/banner/band-4.jpg", alt: "Dichtes Wimpernset an blaugrauen Augen" },
 ];
 
-/** Weiche Kanten, damit das Foto nicht als Rechteck im dunklen Hero steht. */
+/** Drei Durchläufe hintereinander: Das Band wird um genau einen Durchlauf
+ *  verschoben und springt dann zurück – weil dahinter dieselben Bilder in
+ *  derselben Reihenfolge stehen, ist der Sprung unsichtbar. Drei statt zwei
+ *  Durchläufe, damit das Band auch auf sehr breiten Bildschirmen nirgends
+ *  abreißt. */
+const LAUFBAND = [...BANNER, ...BANNER, ...BANNER];
+
+/** Sekunden für einen kompletten Durchlauf. */
+const TEMPO = 44;
+
+/** Weiche Kanten: Die Bilder blenden rechts ein und links wieder aus. */
 const EDGE_FADE = [
-  "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
-  "linear-gradient(to bottom, transparent 0%, black 10%, black 86%, transparent 100%)",
+  "linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)",
+  "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
 ].join(", ");
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
 
   // Sanfter Parallax beim Herausscrollen
-  const bannerY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 140]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -60]);
+  const bannerY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, reduceMotion ? 0 : 140],
+  );
+  const contentY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, reduceMotion ? 0 : -60],
+  );
   const fade = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const blur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", reduceMotion ? "blur(0px)" : "blur(6px)"]);
+  const blur = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["blur(0px)", reduceMotion ? "blur(0px)" : "blur(6px)"],
+  );
 
   return (
     <section
@@ -44,10 +71,17 @@ export function Hero() {
       className="grain relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden pt-[var(--nav-h)] pb-20"
     >
       {/* Atmosphärische Lichtstimmung */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
         <motion.div
           className="absolute top-[-18%] left-1/2 h-[70vh] w-[70vh] -translate-x-1/2 rounded-full bg-lilac-600/25 blur-[150px]"
-          animate={reduceMotion ? undefined : { scale: [1, 1.12, 1], opacity: [0.55, 0.8, 0.55] }}
+          animate={
+            reduceMotion
+              ? undefined
+              : { scale: [1, 1.12, 1], opacity: [0.55, 0.8, 0.55] }
+          }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
@@ -63,45 +97,57 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--color-ink-950)_78%)]" />
       </div>
 
-      {/* Banner über die volle Breite: zwei Aufnahmen nebeneinander, dazwischen
-          eine Lücke, damit es als ein durchgehendes Band liest */}
-      <motion.div style={{ y: bannerY, opacity: fade, filter: blur }} className="relative z-10 w-full">
+      {/* Laufband: Die Aufnahmen ziehen endlos von rechts nach links durch
+          und blenden an den Rändern weich ein und aus */}
+      <motion.div
+        style={{ y: bannerY, opacity: fade, filter: blur }}
+        className="relative z-10 w-full"
+      >
         <div
-          className="relative flex w-full gap-2 sm:gap-5"
+          className="relative w-full overflow-hidden"
           style={{
-            // Kanten weich auslaufen lassen, damit das Band nicht als Rechteck
-            // im dunklen Hero steht
             WebkitMaskImage: EDGE_FADE,
             maskImage: EDGE_FADE,
             WebkitMaskComposite: "source-in",
             maskComposite: "intersect",
           }}
         >
-          {BANNER.map((bild) => (
-            <div key={bild.src} className="relative aspect-[7/4] flex-1 overflow-hidden sm:aspect-[2/1] lg:aspect-[3/1]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={bild.src}
-                alt={bild.alt}
-                className="h-full w-full object-cover brightness-[0.58] contrast-[1.12] saturate-[0.72]"
-                style={{ objectPosition: bild.position }}
-              />
-              {/* Randabdunklung und ein Hauch Lila, damit das Foto zur Marke passt */}
+          <motion.div
+            className="flex w-max"
+            animate={reduceMotion ? undefined : { x: ["0%", "-33.3333%"] }}
+            transition={{ duration: TEMPO, repeat: Infinity, ease: "linear" }}
+          >
+            {LAUFBAND.map((bild, i) => (
               <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_62%_74%_at_50%_50%,transparent_0%,rgba(8,7,11,0.5)_62%,rgba(8,7,11,0.92)_100%)]"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-lilac-700/25 mix-blend-soft-light"
-              />
-              {/* Schatten von oben und unten – das Foto sinkt in den Hintergrund ein */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,11,0.7)_0%,transparent_30%,transparent_64%,rgba(8,7,11,0.82)_100%)]"
-              />
-            </div>
-          ))}
+                // Jede Kachel trägt ihren Abstand als Rand mit sich, damit ein
+                // Drittel der Gesamtbreite exakt einem Durchlauf entspricht
+                key={`${bild.src}-${i}`}
+                className="relative mr-3 aspect-[2.14/1] w-[clamp(230px,26vw,430px)] shrink-0 overflow-hidden rounded-2xl sm:mr-5"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={bild.src}
+                  alt={i < BANNER.length ? bild.alt : ""}
+                  aria-hidden={i >= BANNER.length}
+                  draggable={false}
+                  className="h-full w-full object-cover brightness-[0.62] contrast-[1.1] saturate-[0.78]"
+                />
+                {/* Randabdunklung und ein Hauch Lila, damit die Fotos zur Marke passen */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_78%_at_50%_50%,transparent_0%,rgba(8,7,11,0.45)_66%,rgba(8,7,11,0.88)_100%)]"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-lilac-700/25 mix-blend-soft-light"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,11,0.6)_0%,transparent_32%,transparent_66%,rgba(8,7,11,0.78)_100%)]"
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
       </motion.div>
 
@@ -129,7 +175,11 @@ export function Hero() {
             aria-hidden
             initial={{ opacity: 0, y: 40, filter: "blur(14px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ delay: 0.62, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.62,
+              duration: 1.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="text-gradient block pb-[0.12em]"
           >
             {site.name}
@@ -170,7 +220,10 @@ export function Hero() {
         className="absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2.5 text-[9px] tracking-[0.4em] text-white/35 uppercase transition-colors duration-500 hover:text-lilac-200"
       >
         Scrollen
-        <span aria-hidden className="relative h-11 w-px overflow-hidden bg-white/15">
+        <span
+          aria-hidden
+          className="relative h-11 w-px overflow-hidden bg-white/15"
+        >
           <motion.span
             className="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-lilac-300 to-transparent"
             animate={reduceMotion ? undefined : { y: [-16, 44] }}
