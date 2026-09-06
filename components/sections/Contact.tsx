@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Reveal, RevealGroup, revealItem } from "@/components/ui/Reveal";
 import { MapEmbed } from "@/components/ui/MapEmbed";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { openingHours, site, whatsappLink } from "@/lib/site";
+import { site, termine, whatsappLink } from "@/lib/site";
 
 function WhatsAppIcon() {
   return (
@@ -124,35 +124,17 @@ export function Contact() {
           <Reveal direction="right" className="lg:col-span-2">
             <div className="glass h-full rounded-3xl p-8 shadow-[var(--shadow-card)]">
               <h3 className="font-[family-name:var(--font-display)] text-2xl font-light text-white">
-                Öffnungszeiten
+                Termine
               </h3>
-              <dl className="mt-6 space-y-1">
-                {openingHours.map((o, i) => {
-                  const isToday = (i + 1) % 7 === dayIndex;
-                  return (
-                    <div
-                      key={o.day}
-                      className={`flex items-baseline justify-between gap-4 rounded-xl px-3 py-2.5 transition-colors duration-500 ${
-                        isToday ? "bg-lilac-500/10" : "hover:bg-white/[0.03]"
-                      }`}
-                    >
-                      <dt className={`text-sm ${isToday ? "text-lilac-100" : "text-white/60"}`}>
-                        {o.day}
-                        {isToday ? (
-                          <span className="ml-2 text-[9px] tracking-[0.2em] text-lilac-300 uppercase">heute</span>
-                        ) : null}
-                      </dt>
-                      <dd
-                        className={`text-sm tracking-wide ${
-                          o.time === "geschlossen" ? "text-white/30" : isToday ? "text-white" : "text-white/70"
-                        }`}
-                      >
-                        {o.time}
-                      </dd>
-                    </div>
-                  );
-                })}
-              </dl>
+              <p className="mt-4 text-sm leading-relaxed text-white/55">{termine.text}</p>
+
+              <div className="mt-6 rounded-2xl bg-lilac-500/[0.08] px-5 py-4">
+                <p className="text-[10px] tracking-[0.28em] text-lilac-200/80 uppercase">Wichtig</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                  Für jeden Termin wird eine Anzahlung fällig. Absagen bitte spätestens 24 Stunden
+                  vorher – danach wird der volle Betrag berechnet.
+                </p>
+              </div>
 
               <div className="mt-8 border-t border-white/[0.08] pt-6">
                 <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase">Adresse</p>

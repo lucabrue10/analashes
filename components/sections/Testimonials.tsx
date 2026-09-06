@@ -40,7 +40,7 @@ export function Testimonials() {
               Was meine Kundinnen <span className="text-gradient italic">sagen</span>
             </>
           }
-          text="Über 300 Bewertungen mit einem Durchschnitt von 4,9 von 5 Sternen – hier ein kleiner Auszug."
+          text="Rückmeldungen, die mich nach den Terminen erreicht haben – im Wortlaut."
         />
 
         <RevealGroup className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.09}>

@@ -54,10 +54,10 @@ export function Gallery() {
           eyebrow="Galerie"
           title={
             <>
-              Vorher · <span className="text-gradient italic">Nachher</span>
+Sets, die ich <span className="text-gradient italic">gelegt habe</span>
             </>
           }
-          text="Echte Ergebnisse aus dem Studio. Klicke auf ein Bild, um es in voller Größe zu sehen."
+          text="Echte Sets aus dem Studio. Klicke auf ein Bild, um es größer zu sehen."
         />
 
         {/* Masonry über CSS-Spalten */}
@@ -75,9 +75,7 @@ export function Gallery() {
                 aria-label={`${item.caption} – Bild vergrößern`}
                 className="group relative block w-full overflow-hidden rounded-3xl border border-white/[0.08] shadow-[var(--shadow-card)]"
               >
-                <span
-                  className={`relative block w-full ${item.span === "tall" ? "aspect-[4/5]" : "aspect-[4/3]"}`}
-                >
+                <span className="relative block aspect-[3/4] w-full">
                   <Image
                     src={item.src}
                     alt={item.alt}
@@ -130,11 +128,7 @@ export function Gallery() {
               className="relative w-full max-w-4xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div
-                className={`relative mx-auto w-full overflow-hidden rounded-3xl border border-white/10 shadow-[var(--shadow-soft)] ${
-                  current.span === "tall" ? "aspect-[4/5] max-w-[min(100%,52vh)]" : "aspect-[4/3] max-w-[min(100%,110vh)]"
-                }`}
-              >
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-[min(100%,62vh)] overflow-hidden rounded-3xl border border-white/10 shadow-[var(--shadow-soft)]">
                 <Image
                   src={current.src}
                   alt={current.alt}

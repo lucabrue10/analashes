@@ -23,7 +23,7 @@ export function Pricing() {
               Transparent, fair, <span className="text-gradient italic">ohne Kleingedrucktes</span>
             </>
           }
-          text="Alle Preise verstehen sich inklusive Beratung, Mapping und Aftercare-Empfehlung. Refill-Preise gelten ab 40 % vorhandener Wimpern."
+          text="Alle Preise verstehen sich inklusive Beratung, Mapping und Aftercare-Empfehlung. Für jeden Termin wird eine Anzahlung fällig."
         />
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">

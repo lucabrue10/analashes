@@ -2,6 +2,7 @@ import { Footer } from "@/components/Footer";
 import { HeroEyes } from "@/components/hero/HeroEyes";
 import { BrandMark } from "@/components/ui/BrandMark";
 import { Navbar } from "@/components/Navbar";
+import { Ablauf } from "@/components/sections/Ablauf";
 import { BookingCta } from "@/components/sections/BookingCta";
 import { Contact } from "@/components/sections/Contact";
 import { Faq } from "@/components/sections/Faq";
@@ -22,6 +23,7 @@ export default function Home() {
         <Pricing />
         <Studio />
         <Gallery />
+        <Ablauf />
         <Testimonials />
         <Faq />
         <BookingCta />

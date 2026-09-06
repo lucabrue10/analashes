@@ -41,6 +41,7 @@ export const navItems: NavItem[] = [
   { label: "Preise", href: "#preise" },
   { label: "Studio", href: "#studio" },
   { label: "Galerie", href: "#galerie" },
+  { label: "Pflege", href: "#pflege" },
   { label: "Bewertungen", href: "#bewertungen" },
   { label: "Kontakt", href: "#kontakt" },
 ];
@@ -57,84 +58,74 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    id: "classic",
-    title: "Classic Lashes",
-    tagline: "1 : 1 Technik",
+    id: "eins-zu-eins",
+    title: "1 : 1 Technik",
+    tagline: "Classic",
     description:
-      "Auf jede Naturwimper wird eine einzelne Extension gesetzt. Das Ergebnis: ein wacher, natürlich definierter Blick – wie ein perfekt getuschter Wimpernkranz.",
-    details: ["Natürlicher Look", "Ideal für Einsteigerinnen", "Sehr leicht zu tragen"],
+      "Auf jede Naturwimper kommt genau eine Extension. Das Ergebnis ist ein wacher, natürlich definierter Blick – wie ein perfekt getuschter Wimpernkranz, nur ohne Mascara.",
+    details: ["Natürlicher Look", "Ideal für den Anfang", "Sehr leicht zu tragen"],
     duration: "ca. 90 Min.",
-    from: "ab 89 €",
+    from: "70 €",
+  },
+  {
+    id: "soft-volumen",
+    title: "Soft Volumen",
+    tagline: "Feine Fächer",
+    description:
+      "Leichte, handgelegte Fächer geben deinem Wimpernkranz sanfte Dichte. Der Übergang von Classic zu Volumen – sichtbar voller, trotzdem zurückhaltend.",
+    details: ["Weiche Fülle", "Alltagstauglich", "Sehr beliebt"],
+    duration: "ca. 105 Min.",
+    from: "85 €",
   },
   {
     id: "hybrid",
-    title: "Hybrid Lashes",
-    tagline: "Mix aus Classic & Volume",
+    title: "Hybrid",
+    tagline: "Mix aus beidem",
     description:
-      "Die Kombination aus einzelnen und fächerartigen Wimpern schafft Tiefe und eine feine Textur – elegant, aber mit spürbar mehr Ausdruck.",
-    details: ["Texturierter Look", "Mehr Fülle als Classic", "Für jede Augenform"],
+      "Einzelne Wimpern und Fächer im Wechsel. Das erzeugt Textur und Tiefe – elegant, aber mit spürbar mehr Ausdruck als ein reines Classic-Set.",
+    details: ["Texturierter Look", "Mehr Fülle als 1 : 1", "Für jede Augenform"],
     duration: "ca. 105 Min.",
-    from: "ab 109 €",
+    from: "95 €",
   },
   {
-    id: "volume",
-    title: "Volume Lashes",
-    tagline: "2D – 5D Fächer",
+    id: "wispy",
+    title: "Wispy",
+    tagline: "Spikes & Textur",
     description:
-      "Handgelegte, ultraleichte Fächer aus feinsten Wimpern geben deinem Blick sichtbare Dichte, ohne die Naturwimper zu belasten.",
-    details: ["Dichter, samtiger Wimpernkranz", "Federleichtes Tragegefühl", "Sehr beliebt"],
+      "Bewusst gesetzte Spitzen brechen den Kranz auf und geben ihm den verspielten, leicht ungezähmten Look, den man aus dem Netz kennt.",
+    details: ["Sichtbare Spikes", "Modern & lebendig", "Individuell gesetzt"],
     duration: "ca. 120 Min.",
-    from: "ab 129 €",
-  },
-  {
-    id: "mega-volume",
-    title: "Mega Volume",
-    tagline: "6D – 12D Fächer",
-    description:
-      "Maximale Fülle für den großen Auftritt. Ultrafeine Wimpern werden zu voluminösen Fächern gelegt – dramatisch, glamourös und trotzdem federleicht.",
-    details: ["Maximale Dichte", "Glamouröser Auftritt", "Perfekt für Events"],
-    duration: "ca. 150 Min.",
-    from: "ab 149 €",
+    from: "90 €",
   },
   {
     id: "wet-look",
-    title: "Wet Look Lashes",
-    tagline: "Trend-Styling",
+    title: "Wet Look",
+    tagline: "Geschlossene Spikes",
     description:
-      "Geschlossene Spikes im angesagten Wet Look – ein moderner, leicht verwegener Blick, der an frisch getuschte Wimpern erinnert.",
-    details: ["Angesagter Spike-Effekt", "Modern & edgy", "Individuell abgestimmt"],
+      "Dichte, zu Spitzen geschlossene Bündel – der Effekt erinnert an frisch getuschte Wimpern. Klar, modern und ein bisschen verwegen.",
+    details: ["Angesagter Spike-Effekt", "Definierte Linie", "Starker Auftritt"],
     duration: "ca. 120 Min.",
-    from: "ab 129 €",
+    from: "95 €",
   },
   {
-    id: "uv-lashes",
-    title: "UV Lashes",
-    tagline: "Bonding mit UV-Licht",
+    id: "mega-volumen",
+    title: "Mega Volumen",
+    tagline: "Maximale Dichte",
     description:
-      "Der Kleber härtet unter UV-Licht in Sekunden aus. Das bedeutet kürzere Termine, kein Brennen in den Augen und eine spürbar längere Haltbarkeit.",
-    details: ["Sehr gut verträglich", "Hält länger als klassisch", "Auch bei empfindlichen Augen"],
-    duration: "ca. 120 Min.",
-    from: "ab 139 €",
+      "Ultrafeine Wimpern werden zu voluminösen Fächern gelegt. Maximale Fülle für den großen Auftritt – dramatisch und trotzdem federleicht.",
+    details: ["Maximale Dichte", "Glamouröser Auftritt", "Perfekt für Events"],
+    duration: "ca. 150 Min.",
+    from: "100 €",
   },
   {
     id: "schulungen",
     title: "Schulungen",
     tagline: "Für Einsteigerinnen & Profis",
     description:
-      "Lerne das Handwerk von Grund auf oder hebe deine Technik aufs nächste Level – in kleinen Gruppen oder als Einzelcoaching, inklusive Starterset und Zertifikat.",
-    details: ["Basis, Volumen und UV", "Kleine Gruppen", "Inkl. Material & Zertifikat"],
-    duration: "1 – 2 Tage",
+      "Lerne das Handwerk von Grund auf oder hebe deine Technik aufs nächste Level – in kleinen Gruppen oder als Einzelcoaching.",
+    details: ["Basis, Volumen und UV", "Kleine Gruppen", "Termine nach Absprache"],
+    duration: "nach Absprache",
     from: "auf Anfrage",
-  },
-  {
-    id: "lifting",
-    title: "Lash Lifting & Botox",
-    tagline: "Für Naturwimpern",
-    description:
-      "Deine eigenen Wimpern werden sanft aufgerichtet, getönt und mit Keratin gepflegt – für einen offenen Blick ganz ohne Extensions.",
-    details: ["Ohne Verlängerung", "Inkl. Färben & Pflege", "Hält 6 – 8 Wochen"],
-    duration: "ca. 60 Min.",
-    from: "ab 69 €",
   },
 ];
 
@@ -146,49 +137,37 @@ export type PriceGroup = {
 
 export const priceGroups: PriceGroup[] = [
   {
-    title: "Neuanfertigung",
-    note: "Vollständiger Neuaufbau inkl. Beratung & Styling",
+    title: "Wimpernverlängerung",
+    note: "Neuanfertigung inklusive Beratung und Styling",
     items: [
-      { name: "Classic Lashes", meta: "ca. 90 Min.", price: "89 €" },
-      { name: "Hybrid Lashes", meta: "ca. 105 Min.", price: "109 €" },
-      { name: "Volume Lashes", meta: "ca. 120 Min.", price: "129 €", featured: true },
-      { name: "Mega Volume", meta: "ca. 150 Min.", price: "149 €" },
-      { name: "Wet Look Lashes", meta: "ca. 120 Min.", price: "129 €" },
-      { name: "UV Lashes", meta: "ca. 120 Min.", price: "139 €" },
+      { name: "1 : 1 Technik", meta: "ca. 90 Min.", price: "70 €" },
+      { name: "Soft Volumen", meta: "ca. 105 Min.", price: "85 €", featured: true },
+      { name: "Wispy", meta: "ca. 120 Min.", price: "90 €" },
+      { name: "Hybrid", meta: "ca. 105 Min.", price: "95 €" },
+      { name: "Wet Look", meta: "ca. 120 Min.", price: "95 €" },
+      { name: "Mega Volumen", meta: "ca. 150 Min.", price: "100 €" },
     ],
   },
   {
     title: "Auffüllen",
-    note: "Preis abhängig vom Zeitpunkt deines letzten Termins",
+    note: "Ab zwei Dritteln vorhandener Extensions – darunter gilt es als Neuanfertigung",
     items: [
-      { name: "Refill bis 2 Wochen", meta: "ca. 60 Min.", price: "49 €" },
-      { name: "Refill bis 3 Wochen", meta: "ca. 75 Min.", price: "59 €", featured: true },
-      { name: "Refill bis 4 Wochen", meta: "ca. 90 Min.", price: "69 €" },
-      { name: "Volume Refill Zuschlag", meta: "je nach Technik", price: "+ 15 €" },
-      { name: "UV Refill", meta: "ca. 75 Min.", price: "69 €" },
-      { name: "Fremdarbeit auffüllen", meta: "nach Absprache", price: "ab 69 €" },
-    ],
-  },
-  {
-    title: "Pflege & Extras",
-    note: "Ergänzende Treatments rund um deine Wimpern",
-    items: [
-      { name: "Lash Lifting inkl. Färben", meta: "ca. 60 Min.", price: "69 €" },
-      { name: "Wimpern-Botox", meta: "ca. 30 Min.", price: "29 €" },
-      { name: "Augenbrauen zupfen & färben", meta: "ca. 30 Min.", price: "29 €" },
-      { name: "Entfernen der Extensions", meta: "ca. 30 Min.", price: "19 €" },
-      { name: "Aftercare-Set", meta: "Bürste, Schaum & Serum", price: "24 €" },
+      { name: "1 : 1 Technik", meta: "ca. 60 Min.", price: "50 €" },
+      { name: "Soft Volumen", meta: "ca. 75 Min.", price: "60 €", featured: true },
+      { name: "Wispy", meta: "ca. 75 Min.", price: "70 €" },
+      { name: "Hybrid", meta: "ca. 75 Min.", price: "75 €" },
+      { name: "Wet Look", meta: "ca. 75 Min.", price: "75 €" },
+      { name: "Mega Volumen", meta: "ca. 90 Min.", price: "80 €" },
     ],
   },
   {
     title: "Schulungen",
-    note: "Kleine Gruppen oder Einzelcoaching, inklusive Material und Zertifikat",
+    note: "Einzelcoaching oder kleine Gruppe, Inhalte nach Vorkenntnissen",
     items: [
-      { name: "Basis-Schulung", meta: "1 Tag", price: "auf Anfrage" },
-      { name: "Volumen-Schulung", meta: "1 Tag", price: "auf Anfrage", featured: true },
-      { name: "UV-Lashes-Schulung", meta: "1 Tag", price: "auf Anfrage" },
+      { name: "Basis-Schulung", meta: "nach Absprache", price: "auf Anfrage" },
+      { name: "Volumen-Schulung", meta: "nach Absprache", price: "auf Anfrage" },
+      { name: "UV-Technik", meta: "nach Absprache", price: "auf Anfrage" },
       { name: "Einzelcoaching", meta: "nach Absprache", price: "auf Anfrage" },
-      { name: "Auffrischung", meta: "halber Tag", price: "auf Anfrage" },
     ],
   },
 ];
@@ -199,57 +178,57 @@ export type GalleryItem = {
   alt: string;
   caption: string;
   technique: string;
-  span: "tall" | "short";
 };
 
 export const gallery: GalleryItem[] = [
   {
-    id: "g1",
-    src: "/gallery/lashes-01.svg",
-    alt: "Vorher-Nachher: Naturwimpern und Classic Lashes im Vergleich",
-    caption: "Classic Lashes – natürlich definiert",
-    technique: "Vorher / Nachher",
-    span: "tall",
+    id: "set-01",
+    src: "/galerie/set-01.jpg",
+    alt: "Wimpernverlängerung an blauen Augen, natürlicher Wispy-Look",
+    caption: "Wispy",
+    technique: "Soft & natürlich",
   },
   {
-    id: "g2",
-    src: "/gallery/lashes-02.svg",
-    alt: "Vorher-Nachher: Hybrid Lashes mit weicher Textur",
-    caption: "Hybrid Lashes – weiche Textur",
-    technique: "Vorher / Nachher",
-    span: "short",
+    id: "set-02",
+    src: "/galerie/set-02.jpg",
+    alt: "Wimpernverlängerung an grünen Augen mit weichem Volumen",
+    caption: "Soft Volumen",
+    technique: "Weiche Fülle",
   },
   {
-    id: "g3",
-    src: "/gallery/lashes-03.svg",
-    alt: "Vorher-Nachher: Volume Lashes mit dichtem Wimpernkranz",
-    caption: "Volume Lashes – samtige Dichte",
-    technique: "Vorher / Nachher",
-    span: "short",
+    id: "set-03",
+    src: "/galerie/set-03.jpg",
+    alt: "Volles Wimpernset an braunen Augen",
+    caption: "Volumen",
+    technique: "Dichter Kranz",
   },
   {
-    id: "g4",
-    src: "/gallery/lashes-04.svg",
-    alt: "Vorher-Nachher: Mega Volume Lashes für maximale Fülle",
-    caption: "Mega Volume – maximale Fülle",
-    technique: "Vorher / Nachher",
-    span: "tall",
+    id: "set-04",
+    src: "/galerie/set-04.jpg",
+    alt: "Wispy-Set mit sichtbaren Spitzen an braunen Augen",
+    caption: "Wispy",
+    technique: "Spikes & Textur",
   },
   {
-    id: "g5",
-    src: "/gallery/lashes-05.svg",
-    alt: "Vorher-Nachher: Wet Look Lashes mit Spikes",
-    caption: "Wet Look – moderne Spikes",
-    technique: "Vorher / Nachher",
-    span: "short",
+    id: "set-05",
+    src: "/galerie/set-05.jpg",
+    alt: "Dezentes Wimpernset mit natürlichem Schwung",
+    caption: "1 : 1 Technik",
+    technique: "Natürlich definiert",
   },
   {
-    id: "g6",
-    src: "/gallery/lashes-06.svg",
-    alt: "Vorher-Nachher: Lash Lifting an Naturwimpern",
-    caption: "Lash Lifting – offener Blick",
-    technique: "Vorher / Nachher",
-    span: "tall",
+    id: "set-06",
+    src: "/galerie/set-06.jpg",
+    alt: "Kräftiges Wimpernset mit deutlichem Schwung nach außen",
+    caption: "Hybrid",
+    technique: "Textur & Tiefe",
+  },
+  {
+    id: "set-07",
+    src: "/galerie/set-07.jpg",
+    alt: "Wet-Look-Set mit geschlossenen Spitzen",
+    caption: "Wet Look",
+    technique: "Geschlossene Spikes",
   },
 ];
 
@@ -262,67 +241,122 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Lena M.",
-    role: "Volume Lashes",
+    name: "Kundin",
+    role: "August",
     quote:
-      "Ich habe mich noch nie so gut aufgehoben gefühlt. Anna nimmt sich Zeit, berät ehrlich und das Ergebnis war exakt der Look, den ich mir vorgestellt habe.",
+      "Eyyy die Wimpern halten so Bombe. Hatte ich noch nie sooo – obwohl ich so Lücken hatte.",
     rating: 5,
   },
   {
-    name: "Sophie K.",
-    role: "Hybrid Lashes",
+    name: "Kundin",
+    role: "August",
     quote:
-      "Das Studio ist eine kleine Oase – ruhig, edel und mega gepflegt. Meine Wimpern halten wochenlang perfekt und sehen dabei völlig natürlich aus.",
+      "Die halten sich echt super, hab das Gefühl, dass nix auf den Wimpern ist, obwohl da halt was ist. Finde es mega, hast du ehrlich richtig schön gemacht.",
     rating: 5,
   },
   {
-    name: "Merve A.",
-    role: "Mega Volume",
+    name: "Kundin",
+    role: "August",
     quote:
-      "Absolute Präzision. Jede Wimper sitzt, nichts zwickt, nichts klebt zusammen. Für mich das beste Lash-Studio der Stadt.",
+      "Ich finde die Lashes richtig schön, bin mega zufrieden. Danke für deine tolle Arbeit, ich werde es auf jeden Fall weiterempfehlen. Freue mich jetzt schon auf den nächsten Termin.",
     rating: 5,
   },
   {
-    name: "Jasmin R.",
-    role: "Lash Lifting",
-    quote:
-      "Ich wollte etwas Dezentes und bin begeistert: offener Blick, kein Mascara mehr nötig. Termin war unkompliziert per WhatsApp gebucht.",
+    name: "Kundin",
+    role: "Juli",
+    quote: "Du machst so eine schöne Arbeit. Wollte ich dir nur mal gesagt haben.",
     rating: 5,
   },
   {
-    name: "Carolin B.",
-    role: "Classic Lashes",
-    quote:
-      "Zwei Stunden purer Entspannung – ich bin tatsächlich eingeschlafen. Und danach: Wow. Ich komme definitiv wieder.",
+    name: "Kundin",
+    role: "August",
+    quote: "Die Wimpern sind so toll. Danke nochmal!",
     rating: 5,
   },
   {
-    name: "Tuana Ö.",
-    role: "Refill",
-    quote:
-      "Sehr hygienisch, sehr professionell und einfach ein herzlicher Mensch. Die Auffülltermine sind für mich mittlerweile ein festes Ritual.",
+    name: "Kundin",
+    role: "August",
+    quote: "Die Wimpern sehen sehr schön aus, danke dir nochmal.",
     rating: 5,
   },
 ];
 
-export const openingHours = [
-  { day: "Montag", time: "10:00 – 19:00" },
-  { day: "Dienstag", time: "10:00 – 19:00" },
-  { day: "Mittwoch", time: "10:00 – 19:00" },
-  { day: "Donnerstag", time: "10:00 – 20:00" },
-  { day: "Freitag", time: "10:00 – 20:00" },
-  { day: "Samstag", time: "10:00 – 16:00" },
-  { day: "Sonntag", time: "geschlossen" },
+/** Termine laufen ausschließlich nach Vereinbarung. */
+export const termine = {
+  hinweis: "Termine ausschließlich nach Vereinbarung",
+  text: "Schreib mir per WhatsApp oder Instagram – ich melde mich mit freien Zeiten zurück.",
+};
+
+/** Vorbereitung auf den Termin – so hält das Set am längsten. */
+export const vorbereitung = {
+  titel: "Vor deinem Termin",
+  intro:
+    "Bitte komm ungeschminkt und ohne Wimperntusche-Reste im Augenbereich. Das ist entscheidend für die Haltbarkeit deiner Verlängerung.",
+  punkte: [
+    "Ungeschminkt kommen, besonders am Auge",
+    "Keine Mascara-Reste – auch nicht vom Vortag",
+    "Wasserfeste Produkte vorher gründlich entfernen",
+    "Bekannte Allergien vorab mitteilen",
+  ],
+  hinweis:
+    "Ich reinige deine Naturwimpern vor der Behandlung trotzdem immer gründlich. Mascara kann die Vorbereitung und die Haftung der Extensions aber deutlich beeinträchtigen.",
+};
+
+/** Pflege nach der Behandlung. */
+export const aftercare = {
+  titel: "Pflege danach",
+  intro: "Für ein langanhaltendes und sauberes Ergebnis:",
+  punkte: [
+    "In den ersten 24 bis 48 Stunden kein Wasser, kein Dampf, keine Sauna",
+    "Keine ölhaltigen Produkte im Augenbereich",
+    "Täglich mit einem geeigneten Lash Shampoo reinigen",
+    "Regelmäßig und vorsichtig mit der Bürste in Form bringen",
+    "Nicht reiben, ziehen oder an den Wimpern spielen",
+    "Kein Mascara, keine Wimpernzange",
+    "Beim Abschminken ausschließlich ölfreie Produkte",
+    "Möglichst in Rückenlage schlafen",
+    "Hitze und starke Dampfentwicklung vermeiden",
+    "Nach starkem Schwitzen die Wimpern reinigen",
+  ],
+  wichtig: "Vereinbare deinen Refill-Termin rechtzeitig – das erspart dir eine Neuanfertigung.",
+};
+
+/** Verbindliche Studioregeln. */
+export const studioregeln = [
+  {
+    titel: "Anzahlung",
+    text: "Für jeden Termin wird eine Anzahlung fällig. Erst damit ist der Termin verbindlich reserviert.",
+  },
+  {
+    titel: "Absagen",
+    text: "Termine, die nicht mindestens 24 Stunden vorher abgesagt werden, werden in voller Höhe berechnet. Ich reserviere die Zeit fest für dich und plane entsprechend.",
+  },
+  {
+    titel: "Verspätungen",
+    text: "Sag mir rechtzeitig Bescheid, wenn es später wird. Je nach Restzeit passe ich das Set an oder wir verschieben.",
+  },
+  {
+    titel: "Begleitpersonen",
+    text: "Begleitpersonen und Kinder nur nach vorheriger Absprache – im Studio arbeite ich mit einem Termin zur Zeit.",
+  },
+  {
+    titel: "Auffüllen",
+    text: "Sind weniger als ein Drittel der Extensions vorhanden, wird eine Neuanfertigung berechnet.",
+  },
+  {
+    titel: "Haftung",
+    text: "Für allergische Reaktionen oder Unverträglichkeiten während oder nach der Behandlung übernehme ich keine Haftung. Bitte informiere mich vorab über bekannte Allergien.",
+  },
 ];
 
 export const studioFeatures = [
   {
-    title: "Zertifizierte Expertise",
-    text: "Ausgebildet nach internationalen Standards, eigene Schulungen und geprüfte Premium-Materialien.",
+    title: "UV-Technik",
+    text: "Der Kleber härtet unter UV-Licht in Sekunden aus. Das bedeutet kürzere Termine, kein Brennen in den Augen und eine spürbar längere Haltbarkeit.",
   },
   {
     title: "Höchste Hygiene",
-    text: "Sterile Einweg-Tools, medizinische Flächendesinfektion und ein Behandlungsplatz nur für dich.",
+    text: "Sterile Einweg-Tools, saubere Flächen und ein Behandlungsplatz nur für dich.",
   },
   {
     title: "Individuelles Mapping",
@@ -336,19 +370,35 @@ export const studioFeatures = [
 
 export const faqs = [
   {
-    q: "Wie lange halten Wimpernverlängerungen?",
-    a: "Bei guter Pflege bleibt das Ergebnis 3 bis 4 Wochen schön. Da Naturwimpern im natürlichen Zyklus ausfallen, empfehlen wir alle 2 bis 3 Wochen einen Refill-Termin.",
+    q: "Wie lange halten die Wimpern?",
+    a: "Bei guter Pflege bleibt das Ergebnis drei bis vier Wochen schön. Da Naturwimpern im eigenen Zyklus ausfallen, empfehle ich alle zwei bis drei Wochen einen Refill.",
   },
   {
-    q: "Schadet die Behandlung meinen Naturwimpern?",
-    a: "Nein. Bei fachgerechter Anwendung wird pro Naturwimper das passende Gewicht gewählt, sodass deine eigenen Wimpern ungestört weiterwachsen können.",
+    q: "Was ist der Unterschied bei UV Lashes?",
+    a: "Der Kleber härtet unter UV-Licht in Sekunden aus, statt langsam an der Luft. Das ist verträglicher für die Augen, verkürzt den Termin und hält länger.",
   },
   {
     q: "Wie bereite ich mich auf den Termin vor?",
-    a: "Bitte komme ungeschminkt und ohne Mascara-Reste. Verzichte am Behandlungstag auf ölhaltige Pflegeprodukte im Augenbereich und plane etwas Puffer ein.",
+    a: "Komm ungeschminkt und ohne Mascara-Reste im Augenbereich – auch nicht vom Vortag. Mascara beeinträchtigt die Haftung der Extensions deutlich.",
+  },
+  {
+    q: "Warum eine Anzahlung?",
+    a: "Ich reserviere die Zeit fest für dich und arbeite mit nur einem Termin zur Zeit. Die Anzahlung macht den Termin verbindlich; sie wird mit dem Behandlungspreis verrechnet.",
+  },
+  {
+    q: "Was gilt bei Absagen?",
+    a: "Termine, die nicht mindestens 24 Stunden vorher abgesagt werden, werden in voller Höhe berechnet.",
+  },
+  {
+    q: "Wann ist es ein Refill, wann eine Neuanfertigung?",
+    a: "Sind noch mindestens zwei Drittel der Extensions vorhanden, füllen wir auf. Darunter wird eine Neuanfertigung berechnet.",
+  },
+  {
+    q: "Schadet die Behandlung meinen Naturwimpern?",
+    a: "Nein. Pro Naturwimper wird das passende Gewicht gewählt, sodass deine eigenen Wimpern ungestört weiterwachsen können.",
   },
   {
     q: "Kann ich mit Extensions duschen und Sport machen?",
-    a: "Ja – nach den ersten 24 Stunden ganz normal. Vermeide lediglich ölhaltige Reiniger, Wimpernzangen und starkes Reiben der Augen.",
+    a: "Nach den ersten 24 bis 48 Stunden ja. Vermeide ölhaltige Reiniger, Wimpernzangen und starkes Reiben; nach starkem Schwitzen die Wimpern reinigen.",
   },
 ];

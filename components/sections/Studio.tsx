@@ -7,9 +7,9 @@ import { Reveal, RevealGroup, revealItem } from "@/components/ui/Reveal";
 import { site, studioFeatures } from "@/lib/site";
 
 const stats = [
-  { value: "8+", label: "Jahre Erfahrung" },
-  { value: "2.400", label: "Zufriedene Kundinnen" },
-  { value: "4,9", label: "Sterne Ø Bewertung" },
+  { value: "1 : 1", label: "Ein Termin zur Zeit" },
+  { value: "UV", label: "Technik im Studio" },
+  { value: "2 – 3", label: "Wochen bis zum Refill" },
 ];
 
 export function Studio() {
@@ -33,8 +33,8 @@ export function Studio() {
           >
             <motion.div style={{ y: imageY }} className="absolute inset-[-8%]">
               <Image
-                src="/studio.svg"
-                alt={`Behandlungsraum des Studios ${site.name} mit Ringlicht und Liege`}
+                src="/studio.jpg"
+                alt={`Fertiges Wimpernset aus dem Studio ${site.name}`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 46vw"
                 className="object-cover"
@@ -45,7 +45,7 @@ export function Studio() {
             <div className="glass absolute right-5 bottom-5 left-5 rounded-2xl px-6 py-5">
               <p className="text-[10px] tracking-[0.34em] text-lilac-200/80 uppercase">Studio</p>
               <p className="mt-2 font-[family-name:var(--font-display)] text-xl text-white">
-                {site.district} · {site.postalCode} {site.city}
+                {site.district} · {site.city}
               </p>
             </div>
           </motion.div>
