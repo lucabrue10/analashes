@@ -234,52 +234,50 @@ export const gallery: GalleryItem[] = [
   },
 ];
 
-export type Testimonial = {
-  name: string;
-  role: string;
-  quote: string;
-  rating: number;
+export type Feedback = {
+  /** Ausschnitt der Chat-Antwort, freigestellt */
+  src: string;
+  /** Wortlaut – für Vorlesewerkzeuge und Suchmaschinen */
+  text: string;
+  datum: string;
+  /** Hochformat oder breite Blase, steuert die Spaltenaufteilung */
+  breit?: boolean;
 };
 
-export const testimonials: Testimonial[] = [
+/**
+ * Echte Rückmeldungen aus Instagram, als Ausschnitt der Nachricht selbst.
+ * Bewusst nur die Antworten: keine Profilbilder, keine Gesichter, keine Namen.
+ */
+export const feedback: Feedback[] = [
   {
-    name: "Kundin",
-    role: "August",
-    quote:
-      "Eyyy die Wimpern halten so Bombe. Hatte ich noch nie sooo – obwohl ich so Lücken hatte.",
-    rating: 5,
+    src: "/feedback/feedback-5.png",
+    text: "Eyyy die Wimpern halten so Bombe. Hatte ich noch nie sooo. Obwohl ich so Lücken hatte.",
+    datum: "7. August",
   },
   {
-    name: "Kundin",
-    role: "August",
-    quote:
-      "Die halten sich echt super, hab das Gefühl, dass nix auf den Wimpern ist, obwohl da halt was ist. Finde es mega, hast du ehrlich richtig schön gemacht.",
-    rating: 5,
+    src: "/feedback/feedback-2.png",
+    text: "Ich finde die Lashes richtig schön, bin mega zufrieden. Danke für deine tolle Arbeit und ich werde es auf jeden Fall weiterempfehlen. Ich freue mich jetzt schon auf den nächsten Termin.",
+    datum: "5. August",
   },
   {
-    name: "Kundin",
-    role: "August",
-    quote:
-      "Ich finde die Lashes richtig schön, bin mega zufrieden. Danke für deine tolle Arbeit, ich werde es auf jeden Fall weiterempfehlen. Freue mich jetzt schon auf den nächsten Termin.",
-    rating: 5,
+    src: "/feedback/feedback-6.png",
+    text: "Die halten sich echt super, hab das Gefühl, dass nix auf den Wimpern ist, obwohl da halt was ist. Finde es mega, hast du ehrlich richtig schön gemacht.",
+    datum: "7. August",
   },
   {
-    name: "Kundin",
-    role: "Juli",
-    quote: "Du machst so eine schöne Arbeit. Wollte ich dir nur mal gesagt haben.",
-    rating: 5,
+    src: "/feedback/feedback-1.png",
+    text: "Du machst so eine schöne Arbeit. Wollte ich dir nur mal gesagt haben.",
+    datum: "25. Juli",
   },
   {
-    name: "Kundin",
-    role: "August",
-    quote: "Die Wimpern sind so toll. Danke nochmal!",
-    rating: 5,
+    src: "/feedback/feedback-3.png",
+    text: "Die Wimpern sind so toll. Danke nochmal!",
+    datum: "6. August",
   },
   {
-    name: "Kundin",
-    role: "August",
-    quote: "Die Wimpern sehen sehr schön aus, danke dir nochmal.",
-    rating: 5,
+    src: "/feedback/feedback-4.png",
+    text: "Die Wimpern sehen sehr schön aus, danke dir nochmal.",
+    datum: "6. August",
   },
 ];
 

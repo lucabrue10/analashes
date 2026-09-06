@@ -18,10 +18,10 @@ export default function Home() {
       <Navbar brand={<BrandMark />} />
       <main id="inhalt">
         <Hero />
+        <Gallery />
         <Services />
         <Pricing />
         <Studio />
-        <Gallery />
         <Ablauf />
         <Testimonials />
         <Faq />

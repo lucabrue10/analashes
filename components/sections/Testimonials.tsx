@@ -1,27 +1,18 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { RevealGroup, revealItem } from "@/components/ui/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { testimonials } from "@/lib/site";
+import { feedback, site } from "@/lib/site";
 
-function Stars({ rating }: { rating: number }) {
-  return (
-    <span className="flex items-center gap-1" aria-label={`${rating} von 5 Sternen`} role="img">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg
-          key={i}
-          viewBox="0 0 24 24"
-          className={`h-3.5 w-3.5 ${i < rating ? "fill-lilac-300" : "fill-white/15"}`}
-          aria-hidden="true"
-        >
-          <path d="M12 2.6l2.7 5.9 6.3.7-4.7 4.3 1.3 6.3-5.6-3.2-5.6 3.2 1.3-6.3L3 9.2l6.3-.7z" />
-        </svg>
-      ))}
-    </span>
-  );
-}
-
+/**
+ * Rückmeldungen als Ausschnitt der Instagram-Nachricht selbst.
+ *
+ * Die Blasen sind freigestellt und stehen direkt auf dem dunklen Grund – das
+ * wirkt wie ein Blick ins Postfach und nicht wie eine nachgebaute Zitatkarte.
+ * Der Wortlaut steht zusätzlich als Text im Markup, damit Vorlesewerkzeuge und
+ * Suchmaschinen ihn erfassen.
+ */
 export function Testimonials() {
   const reduceMotion = useReducedMotion();
 
@@ -34,49 +25,51 @@ export function Testimonials() {
       <div className="container-x relative">
         <SectionHeading
           id="bewertungen-titel"
-          eyebrow="Bewertungen"
+          eyebrow="Feedback"
           title={
             <>
-              Was meine Kundinnen <span className="text-gradient italic">sagen</span>
+              Was danach im <span className="text-gradient italic">Postfach</span> landet
             </>
           }
-          text="Rückmeldungen, die mich nach den Terminen erreicht haben – im Wortlaut."
+          text="Nachrichten von Kundinnen nach ihrem Termin – unverändert, so wie sie angekommen sind."
         />
 
-        <RevealGroup className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.09}>
-          {testimonials.map((t) => (
-            <motion.figure
-              key={t.name}
-              variants={revealItem}
-              whileHover={reduceMotion ? undefined : { y: -6 }}
-              transition={{ type: "spring", stiffness: 260, damping: 24 }}
-              className="glass group relative flex h-full flex-col rounded-3xl p-8 shadow-[var(--shadow-card)]"
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute top-6 right-7 font-[family-name:var(--font-display)] text-6xl leading-none text-lilac-400/15 transition-colors duration-700 group-hover:text-lilac-400/30"
+        <div className="mt-16 columns-1 gap-8 md:columns-2 lg:columns-3 [&>*]:mb-8">
+          {feedback.map((f, i) => (
+            <Reveal key={f.src} delay={(i % 3) * 0.08} className="break-inside-avoid">
+              <motion.figure
+                whileHover={reduceMotion ? undefined : { y: -4 }}
+                transition={{ type: "spring", stiffness: 260, damping: 24 }}
               >
-                &rdquo;
-              </span>
-              <Stars rating={t.rating} />
-              <blockquote className="relative mt-5 flex-1 text-[15px] leading-relaxed text-white/70">
-                {t.quote}
-              </blockquote>
-              <figcaption className="mt-7 flex items-center gap-3 border-t border-white/[0.08] pt-5">
-                <span
-                  aria-hidden
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-lilac-500/40 to-lilac-800/40 font-[family-name:var(--font-display)] text-sm text-white"
-                >
-                  {t.name.charAt(0)}
-                </span>
-                <span className="flex flex-col">
-                  <span className="text-sm text-white/85">{t.name}</span>
-                  <span className="text-[10px] tracking-[0.2em] text-white/40 uppercase">{t.role}</span>
-                </span>
-              </figcaption>
-            </motion.figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={f.src}
+                  alt=""
+                  loading="lazy"
+                  className="w-full"
+                />
+                <figcaption className="mt-3 pl-1 text-[10px] tracking-[0.24em] text-white/30 uppercase">
+                  Kundin · {f.datum}
+                  <span className="sr-only">: {f.text}</span>
+                </figcaption>
+              </motion.figure>
+            </Reveal>
           ))}
-        </RevealGroup>
+        </div>
+
+        <Reveal delay={0.2}>
+          <p className="mt-14 text-center text-sm text-white/40">
+            Mehr davon täglich auf{" "}
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lilac-200 underline underline-offset-4 transition-colors hover:text-lilac-100"
+            >
+              Instagram {site.instagramHandle}
+            </a>
+          </p>
+        </Reveal>
       </div>
     </section>
   );

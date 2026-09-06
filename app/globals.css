@@ -23,7 +23,10 @@
   --color-champagne: #e8d9c5;
 
   --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
-  --font-sans: "Jost", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Fließtext bewusst in Arial: vertraut und unaufgeregt, statt nach
+     Designbaukasten auszusehen. Jost bleibt für die gesperrten Kleinlabels. */
+  --font-sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-label: "Jost", Arial, sans-serif;
   --font-script: "Allura", "Snell Roundhand", "Brush Script MT", cursive;
 
   --shadow-glow: 0 0 60px -12px rgb(144 97 232 / 0.55);
