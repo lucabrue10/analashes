@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./fonts.css";
+@import "./fonts-allura.css";
 
 @theme {
   --color-ink-950: #08070b;
@@ -23,6 +24,7 @@
 
   --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
   --font-sans: "Jost", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-script: "Allura", "Snell Roundhand", "Brush Script MT", cursive;
 
   --shadow-glow: 0 0 60px -12px rgb(144 97 232 / 0.55);
   --shadow-soft: 0 24px 70px -28px rgb(0 0 0 / 0.85);

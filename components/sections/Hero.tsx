@@ -106,35 +106,20 @@ export function Hero() {
 
         <h1
           id="hero-titel"
-          className="mt-7 font-[family-name:var(--font-display)] text-[clamp(2.9rem,10vw,7.5rem)] leading-[0.95] font-light tracking-[-0.02em]"
+          className="mt-7 font-[family-name:var(--font-script)] text-[clamp(3.6rem,13vw,10rem)] leading-[1.15] font-normal"
         >
           <span className="sr-only">{site.name}</span>
-          <span aria-hidden className="flex flex-wrap items-baseline justify-center">
-            <motion.span
-              initial={{ opacity: 0, y: 46, filter: "blur(14px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ delay: 0.62, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-white"
-            >
-              {site.nameParts.first}
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, scale: 0.4 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.86, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-lilac-400"
-            >
-              .
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 46, filter: "blur(14px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ delay: 0.75, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-gradient italic"
-            >
-              {site.nameParts.second}
-            </motion.span>
-          </span>
+          {/* Ein einziger Textlauf – nur so bleiben die Buchstaben der
+              Schreibschrift durchgehend verbunden */}
+          <motion.span
+            aria-hidden
+            initial={{ opacity: 0, y: 40, filter: "blur(14px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ delay: 0.62, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-gradient block pb-[0.12em]"
+          >
+            {site.name}
+          </motion.span>
         </h1>
 
         <motion.p
