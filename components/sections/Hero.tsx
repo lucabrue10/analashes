@@ -98,9 +98,8 @@ export function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="glass inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-[10px] font-medium tracking-[0.34em] text-lilac-200/90 uppercase"
+          className="inline-block text-[10px] font-medium tracking-[0.52em] text-white uppercase sm:text-[11px]"
         >
-          <span aria-hidden className="h-1.5 w-1.5 animate-pulse rounded-full bg-lilac-300" />
           Lash Studio · {site.district}, {site.city}
         </motion.span>
 
