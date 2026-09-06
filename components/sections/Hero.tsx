@@ -5,6 +5,20 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { site, whatsappLink } from "@/lib/site";
 
+/** Die beiden Aufnahmen des Bandes. `position` hält die Augen im Ausschnitt. */
+const BANNER = [
+  {
+    src: "/hero-banner.jpg",
+    alt: "Nahaufnahme zweier Augen mit Wimpernverlängerung",
+    position: "50% 50%",
+  },
+  {
+    src: "/hero-banner-2.jpg",
+    alt: "Nahaufnahme eines Wimpernsets mit deutlichem Schwung nach außen",
+    position: "50% 38%",
+  },
+];
+
 /** Weiche Kanten, damit das Foto nicht als Rechteck im dunklen Hero steht. */
 const EDGE_FADE = [
   "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
@@ -49,15 +63,13 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--color-ink-950)_78%)]" />
       </div>
 
-      {/* Banner an der Stelle, an der vorher die gezeichneten Augen standen */}
-      <motion.div
-        style={{ y: bannerY, opacity: fade, filter: blur }}
-        className="relative z-10 w-full px-5 sm:px-8"
-      >
+      {/* Banner über die volle Breite: zwei Aufnahmen nebeneinander, dazwischen
+          eine Lücke, damit es als ein durchgehendes Band liest */}
+      <motion.div style={{ y: bannerY, opacity: fade, filter: blur }} className="relative z-10 w-full">
         <div
-          className="relative mx-auto w-full max-w-5xl overflow-hidden"
+          className="relative flex w-full gap-2 sm:gap-5"
           style={{
-            // Kanten weich auslaufen lassen, damit das Foto nicht als Rechteck
+            // Kanten weich auslaufen lassen, damit das Band nicht als Rechteck
             // im dunklen Hero steht
             WebkitMaskImage: EDGE_FADE,
             maskImage: EDGE_FADE,
@@ -65,28 +77,31 @@ export function Hero() {
             maskComposite: "intersect",
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/hero-banner.jpg"
-            alt="Nahaufnahme zweier Augen mit Wimpernverlängerung"
-            width={1069}
-            height={203}
-            className="w-full brightness-[0.58] contrast-[1.12] saturate-[0.72]"
-          />
-          {/* Randabdunklung und ein Hauch Lila, damit das Foto zur Marke passt */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_58%_70%_at_50%_50%,transparent_0%,rgba(8,7,11,0.55)_58%,rgba(8,7,11,0.95)_100%)]"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-lilac-700/25 mix-blend-soft-light"
-          />
-          {/* Schatten von oben und unten – das Foto sinkt in den Hintergrund ein */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,11,0.75)_0%,transparent_28%,transparent_66%,rgba(8,7,11,0.85)_100%)]"
-          />
+          {BANNER.map((bild) => (
+            <div key={bild.src} className="relative aspect-[7/4] flex-1 overflow-hidden sm:aspect-[2/1] lg:aspect-[3/1]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={bild.src}
+                alt={bild.alt}
+                className="h-full w-full object-cover brightness-[0.58] contrast-[1.12] saturate-[0.72]"
+                style={{ objectPosition: bild.position }}
+              />
+              {/* Randabdunklung und ein Hauch Lila, damit das Foto zur Marke passt */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_62%_74%_at_50%_50%,transparent_0%,rgba(8,7,11,0.5)_62%,rgba(8,7,11,0.92)_100%)]"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-lilac-700/25 mix-blend-soft-light"
+              />
+              {/* Schatten von oben und unten – das Foto sinkt in den Hintergrund ein */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,11,0.7)_0%,transparent_30%,transparent_64%,rgba(8,7,11,0.82)_100%)]"
+              />
+            </div>
+          ))}
         </div>
       </motion.div>
 
