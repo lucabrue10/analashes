@@ -54,18 +54,24 @@ export type HeroPhoto = {
  * Vorkalibriert auf die Nahaufnahme im Hochformat: ein Auge, Blick nach vorn.
  * Sobald `public/hero/augen.jpg` existiert, wird das Foto verwendet.
  */
-export const heroPhoto: HeroPhoto | null = {
-  src: "/hero/augen.jpg",
-  alt: "Nahaufnahme eines Auges mit Volume-Wimpernverlängerung und farbigen Spitzen",
-  // Aus dem Bild ausgemessen (1727 × 2015 px): Iris bei 807/1160, Radius 202
-  crop: { x: 0, y: 0.378, w: 1, h: 0.37 },
-  eyes: [
-    {
-      cx: 0.4673,
-      cy: 0.5757,
-      r: 0.117,
-      opening: { cx: 0.4633, cy: 0.5896, rx: 0.2895, ry: 0.067 },
-    },
-  ],
-  move: { x: 0.0232, y: 0.0069 },
-};
+export const heroPhoto: HeroPhoto | null = null;
+
+/*
+ * Kalibrierung des Probefotos (1727 × 2015 px), einsatzbereit: einfach
+ * anstelle der Zeile oben setzen, sobald wieder ein Foto gezeigt werden soll.
+ *
+ * export const heroPhoto: HeroPhoto | null = {
+ *   src: "/hero/augen.jpg",
+ *   alt: "Nahaufnahme eines Auges mit Volume-Wimpernverlängerung",
+ *   crop: { x: 0, y: 0.378, w: 1, h: 0.37 },
+ *   eyes: [
+ *     {
+ *       cx: 0.4673,
+ *       cy: 0.5757,
+ *       r: 0.117,
+ *       opening: { cx: 0.4633, cy: 0.5896, rx: 0.2895, ry: 0.067 },
+ *     },
+ *   ],
+ *   move: { x: 0.0232, y: 0.0069 },
+ * };
+ */
