@@ -1,6 +1,5 @@
 import { navItems, site, whatsappLink } from "@/lib/site";
-import { Logo } from "./ui/Logo";
-import { Wordmark } from "./ui/Wordmark";
+import { BrandMark } from "./ui/BrandMark";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -10,10 +9,7 @@ export function Footer() {
       <div className="container-x">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-3">
-              <Logo className="h-10 w-10" />
-              <Wordmark />
-            </div>
+            <BrandMark size="footer" />
             <p className="mt-6 font-[family-name:var(--font-display)] text-lg text-lilac-100/80 italic">
               {site.claim}
             </p>

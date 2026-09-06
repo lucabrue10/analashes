@@ -1,10 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { navItems, site, whatsappLink } from "@/lib/site";
-import { Logo } from "./ui/Logo";
-import { Wordmark } from "./ui/Wordmark";
+
 
 const menuVariants = {
   hidden: { opacity: 0 },
@@ -18,7 +17,7 @@ const itemVariants = {
   exit: { opacity: 0, y: 18, filter: "blur(6px)", transition: { duration: 0.25 } },
 };
 
-export function Navbar() {
+export function Navbar({ brand }: { brand: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY, scrollYProgress } = useScroll();
@@ -70,54 +69,54 @@ export function Navbar() {
         }`}
         style={{ height: "var(--nav-h)" }}
       >
-        <div className="container-x flex h-full items-center justify-between">
+        <div className="container-x relative flex h-full items-center justify-between">
+          {/* Links: Erreichbarkeit, auf kleinen Geräten ausgeblendet */}
           <a
-            href="#start"
-            className="group flex items-center gap-3"
-            aria-label={`${site.name} – zum Seitenanfang`}
-            onClick={() => setOpen(false)}
+            href={`tel:${site.phoneHref}`}
+            className="hidden text-[11px] font-medium tracking-[0.26em] text-white/60 uppercase transition-colors duration-500 hover:text-lilac-200 md:block"
           >
-            <Logo className="h-9 w-9 transition-transform duration-700 group-hover:rotate-6" />
-            <Wordmark />
+            {site.phone}
           </a>
 
-          <div className="flex items-center gap-4">
-            <a
-              href="#kontakt"
-              className="hidden text-[11px] font-medium tracking-[0.26em] text-white/60 uppercase transition-colors duration-500 hover:text-lilac-200 md:block"
-            >
-              {site.phone}
-            </a>
+          {/* Mitte: die Marke */}
+          <a
+            href="#start"
+            onClick={() => setOpen(false)}
+            aria-label={`${site.name} – zum Seitenanfang`}
+            className="absolute left-1/2 flex -translate-x-1/2 items-center transition-opacity duration-500 hover:opacity-80"
+          >
+            {brand}
+          </a>
 
-            <button
-              ref={toggleRef}
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              aria-expanded={open}
-              aria-controls="hauptmenue"
-              aria-label={open ? "Menü schließen" : "Menü öffnen"}
-              className="glass group relative flex h-12 w-12 items-center justify-center rounded-full transition-colors duration-500 hover:bg-white/[0.08]"
-            >
-              <span className="sr-only">{open ? "Menü schließen" : "Menü öffnen"}</span>
-              <span aria-hidden className="relative block h-3.5 w-5">
-                <motion.span
-                  className="absolute left-0 block h-[1.5px] w-5 rounded-full bg-white"
-                  animate={open ? { top: 6, rotate: 45 } : { top: 0, rotate: 0 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                />
-                <motion.span
-                  className="absolute top-[6px] left-0 block h-[1.5px] w-5 rounded-full bg-white"
-                  animate={open ? { opacity: 0, scaleX: 0.4 } : { opacity: 1, scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.span
-                  className="absolute left-0 block h-[1.5px] rounded-full bg-white"
-                  animate={open ? { top: 6, rotate: -45, width: 20 } : { top: 12, rotate: 0, width: 13 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </span>
-            </button>
-          </div>
+          {/* Rechts: Menü */}
+          <button
+            ref={toggleRef}
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="hauptmenue"
+            aria-label={open ? "Menü schließen" : "Menü öffnen"}
+            className="glass group relative ml-auto flex h-12 w-12 items-center justify-center rounded-full transition-colors duration-500 hover:bg-white/[0.08]"
+          >
+            <span className="sr-only">{open ? "Menü schließen" : "Menü öffnen"}</span>
+            <span aria-hidden className="relative block h-3.5 w-5">
+              <motion.span
+                className="absolute left-0 block h-[1.5px] w-5 rounded-full bg-white"
+                animate={open ? { top: 6, rotate: 45 } : { top: 0, rotate: 0 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              />
+              <motion.span
+                className="absolute top-[6px] left-0 block h-[1.5px] w-5 rounded-full bg-white"
+                animate={open ? { opacity: 0, scaleX: 0.4 } : { opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.span
+                className="absolute left-0 block h-[1.5px] rounded-full bg-white"
+                animate={open ? { top: 6, rotate: -45, width: 20 } : { top: 12, rotate: 0, width: 13 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              />
+            </span>
+          </button>
         </div>
 
         {/* Lesefortschritt */}
