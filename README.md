@@ -1,6 +1,6 @@
-# Anna Blush Lashes
+# aanaa.lashes
 
-Website für das Wimpernstudio **Anna Blush Lashes** – dunkles, edles Theme mit lila Akzenten,
+Website für das Wimpernstudio **aanaa.lashes** in Frankfurt am Main – dunkles, edles Theme mit lila Akzenten,
 Glassmorphism, weichen Übergängen und einer Hero-Section mit zwei realistischen Augen,
 deren Blick dem Mauszeiger folgt.
 

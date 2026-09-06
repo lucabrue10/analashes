@@ -5,7 +5,6 @@ import { useRef, type ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 import { site, whatsappLink } from "@/lib/site";
 
-const titleWords = site.name.split(" ");
 
 /**
  * Die Augen kommen als Prop herein: Ob Foto oder Zeichnung, entscheidet eine
@@ -64,7 +63,7 @@ export function Hero({ eyes }: { eyes: ReactNode }) {
           className="glass inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-[10px] font-medium tracking-[0.34em] text-lilac-200/90 uppercase"
         >
           <span aria-hidden className="h-1.5 w-1.5 animate-pulse rounded-full bg-lilac-300" />
-          Lash Studio · {site.city}
+          Lash Studio · {site.district}, {site.city}
         </motion.span>
 
         <h1
@@ -72,18 +71,31 @@ export function Hero({ eyes }: { eyes: ReactNode }) {
           className="mt-7 font-[family-name:var(--font-display)] text-[clamp(2.9rem,10vw,7.5rem)] leading-[0.95] font-light tracking-[-0.02em]"
         >
           <span className="sr-only">{site.name}</span>
-          <span aria-hidden className="flex flex-wrap items-baseline justify-center gap-x-[0.28em]">
-            {titleWords.map((word, i) => (
-              <motion.span
-                key={word}
-                initial={{ opacity: 0, y: 46, filter: "blur(14px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ delay: 0.62 + i * 0.13, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-                className={i === 1 ? "text-gradient italic" : "text-white"}
-              >
-                {word}
-              </motion.span>
-            ))}
+          <span aria-hidden className="flex flex-wrap items-baseline justify-center">
+            <motion.span
+              initial={{ opacity: 0, y: 46, filter: "blur(14px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ delay: 0.62, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-white"
+            >
+              {site.nameParts.first}
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.4 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.86, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="text-lilac-400"
+            >
+              .
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 46, filter: "blur(14px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ delay: 0.75, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-gradient italic"
+            >
+              {site.nameParts.second}
+            </motion.span>
           </span>
         </h1>
 

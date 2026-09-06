@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-
 import { useEffect, useRef, useState } from "react";
 import { navItems, site, whatsappLink } from "@/lib/site";
 import { Logo } from "./ui/Logo";
+import { Wordmark } from "./ui/Wordmark";
 
 const menuVariants = {
   hidden: { opacity: 0 },
@@ -77,12 +78,7 @@ export function Navbar() {
             onClick={() => setOpen(false)}
           >
             <Logo className="h-9 w-9 transition-transform duration-700 group-hover:rotate-6" />
-            <span className="flex flex-col leading-none">
-              <span className="font-[family-name:var(--font-display)] text-[19px] tracking-[0.16em] text-white/95 sm:text-xl">
-                ANNA BLUSH
-              </span>
-              <span className="mt-1 text-[9px] tracking-[0.52em] text-lilac-300/80">LASHES</span>
-            </span>
+            <Wordmark />
           </a>
 
           <div className="flex items-center gap-4">
@@ -205,7 +201,7 @@ export function Navbar() {
                   Instagram {site.instagramHandle}
                 </a>
                 <span>
-                  {site.street} · {site.postalCode} {site.city}
+                  {site.district} · {site.city}
                 </span>
               </motion.div>
             </nav>

@@ -31,6 +31,12 @@ export function BookingCta() {
                 Termin sichern
               </span>
             </Reveal>
+            <Reveal delay={0.04}>
+              <p className="mt-4 inline-flex items-center gap-2.5 rounded-full border border-lilac-400/25 px-4 py-1.5 text-[10px] tracking-[0.24em] text-lilac-100/80 uppercase">
+                <span aria-hidden>⚠</span>
+                {site.warning}
+              </p>
+            </Reveal>
             <Reveal delay={0.08}>
               <h2
                 id="termin-titel"

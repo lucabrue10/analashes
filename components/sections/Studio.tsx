@@ -45,7 +45,7 @@ export function Studio() {
             <div className="glass absolute right-5 bottom-5 left-5 rounded-2xl px-6 py-5">
               <p className="text-[10px] tracking-[0.34em] text-lilac-200/80 uppercase">Studio</p>
               <p className="mt-2 font-[family-name:var(--font-display)] text-xl text-white">
-                {site.street} · {site.postalCode} {site.city}
+                {site.district} · {site.postalCode} {site.city}
               </p>
             </div>
           </motion.div>
@@ -73,7 +73,7 @@ export function Studio() {
           </Reveal>
           <Reveal delay={0.14}>
             <p className="mt-6 text-base leading-relaxed text-white/60 text-pretty">
-              Mitten in {site.city}, hinter einer unscheinbaren Tür, erwartet dich ein privates Studio in warmem Licht.
+              Im {site.district} in {site.city}, hinter einer unscheinbaren Tür, erwartet dich ein privates Studio in warmem Licht.
               Kein Großraum, keine Hektik – nur ein Termin zur gleichen Zeit. Du liegst weich, hörst leise Musik und
               stehst nach ein bis zwei Stunden mit einem Blick auf, der alles verändert.
             </p>

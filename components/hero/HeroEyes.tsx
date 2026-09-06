@@ -1,6 +1,4 @@
-import { join } from "node:path";
 import { heroPhoto } from "@/lib/heroPhoto";
-import { readImageSize } from "@/lib/imageSize";
 import { Eyes } from "./Eyes";
 import { PhotoEyes } from "./PhotoEyes";
 
@@ -9,8 +7,13 @@ import { PhotoEyes } from "./PhotoEyes";
  * die gezeichneten Augen. Die Bildmaße werden zur Build-Zeit aus der Datei
  * gelesen, damit die Kalibrierung unabhängig von der Auflösung gilt.
  */
-export function HeroEyes() {
+export async function HeroEyes() {
   if (heroPhoto) {
+    // Erst hier laden: ohne Foto braucht die Seite keinen Dateizugriff
+    const [{ join }, { readImageSize }] = await Promise.all([
+      import("node:path"),
+      import("@/lib/imageSize"),
+    ]);
     const size = readImageSize(join(process.cwd(), "public", heroPhoto.src));
     if (size) {
       return (

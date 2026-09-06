@@ -1,26 +1,32 @@
 export const site = {
-  name: "Anna Blush Lashes",
+  name: "aanaa.lashes",
+  /** Wortmarke in zwei Teilen – der Punkt bleibt der Akzent dazwischen. */
+  nameParts: { first: "aanaa", second: "lashes" },
   slogan: "Luxuriöse Wimpernverlängerungen für deinen perfekten Look",
+  /** Claim und Augenzwinkern aus dem Instagram-Profil */
+  claim: "Sets with me · Lashes with Ana",
+  warning: "Warning: These lashes cause obsession.",
   description:
-    "Anna Blush Lashes – Premium Wimpernverlängerung in Hamburg. Classic, Hybrid, Volume und Mega Volume Lashes, individuell gestylt für einen natürlich eleganten Blick.",
-  url: "https://annablushlashes.de",
+    "aanaa.lashes – Wimpernverlängerung in Frankfurt am Main, Riedberg. Classic, Hybrid, Volume, Mega Volume und UV Lashes sowie Schulungen – individuell gestylt für einen natürlich eleganten Blick.",
+  url: "https://lashes.adversify.de",
   locale: "de_DE",
-  phone: "+49 40 123 456 78",
-  phoneHref: "+494012345678",
-  whatsapp: "494012345678",
+  phone: "+49 69 123 456 78",
+  phoneHref: "+496912345678",
+  whatsapp: "496912345678",
   whatsappText: "Hallo Anna, ich möchte gerne einen Termin buchen.",
-  instagram: "https://instagram.com/annablushlashes",
-  instagramHandle: "@annablushlashes",
-  email: "hallo@annablushlashes.de",
-  street: "Beauty Boulevard 12",
-  postalCode: "20095",
-  city: "Hamburg",
+  instagram: "https://instagram.com/aanaa.lashes",
+  instagramHandle: "@aanaa.lashes",
+  email: "hallo@aanaa-lashes.de",
+  /** Genaue Anschrift wird erst mit der Terminbestätigung geteilt */
+  street: "Adresse nach Terminvereinbarung",
+  district: "Riedberg",
+  postalCode: "60438",
+  city: "Frankfurt am Main",
   country: "DE",
   bookingUrl: "#kontakt",
-  mapsEmbed:
-    "https://www.google.com/maps?q=Beauty+Boulevard+12,+20095+Hamburg&output=embed",
+  mapsEmbed: "https://www.google.com/maps?q=Riedberg,+60438+Frankfurt+am+Main&output=embed",
   mapsLink:
-    "https://www.google.com/maps/search/?api=1&query=Beauty+Boulevard+12,+20095+Hamburg",
+    "https://www.google.com/maps/search/?api=1&query=Riedberg,+60438+Frankfurt+am+Main",
 } as const;
 
 export const whatsappLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
@@ -101,6 +107,26 @@ export const services: Service[] = [
     from: "ab 129 €",
   },
   {
+    id: "uv-lashes",
+    title: "UV Lashes",
+    tagline: "Bonding mit UV-Licht",
+    description:
+      "Der Kleber härtet unter UV-Licht in Sekunden aus. Das bedeutet kürzere Termine, kein Brennen in den Augen und eine spürbar längere Haltbarkeit.",
+    details: ["Sehr gut verträglich", "Hält länger als klassisch", "Auch bei empfindlichen Augen"],
+    duration: "ca. 120 Min.",
+    from: "ab 139 €",
+  },
+  {
+    id: "schulungen",
+    title: "Schulungen",
+    tagline: "Für Einsteigerinnen & Profis",
+    description:
+      "Lerne das Handwerk von Grund auf oder hebe deine Technik aufs nächste Level – in kleinen Gruppen oder als Einzelcoaching, inklusive Starterset und Zertifikat.",
+    details: ["Basis, Volumen und UV", "Kleine Gruppen", "Inkl. Material & Zertifikat"],
+    duration: "1 – 2 Tage",
+    from: "auf Anfrage",
+  },
+  {
     id: "lifting",
     title: "Lash Lifting & Botox",
     tagline: "Für Naturwimpern",
@@ -128,6 +154,7 @@ export const priceGroups: PriceGroup[] = [
       { name: "Volume Lashes", meta: "ca. 120 Min.", price: "129 €", featured: true },
       { name: "Mega Volume", meta: "ca. 150 Min.", price: "149 €" },
       { name: "Wet Look Lashes", meta: "ca. 120 Min.", price: "129 €" },
+      { name: "UV Lashes", meta: "ca. 120 Min.", price: "139 €" },
     ],
   },
   {
@@ -138,6 +165,7 @@ export const priceGroups: PriceGroup[] = [
       { name: "Refill bis 3 Wochen", meta: "ca. 75 Min.", price: "59 €", featured: true },
       { name: "Refill bis 4 Wochen", meta: "ca. 90 Min.", price: "69 €" },
       { name: "Volume Refill Zuschlag", meta: "je nach Technik", price: "+ 15 €" },
+      { name: "UV Refill", meta: "ca. 75 Min.", price: "69 €" },
       { name: "Fremdarbeit auffüllen", meta: "nach Absprache", price: "ab 69 €" },
     ],
   },
@@ -150,6 +178,17 @@ export const priceGroups: PriceGroup[] = [
       { name: "Augenbrauen zupfen & färben", meta: "ca. 30 Min.", price: "29 €" },
       { name: "Entfernen der Extensions", meta: "ca. 30 Min.", price: "19 €" },
       { name: "Aftercare-Set", meta: "Bürste, Schaum & Serum", price: "24 €" },
+    ],
+  },
+  {
+    title: "Schulungen",
+    note: "Kleine Gruppen oder Einzelcoaching, inklusive Material und Zertifikat",
+    items: [
+      { name: "Basis-Schulung", meta: "1 Tag", price: "auf Anfrage" },
+      { name: "Volumen-Schulung", meta: "1 Tag", price: "auf Anfrage", featured: true },
+      { name: "UV-Lashes-Schulung", meta: "1 Tag", price: "auf Anfrage" },
+      { name: "Einzelcoaching", meta: "nach Absprache", price: "auf Anfrage" },
+      { name: "Auffrischung", meta: "halber Tag", price: "auf Anfrage" },
     ],
   },
 ];
@@ -279,7 +318,7 @@ export const openingHours = [
 export const studioFeatures = [
   {
     title: "Zertifizierte Expertise",
-    text: "Ausgebildet nach internationalen Standards, jährliche Fortbildungen und geprüfte Premium-Materialien.",
+    text: "Ausgebildet nach internationalen Standards, eigene Schulungen und geprüfte Premium-Materialien.",
   },
   {
     title: "Höchste Hygiene",

@@ -1,5 +1,6 @@
 import { navItems, site, whatsappLink } from "@/lib/site";
 import { Logo } from "./ui/Logo";
+import { Wordmark } from "./ui/Wordmark";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,14 +12,12 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-3">
               <Logo className="h-10 w-10" />
-              <span className="flex flex-col leading-none">
-                <span className="font-[family-name:var(--font-display)] text-xl tracking-[0.16em] text-white">
-                  ANNA BLUSH
-                </span>
-                <span className="mt-1 text-[9px] tracking-[0.52em] text-lilac-300/80">LASHES</span>
-              </span>
+              <Wordmark />
             </div>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/45">{site.slogan}</p>
+            <p className="mt-6 font-[family-name:var(--font-display)] text-lg text-lilac-100/80 italic">
+              {site.claim}
+            </p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/45">{site.slogan}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href={whatsappLink}
@@ -59,9 +58,9 @@ export function Footer() {
             <h2 className="text-[10px] tracking-[0.3em] text-white/40 uppercase">Kontakt</h2>
             <address className="mt-5 space-y-2.5 text-sm text-white/55 not-italic">
               <p>
-                {site.street}
+                {site.district} · {site.postalCode} {site.city}
                 <br />
-                {site.postalCode} {site.city}
+                <span className="text-white/40">{site.street}</span>
               </p>
               <p>
                 <a href={`tel:${site.phoneHref}`} className="transition-colors duration-500 hover:text-lilac-100">
