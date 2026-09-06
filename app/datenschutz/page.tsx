@@ -40,6 +40,28 @@ export default function DatenschutzPage() {
         </p>
       </Abschnitt>
 
+      <Abschnitt titel="Hosting">
+        <p>
+          Diese Website wird bei der Hostinger International Ltd., 61 Lordou Vironos Street, 6023
+          Larnaca, Zypern, gehostet. Hostinger verarbeitet die beim Aufruf der Seite anfallenden
+          Daten (siehe „Server-Logdateien") ausschließlich in unserem Auftrag und nach unseren
+          Weisungen. Grundlage ist ein Vertrag über die Auftragsverarbeitung nach Art. 28 DSGVO.
+        </p>
+        <p>
+          Der Einsatz eines Hosting-Anbieters erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO;
+          das berechtigte Interesse liegt in der sicheren und zuverlässigen Bereitstellung dieser
+          Website. Näheres in der{" "}
+          <a
+            href="https://www.hostinger.de/datenschutzrichtlinie"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Datenschutzerklärung von Hostinger
+          </a>
+          .
+        </p>
+      </Abschnitt>
+
       <Abschnitt titel="Server-Logdateien">
         <p>
           Beim Aufruf der Website übermittelt dein Browser technisch notwendige Daten, die der
@@ -85,6 +107,17 @@ export default function DatenschutzPage() {
           erst dann Daten übertragen, wenn du sie anklickst. Betreiber beider Dienste ist Meta
           Platforms Ireland Limited. Bei der Kommunikation über diese Dienste gelten deren
           Datenschutzbestimmungen; auf die Verarbeitung durch Meta habe ich keinen Einfluss.
+        </p>
+      </Abschnitt>
+
+      <Abschnitt titel="Kundenstimmen und Fotos">
+        <p>
+          Die auf dieser Seite gezeigten Nachrichten und Arbeitsfotos stammen von Kundinnen, die
+          der Veröffentlichung zugestimmt haben. Die Screenshots sind so zugeschnitten, dass weder
+          Namen noch Profilbilder oder sonstige identifizierende Angaben zu sehen sind.
+          Rechtsgrundlage ist die Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Die Einwilligung
+          kann jederzeit für die Zukunft widerrufen werden – eine kurze Nachricht an die oben
+          genannte Adresse genügt, der Beitrag wird dann entfernt.
         </p>
       </Abschnitt>
 
