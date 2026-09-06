@@ -1,4 +1,5 @@
 import { Footer } from "@/components/Footer";
+import { HeroEyes } from "@/components/hero/HeroEyes";
 import { Navbar } from "@/components/Navbar";
 import { BookingCta } from "@/components/sections/BookingCta";
 import { Contact } from "@/components/sections/Contact";
@@ -15,7 +16,7 @@ export default function Home() {
     <>
       <Navbar />
       <main id="inhalt">
-        <Hero />
+        <Hero eyes={<HeroEyes />} />
         <Services />
         <Pricing />
         <Studio />

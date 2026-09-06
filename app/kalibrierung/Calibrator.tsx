@@ -54,15 +54,23 @@ export function Calibrator() {
     setDraft({ ...draft, r: Math.round(Math.hypot(p.x - draft.cx, p.y - draft.cy)) });
   };
 
+  // Alle Werte als Anteil des Bildes – so bleibt die Kalibrierung gültig,
+  // wenn das Foto später in anderer Auflösung ausgetauscht wird.
+  const f = (v: number, total: number) => Number((v / total).toFixed(4));
+  const rRel = eyes.length ? f(eyes[0].r, size.w) : 0.1;
+
   const snippet = `export const heroPhoto: HeroPhoto | null = {
   src: "/hero/${fileName}",
-  width: ${size.w},
-  height: ${size.h},
   alt: "Nahaufnahme von Augen mit Wimpernverlängerung",
   eyes: [
-${eyes.map((e) => `    { cx: ${e.cx}, cy: ${e.cy}, r: ${e.r} },`).join("\n")}
+${eyes
+  .map(
+    (e) =>
+      `    {\n      cx: ${f(e.cx, size.w)},\n      cy: ${f(e.cy, size.h)},\n      r: ${f(e.r, size.w)},\n      opening: { cx: ${f(e.cx, size.w)}, cy: ${f(e.cy, size.h)}, rx: ${f(e.r * 2, size.w)}, ry: ${f(e.r * 0.95, size.h)} },\n    },`,
+  )
+  .join("\n")}
   ],
-  move: { x: ${eyes.length ? Math.round(eyes[0].r * 0.2) : 30}, y: ${eyes.length ? Math.round(eyes[0].r * 0.07) : 10} },
+  move: { x: ${Number((rRel * 0.2).toFixed(4))}, y: ${Number((rRel * 0.07).toFixed(4))} },
 };`;
 
   return (
@@ -76,6 +84,10 @@ ${eyes.map((e) => `    { cx: ${e.cx}, cy: ${e.cy}, r: ${e.r} },`).join("\n")}
           <li>2. In die Mitte der ersten Pupille klicken, dann an den Rand der Iris klicken.</li>
           <li>3. Für jedes weitere Auge wiederholen.</li>
           <li>4. Den erzeugten Block nach <code>lib/heroPhoto.ts</code> kopieren.</li>
+          <li>
+            5. Bei engem Lid die Werte unter <code>opening</code> nachziehen – sie begrenzen, wie
+            weit die bewegte Iris reichen darf.
+          </li>
         </ol>
 
         <input

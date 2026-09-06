@@ -35,7 +35,7 @@ components/
   Footer.tsx
   hero/Eyes.tsx     Gezeichnete Augen: Wimpern, Iris, Blickfolge, Blinzeln
   hero/PhotoEyes.tsx  Fotovariante: Iris als bewegliche Ebene über dem Bild
-  hero/HeroEyes.tsx   Wählt Foto oder Zeichnung
+  hero/HeroEyes.tsx   Wählt Foto oder Zeichnung (Server-Komponente)
   sections/         Hero, Services, Pricing, Studio, Gallery, Testimonials,
                     Faq, BookingCta, Contact
   ui/               Button, Logo, Reveal (Scroll-Animationen), SectionHeading
@@ -45,21 +45,25 @@ scripts/            Generator für die Vorher-/Nachher-SVGs
 
 ## Hero: gezeichnete Augen oder echtes Foto
 
-Standardmäßig zeigt der Hero die gezeichneten Augen (`components/hero/Eyes.tsx`).
-Für echten Fotorealismus lässt sich stattdessen ein Foto einsetzen, bei dem nur
-die Iris dem Mauszeiger folgt:
+Der Hero kann ein echtes Foto zeigen, bei dem nur die Iris dem Mauszeiger
+folgt. Dafür genügt es, die Bilddatei abzulegen:
 
-1. Foto nach `public/hero/` legen (JPG oder WebP, mindestens 1600 px breit).
-2. `npm run dev` starten und `/kalibrierung` öffnen.
-3. Foto laden, je Auge in die Pupillenmitte und dann auf den Irisrand klicken;
-   optional die Lidspalte markieren.
-4. Den ausgegebenen Block in `lib/heroPhoto.ts` eintragen.
+1. Foto als `public/hero/augen.jpg` speichern (JPG, PNG oder WebP, ab 1600 px
+   Breite). Die Maße liest die Seite beim Build selbst aus der Datei.
+2. Fertig – liegt die Datei da, wird sie verwendet; fehlt sie, greift
+   automatisch die gezeichnete Variante.
 
-Die bewegte Iris wird auf die Lidspalte begrenzt und läuft an den Rändern weich
-aus, damit weder ein doppelter Irisrand noch eine verschobene Lidkante sichtbar
-wird. Ein kleiner Ausschlag wirkt dabei natürlicher als ein großer – etwa ein
-Fünftel des Irisradius. Steht in `lib/heroPhoto.ts` `null`, greift automatisch
-wieder die gezeichnete Variante; die Seite `/kalibrierung` ist nicht indexiert
+`lib/heroPhoto.ts` ist auf eine Nahaufnahme im Hochformat vorkalibriert. Sitzt
+die Iris in deinem Foto woanders, `npm run dev` starten, `/kalibrierung`
+öffnen, das Foto laden, je Auge in die Pupillenmitte und dann auf den Irisrand
+klicken und die ausgegebenen Werte übernehmen. Alle Werte sind Anteile des
+Bildes (0 bis 1), bleiben bei einem Austausch in anderer Auflösung also gültig.
+
+Worauf es beim Ergebnis ankommt: Die bewegte Iris wird auf die Lidspalte
+(`opening`) begrenzt, damit sie nie über Lidkante oder Wimpern malt, und deckt
+etwas mehr als den Irisradius ab, damit am nachlaufenden Rand kein zweiter
+Irisrand aufblitzt. Ein kleiner Ausschlag wirkt natürlicher als ein großer –
+etwa ein Fünftel des Irisradius. Die Seite `/kalibrierung` ist nicht indexiert
 und kann nach dem Einrichten gelöscht werden.
 
 ## Inhalte anpassen

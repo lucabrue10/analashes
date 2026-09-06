@@ -1,65 +1,70 @@
 /**
  * Konfiguration für den fotografischen Hero.
  *
- * Ist `heroPhoto` gesetzt, zeigt die Startseite das Foto und lässt die Iris
- * dem Mauszeiger folgen. Ist es `null`, greift die gezeichnete Variante
- * (components/hero/Eyes.tsx).
+ * Liegt die unter `src` angegebene Datei in `public/`, zeigt die Startseite das
+ * Foto und lässt die Iris dem Mauszeiger folgen. Fehlt sie, greift automatisch
+ * die gezeichnete Variante (components/hero/Eyes.tsx) – die Seite bleibt also
+ * in jedem Fall funktionsfähig.
+ *
+ * Alle Werte sind **Anteile** des Bildes, nicht Pixel: 0 = linker bzw. oberer
+ * Rand, 1 = rechter bzw. unterer Rand. Dadurch bleibt die Kalibrierung gültig,
+ * wenn das Foto später in einer anderen Auflösung ausgetauscht wird.
  *
  * So kalibrierst du ein neues Foto:
- *   1. Bild nach `public/hero/` legen (JPG oder WebP, mindestens 1600 px breit).
+ *   1. Bild nach `public/hero/` legen (JPG, PNG oder WebP, ab 1600 px Breite).
  *   2. `npm run dev` starten und http://localhost:3000/kalibrierung öffnen.
- *   3. Dort in jede Pupille klicken und den Radius bis zum Irisrand ziehen.
+ *   3. Je Auge in die Pupillenmitte und dann auf den Irisrand klicken.
  *   4. Die angezeigten Werte hier eintragen.
- *
- * Alle Koordinaten sind Pixel im Originalbild.
  */
 export type EyeCalibration = {
-  /** Mittelpunkt der Iris im Bild */
+  /** Mittelpunkt der Iris, Anteil von Breite bzw. Höhe */
   cx: number;
   cy: number;
-  /** Radius der Iris in Pixeln */
+  /** Radius der Iris, Anteil der Bildbreite */
   r: number;
   /**
    * Sichtbare Lidspalte als Ellipse. Die bewegte Iris wird darauf begrenzt,
    * damit sie niemals über Lidkante oder Wimpern malt. Ohne Angabe wird eine
-   * Ellipse um die Iris herum geschätzt – bei einem engen Lid lohnt es sich,
-   * die Werte in der Kalibrierung zu setzen.
+   * Ellipse um die Iris herum geschätzt.
    */
   opening?: { cx: number; cy: number; rx: number; ry: number };
 };
 
 export type HeroPhoto = {
+  /** Pfad unterhalb von `public/`, z. B. "/hero/augen.jpg" */
   src: string;
-  /** Originalmaße des Bildes in Pixeln */
-  width: number;
-  height: number;
   alt: string;
   /** Eine Kalibrierung je sichtbarem Auge */
   eyes: EyeCalibration[];
   /**
-   * Maximaler Ausschlag der Iris in Pixeln. Faustregel: etwa ein Fünftel des
-   * Irisradius horizontal, ein Fünfzehntel vertikal – darüber wirkt der Blick
-   * unnatürlich. Die nötige Abdeckung ergibt sich daraus automatisch.
+   * Sichtbarer Ausschnitt des Bildes. Nützlich bei Hochformat-Fotos, von denen
+   * im Hero nur das Augenband gezeigt werden soll.
+   */
+  crop?: { x: number; y: number; w: number; h: number };
+  /**
+   * Maximaler Ausschlag der Iris als Anteil der Bildbreite. Faustregel: etwa
+   * ein Fünftel des Irisradius seitlich, ein Fünfzehntel vertikal.
    */
   move?: { x: number; y: number };
   /** Optionaler Zuschlag zur Abdeckung, falls der Irisrand doch durchscheint */
   padding?: number;
 };
 
-export const heroPhoto: HeroPhoto | null = null;
-
-/* Beispiel für ein eingesetztes Foto:
-
+/**
+ * Vorkalibriert auf die Nahaufnahme im Hochformat: ein Auge, Blick nach vorn.
+ * Sobald `public/hero/augen.jpg` existiert, wird das Foto verwendet.
+ */
 export const heroPhoto: HeroPhoto | null = {
   src: "/hero/augen.jpg",
-  width: 2000,
-  height: 1200,
-  alt: "Nahaufnahme von Augen mit Volume-Wimpernverlängerung",
+  alt: "Nahaufnahme eines Auges mit Volume-Wimpernverlängerung",
+  crop: { x: 0.04, y: 0.36, w: 0.92, h: 0.32 },
   eyes: [
-    { cx: 620, cy: 560, r: 150, opening: { cx: 640, cy: 566, rx: 300, ry: 140 } },
-    { cx: 1380, cy: 560, r: 150, opening: { cx: 1360, cy: 566, rx: 300, ry: 140 } },
+    {
+      cx: 0.47,
+      cy: 0.586,
+      r: 0.108,
+      opening: { cx: 0.485, cy: 0.588, rx: 0.2, ry: 0.055 },
+    },
   ],
-  move: { x: 30, y: 10 },
+  move: { x: 0.02, y: 0.006 },
 };
-
-*/

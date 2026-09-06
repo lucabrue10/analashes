@@ -1,14 +1,17 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { HeroEyes } from "@/components/hero/HeroEyes";
+import { useRef, type ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 import { site, whatsappLink } from "@/lib/site";
 
 const titleWords = site.name.split(" ");
 
-export function Hero() {
+/**
+ * Die Augen kommen als Prop herein: Ob Foto oder Zeichnung, entscheidet eine
+ * Server-Komponente (components/hero/HeroEyes.tsx) – hier läuft Client-Code.
+ */
+export function Hero({ eyes }: { eyes: ReactNode }) {
   const ref = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -49,7 +52,7 @@ export function Hero() {
       <motion.div style={{ y: eyesY, opacity: fade, filter: blur }} className="relative z-10 w-full">
         <div className="relative">
           <div className="opacity-[0.94]">
-            <HeroEyes />
+            {eyes}
           </div>
 
           {/* Dunkler Balken über der Augenpartie – nimmt die Augen zurück,
