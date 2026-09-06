@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Reveal, RevealGroup, revealItem } from "@/components/ui/Reveal";
+import { MapEmbed } from "@/components/ui/MapEmbed";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { openingHours, site, whatsappLink } from "@/lib/site";
 
@@ -179,14 +180,7 @@ export function Contact() {
 
           <Reveal direction="left" delay={0.1} className="lg:col-span-3">
             <div className="glass relative h-full min-h-[380px] overflow-hidden rounded-3xl p-2 shadow-[var(--shadow-card)]">
-              <iframe
-                title={`Karte: Standort von ${site.name}`}
-                src={site.mapsEmbed}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-                className="h-full min-h-[364px] w-full rounded-[1.35rem] border-0 opacity-90 grayscale-[0.55] transition-all duration-700 hover:opacity-100 hover:grayscale-0"
-              />
+              <MapEmbed />
             </div>
           </Reveal>
         </div>
