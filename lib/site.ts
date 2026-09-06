@@ -152,7 +152,7 @@ export const priceGroups: PriceGroup[] = [
   },
   {
     title: "Auffüllen",
-    note: "Ab zwei Dritteln vorhandener Extensions – darunter gilt es als Neuanfertigung",
+    note: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt – darunter ist es eine Neuanfertigung",
     items: [
       { name: "1 : 1 Technik", meta: "ca. 60 Min.", price: "50 €" },
       { name: "Soft Volumen", meta: "ca. 75 Min.", price: "60 €", featured: true },
@@ -341,7 +341,7 @@ export const studioregeln = [
   },
   {
     titel: "Auffüllen",
-    text: "Sind weniger als ein Drittel der Extensions vorhanden, wird eine Neuanfertigung berechnet.",
+    text: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt – darunter ist es eine Neuanfertigung.",
   },
   {
     titel: "Haftung",
@@ -391,7 +391,7 @@ export const faqs = [
   },
   {
     q: "Wann ist es ein Refill, wann eine Neuanfertigung?",
-    a: "Sind noch mindestens zwei Drittel der Extensions vorhanden, füllen wir auf. Darunter wird eine Neuanfertigung berechnet.",
+    a: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt – darunter ist es eine Neuanfertigung.",
   },
   {
     q: "Schadet die Behandlung meinen Naturwimpern?",
