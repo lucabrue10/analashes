@@ -103,9 +103,9 @@ export function Navbar({ brand }: { brand: ReactNode }) {
 
           {/* Mitte: die Marke */}
           <a
-            href="#start"
+            href="/"
             onClick={() => setOpen(false)}
-            aria-label={`${site.name} – zum Seitenanfang`}
+            aria-label={`${site.name} – zur Startseite`}
             className="absolute left-1/2 flex -translate-x-1/2 items-center transition-opacity duration-500 hover:opacity-80"
           >
             {brand}
