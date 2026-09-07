@@ -69,18 +69,6 @@ export function UeberMich() {
             ))}
           </div>
 
-          <Reveal delay={0.3}>
-            <ul className="mt-10 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
-              {ueberMich.punkte.map((punkt) => (
-                <li key={punkt.titel}>
-                  <p className="text-[10px] tracking-[0.28em] text-lilac-300/90 uppercase">
-                    {punkt.titel}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-white/55">{punkt.text}</p>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
         </div>
       </div>
     </section>

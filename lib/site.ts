@@ -362,11 +362,6 @@ export const ueberMich = {
     "Mein Anspruch ist nicht das Set, das auf dem Foto am meisten hermacht, sondern das, das zu deinem Gesicht passt und im Alltag hält. Deshalb wird jedes Design vorher auf deine Augenform und deine Naturwimpern abgestimmt, statt eine Vorlage abzuarbeiten.",
     "Ein Studio zu Hause heißt: keine Wartezone, kein Termindruck im Nacken, keine fremden Blicke. Du liegst zwei Stunden in Ruhe, ich arbeite in Ruhe – und du gehst mit einem Blick raus, für den du morgens nichts mehr tun musst.",
   ],
-  punkte: [
-    { titel: "Ein Termin zur Zeit", text: "Keine Parallelbehandlung, keine Hektik." },
-    { titel: "Design statt Vorlage", text: "Mapping auf Augenform und Naturwimper." },
-    { titel: "UV-Technik", text: "Kürzere Termine, längere Haltbarkeit." },
-  ],
 };
 
 export const studioFeatures = [
