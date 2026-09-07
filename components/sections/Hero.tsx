@@ -6,7 +6,6 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
 import { site } from "@/lib/site";
 
 /** Die Aufnahmen des Laufbands – sie wiederholen sich endlos. */
@@ -37,34 +36,26 @@ const EDGE_FADE = [
 ].join(", ");
 
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
+  // Bewusst an der Fensterposition statt an der Höhe dieses Abschnitts:
+  // Eine Messung des Abschnitts kann auf Mobilgeräten fehlschlagen (Adress-
+  // leiste, Bilder noch nicht geladen) und hätte den Inhalt dann sofort auf
+  // Deckkraft 0 gesetzt – die Seite wäre leer geblieben. Bei Position 0
+  // ist der Inhalt hier immer sichtbar.
+  const { scrollY } = useScroll();
 
   // Sanfter Parallax beim Herausscrollen
-  const bannerY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, reduceMotion ? 0 : 140],
-  );
-  const contentY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, reduceMotion ? 0 : -60],
-  );
-  const fade = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  const bannerY = useTransform(scrollY, [0, 700], [0, reduceMotion ? 0 : 140]);
+  const contentY = useTransform(scrollY, [0, 700], [0, reduceMotion ? 0 : -60]);
+  const fade = useTransform(scrollY, [0, 520], [1, 0]);
   const blur = useTransform(
-    scrollYProgress,
-    [0, 1],
+    scrollY,
+    [0, 700],
     ["blur(0px)", reduceMotion ? "blur(0px)" : "blur(6px)"],
   );
 
   return (
     <section
-      ref={ref}
       id="start"
       aria-labelledby="hero-titel"
       className="grain relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden pt-[var(--nav-h)] pb-20"

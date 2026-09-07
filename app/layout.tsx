@@ -88,6 +88,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {/* Browser-Erweiterungen verändern den Body vor der Hydration –
           ohne diesen Hinweis wertet React das als Fehler. */}
       <body className="antialiased" suppressHydrationWarning>
+        {/* Ohne JavaScript blieben die eingeblendeten Abschnitte unsichtbar –
+            dann wird der Inhalt schlicht ohne Animation gezeigt. */}
+        <noscript>
+          <style>{`#inhalt,#inhalt *,header,header *{opacity:1!important;filter:none!important;transform:none!important}`}</style>
+        </noscript>
         <a
           href="#inhalt"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-lilac-500 focus:px-5 focus:py-3 focus:text-sm focus:text-white"
