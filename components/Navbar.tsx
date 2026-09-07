@@ -1,20 +1,40 @@
 "use client";
 
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { navItems, site, whatsappLink } from "@/lib/site";
 
-
 const menuVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.4, staggerChildren: 0.06, delayChildren: 0.12 } },
-  exit: { opacity: 0, transition: { duration: 0.3, when: "afterChildren", staggerChildren: 0.03 } },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.4, staggerChildren: 0.06, delayChildren: 0.12 },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.3, when: "afterChildren", staggerChildren: 0.03 },
+  },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 34, filter: "blur(8px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
-  exit: { opacity: 0, y: 18, filter: "blur(6px)", transition: { duration: 0.25 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+  exit: {
+    opacity: 0,
+    y: 18,
+    filter: "blur(6px)",
+    transition: { duration: 0.25 },
+  },
 };
 
 export function Navbar({ brand }: { brand: ReactNode }) {
@@ -51,7 +71,8 @@ export function Navbar({ brand }: { brand: ReactNode }) {
 
   useEffect(() => {
     if (open) {
-      const first = panelRef.current?.querySelector<HTMLAnchorElement>("a[href]");
+      const first =
+        panelRef.current?.querySelector<HTMLAnchorElement>("a[href]");
       first?.focus({ preventScroll: true });
     }
   }, [open]);
@@ -88,35 +109,60 @@ export function Navbar({ brand }: { brand: ReactNode }) {
             {brand}
           </a>
 
-          {/* Rechts: Menü */}
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="hauptmenue"
-            aria-label={open ? "Menü schließen" : "Menü öffnen"}
-            className="glass group relative ml-auto flex h-12 w-12 items-center justify-center rounded-full transition-colors duration-500 hover:bg-white/[0.08]"
-          >
-            <span className="sr-only">{open ? "Menü schließen" : "Menü öffnen"}</span>
-            <span aria-hidden className="relative block h-3.5 w-5">
-              <motion.span
-                className="absolute left-0 block h-[1.5px] w-5 rounded-full bg-white"
-                animate={open ? { top: 6, rotate: 45 } : { top: 0, rotate: 0 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              />
-              <motion.span
-                className="absolute top-[6px] left-0 block h-[1.5px] w-5 rounded-full bg-white"
-                animate={open ? { opacity: 0, scaleX: 0.4 } : { opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                className="absolute left-0 block h-[1.5px] rounded-full bg-white"
-                animate={open ? { top: 6, rotate: -45, width: 20 } : { top: 12, rotate: 0, width: 13 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </span>
-          </button>
+          {/* Rechts: Terminwunsch und Menü */}
+          <div className="ml-auto flex items-center gap-2 sm:gap-3">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-gradient-to-r from-lilac-600 to-lilac-400 px-3 py-2 text-[9px] font-medium tracking-[0.14em] text-white uppercase shadow-[0_16px_40px_-20px_rgba(144,97,232,0.95)] transition-transform duration-500 hover:-translate-y-0.5 min-[400px]:px-4 min-[400px]:py-2.5 min-[400px]:text-[10px] min-[400px]:tracking-[0.2em] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
+            >
+              {/* Auf dem Telefon reicht das kurze Wort neben dem Menüknopf */}
+              <span className="sm:hidden">Termin</span>
+              <span className="hidden sm:inline">Termin buchen</span>
+            </a>
+
+            <button
+              ref={toggleRef}
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="hauptmenue"
+              aria-label={open ? "Menü schließen" : "Menü öffnen"}
+              className="glass group relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-colors duration-500 hover:bg-white/[0.08]"
+            >
+              <span className="sr-only">
+                {open ? "Menü schließen" : "Menü öffnen"}
+              </span>
+              <span aria-hidden className="relative block h-3.5 w-5">
+                <motion.span
+                  className="absolute left-0 block h-[1.5px] w-5 rounded-full bg-white"
+                  animate={
+                    open ? { top: 6, rotate: 45 } : { top: 0, rotate: 0 }
+                  }
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                />
+                <motion.span
+                  className="absolute top-[6px] left-0 block h-[1.5px] w-5 rounded-full bg-white"
+                  animate={
+                    open
+                      ? { opacity: 0, scaleX: 0.4 }
+                      : { opacity: 1, scaleX: 1 }
+                  }
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                  className="absolute left-0 block h-[1.5px] rounded-full bg-white"
+                  animate={
+                    open
+                      ? { top: 6, rotate: -45, width: 20 }
+                      : { top: 12, rotate: 0, width: 13 }
+                  }
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                />
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Lesefortschritt */}
@@ -141,7 +187,10 @@ export function Navbar({ brand }: { brand: ReactNode }) {
             aria-modal="true"
             aria-label="Hauptmenü"
           >
-            <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 overflow-hidden"
+            >
               <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-lilac-600/20 blur-[140px]" />
               <div className="absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-lilac-800/25 blur-[130px]" />
             </div>
@@ -177,7 +226,10 @@ export function Navbar({ brand }: { brand: ReactNode }) {
                     className="group inline-flex items-center gap-4 rounded-full bg-gradient-to-r from-lilac-600 to-lilac-400 px-8 py-4 text-xs font-medium tracking-[0.24em] text-white uppercase shadow-[0_20px_60px_-24px_rgba(144,97,232,0.95)] transition-transform duration-500 hover:-translate-y-0.5"
                   >
                     Termin buchen
-                    <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">
+                    <span
+                      aria-hidden
+                      className="transition-transform duration-500 group-hover:translate-x-1"
+                    >
                       →
                     </span>
                   </a>
@@ -188,7 +240,10 @@ export function Navbar({ brand }: { brand: ReactNode }) {
                 variants={itemVariants}
                 className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-3 border-t border-white/10 pt-8 text-xs tracking-[0.22em] text-white/45 uppercase"
               >
-                <a href={`tel:${site.phoneHref}`} className="transition-colors hover:text-lilac-200">
+                <a
+                  href={`tel:${site.phoneHref}`}
+                  className="transition-colors hover:text-lilac-200"
+                >
                   {site.phone}
                 </a>
                 <a

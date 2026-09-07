@@ -7,8 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
-import { Button } from "@/components/ui/Button";
-import { site, whatsappLink } from "@/lib/site";
+import { site } from "@/lib/site";
 
 /** Die Aufnahmen des Laufbands – sie wiederholen sich endlos. */
 const BANNER = [
@@ -212,20 +211,6 @@ export function Hero() {
         >
           {site.slogan}
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-11 flex flex-col items-center gap-4 sm:flex-row"
-        >
-          <Button href={whatsappLink} target="_blank" rel="noopener noreferrer">
-            Termin buchen
-          </Button>
-          <Button href="#preise" variant="ghost">
-            Preise ansehen
-          </Button>
-        </motion.div>
       </motion.div>
 
       <motion.a
