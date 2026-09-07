@@ -350,6 +350,25 @@ export const studioregeln = [
   },
 ];
 
+/**
+ * Vorstellung zwischen Banner und Galerie. Bewusst ohne Angaben, die sich
+ * nicht belegen lassen – keine Jahreszahlen, keine Abschlüsse.
+ */
+export const ueberMich = {
+  bild: "/ana.jpg",
+  bildAlt: "Ana, Inhaberin von aanaa.lashes",
+  absaetze: [
+    "Ich bin Ana. Hinter aanaa.lashes steht keine Kette und kein Großsalon, sondern mein eigenes Studio auf dem Riedberg – und bei jedem Termin sitzt genau eine Kundin auf dem Stuhl.",
+    "Mein Anspruch ist nicht das Set, das auf dem Foto am meisten hermacht, sondern das, das zu deinem Gesicht passt und im Alltag hält. Deshalb wird jedes Design vorher auf deine Augenform und deine Naturwimpern abgestimmt, statt eine Vorlage abzuarbeiten.",
+    "Ein Studio zu Hause heißt: keine Wartezone, kein Termindruck im Nacken, keine fremden Blicke. Du liegst zwei Stunden in Ruhe, ich arbeite in Ruhe – und du gehst mit einem Blick raus, für den du morgens nichts mehr tun musst.",
+  ],
+  punkte: [
+    { titel: "Ein Termin zur Zeit", text: "Keine Parallelbehandlung, keine Hektik." },
+    { titel: "Design statt Vorlage", text: "Mapping auf Augenform und Naturwimper." },
+    { titel: "UV-Technik", text: "Kürzere Termine, längere Haltbarkeit." },
+  ],
+};
+
 export const studioFeatures = [
   {
     title: "UV-Technik",

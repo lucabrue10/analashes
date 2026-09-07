@@ -6,6 +6,7 @@ import { BookingCta } from "@/components/sections/BookingCta";
 import { Contact } from "@/components/sections/Contact";
 import { Faq } from "@/components/sections/Faq";
 import { Gallery } from "@/components/sections/Gallery";
+import { UeberMich } from "@/components/sections/UeberMich";
 import { Hero } from "@/components/sections/Hero";
 import { Pricing } from "@/components/sections/Pricing";
 import { Services } from "@/components/sections/Services";
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar brand={<BrandMark />} />
       <main id="inhalt">
         <Hero />
+        <UeberMich />
         <Gallery />
         <Testimonials />
         <Services />
