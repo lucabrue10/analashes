@@ -24,7 +24,7 @@ export const site = {
   postalCode: "60438",
   city: "Frankfurt am Main",
   country: "DE",
-  bookingUrl: "#kontakt",
+  bookingUrl: "/kontakt",
   mapsEmbed:
     "https://www.google.com/maps?q=Ernst-Abbe-Stra%C3%9Fe+8,+60438+Frankfurt+am+Main&output=embed",
   mapsLink:
@@ -37,16 +37,20 @@ export const whatsappLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComp
 
 export type NavItem = { label: string; href: string };
 
-// Reihenfolge wie auf der Seite
+/**
+ * Die ersten vier Einträge führen auf die Startseite, der Rest auf eigene
+ * Seiten – die Startseite endet nach der Vorstellung.
+ */
 export const navItems: NavItem[] = [
-  { label: "Start", href: "#start" },
-  { label: "Galerie", href: "#galerie" },
-  { label: "Bewertungen", href: "#bewertungen" },
-  { label: "Leistungen", href: "#leistungen" },
-  { label: "Preise", href: "#preise" },
-  { label: "Studio", href: "#studio" },
-  { label: "Pflege", href: "#pflege" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Start", href: "/" },
+  { label: "Galerie", href: "/#galerie" },
+  { label: "Bewertungen", href: "/#bewertungen" },
+  { label: "Über mich", href: "/#ueber-mich" },
+  { label: "Leistungen", href: "/leistungen" },
+  { label: "Preise", href: "/preise" },
+  { label: "Studio", href: "/studio" },
+  { label: "Pflege", href: "/pflege" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export type Service = {

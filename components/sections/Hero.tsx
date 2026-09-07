@@ -214,8 +214,8 @@ export function Hero() {
       </motion.div>
 
       <motion.a
-        href="#leistungen"
-        aria-label="Weiter zu den Leistungen"
+        href="#galerie"
+        aria-label="Weiter zu den Sets"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 1 }}

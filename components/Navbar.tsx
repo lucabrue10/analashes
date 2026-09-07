@@ -91,12 +91,14 @@ export function Navbar({ brand }: { brand: ReactNode }) {
         style={{ height: "var(--nav-h)" }}
       >
         <div className="container-x relative flex h-full items-center justify-between">
-          {/* Links: Erreichbarkeit, auf kleinen Geräten ausgeblendet */}
+          {/* Links: Preise – der einzige Bereich, der neben dem Menü einen
+              eigenen Knopf hat */}
           <a
-            href={`tel:${site.phoneHref}`}
-            className="hidden text-[11px] font-medium tracking-[0.26em] text-white/60 uppercase transition-colors duration-500 hover:text-lilac-200 md:block"
+            href="/preise"
+            onClick={() => setOpen(false)}
+            className="glass rounded-full px-3 py-2 text-[9px] font-medium tracking-[0.14em] text-white/80 uppercase transition-colors duration-500 hover:bg-white/[0.08] hover:text-white min-[400px]:px-4 min-[400px]:py-2.5 min-[400px]:text-[10px] min-[400px]:tracking-[0.2em] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
           >
-            {site.phone}
+            Preise
           </a>
 
           {/* Mitte: die Marke */}
@@ -182,7 +184,7 @@ export function Navbar({ brand }: { brand: ReactNode }) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-40 flex flex-col justify-center overflow-y-auto bg-ink-950/95 backdrop-blur-2xl"
+            className="fixed inset-0 z-40 overflow-y-auto bg-ink-950/95 backdrop-blur-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Hauptmenü"
@@ -195,19 +197,19 @@ export function Navbar({ brand }: { brand: ReactNode }) {
               <div className="absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-lilac-800/25 blur-[130px]" />
             </div>
 
-            <nav className="container-x relative pt-[calc(var(--nav-h)+2rem)] pb-16">
+            <nav className="container-x relative flex min-h-full flex-col justify-center pt-[calc(var(--nav-h)+2rem)] pb-14">
               <ul className="flex flex-col gap-1 sm:gap-2">
                 {navItems.map((item, i) => (
                   <motion.li key={item.href} variants={itemVariants}>
                     <a
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="group flex items-baseline gap-5 py-2.5 sm:py-3"
+                      className="group flex items-baseline gap-5 py-2 sm:py-2.5"
                     >
                       <span className="w-8 shrink-0 font-mono text-[10px] tracking-[0.3em] text-lilac-400/70">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="relative font-[family-name:var(--font-display)] text-4xl font-light text-white/80 transition-colors duration-500 group-hover:text-white sm:text-5xl md:text-6xl">
+                      <span className="relative font-[family-name:var(--font-display)] text-3xl font-light text-white/80 transition-colors duration-500 group-hover:text-white sm:text-4xl md:text-5xl">
                         {item.label}
                         <span
                           aria-hidden
@@ -217,7 +219,7 @@ export function Navbar({ brand }: { brand: ReactNode }) {
                     </a>
                   </motion.li>
                 ))}
-                <motion.li variants={itemVariants} className="mt-6">
+                <motion.li variants={itemVariants} className="mt-5">
                   <a
                     href={whatsappLink}
                     target="_blank"
@@ -238,7 +240,7 @@ export function Navbar({ brand }: { brand: ReactNode }) {
 
               <motion.div
                 variants={itemVariants}
-                className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-3 border-t border-white/10 pt-8 text-xs tracking-[0.22em] text-white/45 uppercase"
+                className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-3 border-t border-white/10 pt-7 text-xs tracking-[0.22em] text-white/45 uppercase"
               >
                 <a
                   href={`tel:${site.phoneHref}`}
