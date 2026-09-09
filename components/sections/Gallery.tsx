@@ -34,9 +34,8 @@ export function Gallery() {
     lastFocused.current?.focus({ preventScroll: true });
   }, []);
 
-  // Im geöffneten Lightbox steuern die Pfeiltasten global, Escape schließt.
-  // Ohne Lightbox hört nur das Karussell selbst mit (siehe onKeyDown unten) –
-  // sonst würde die Galerie das Scrollen mit den Pfeiltasten kapern.
+  // Nur im geöffneten Lightbox global mithören – sonst würde die Galerie
+  // das Scrollen mit den Pfeiltasten kapern.
   useEffect(() => {
     if (!lightbox) return;
     const onKey = (e: KeyboardEvent) => {
@@ -45,48 +44,37 @@ export function Gallery() {
       if (e.key === "Escape") close();
     };
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [step, lightbox, close]);
-
-  useEffect(() => {
-    if (!lightbox) return;
-    const previous = document.body.style.overflow;
+    const vorher = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     closeRef.current?.focus({ preventScroll: true });
     return () => {
-      document.body.style.overflow = previous;
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = vorher;
     };
-  }, [lightbox]);
+  }, [lightbox, step, close]);
 
   return (
     <section
-      id="galerie"
-      aria-labelledby="galerie-titel"
-      className="relative py-28 sm:py-36"
+      id="sets"
+      aria-labelledby="sets-titel"
+      className="bg-beige-200/60 py-20 sm:py-28"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-      >
-        <div className="absolute top-10 right-1/4 h-[380px] w-[380px] rounded-full bg-lilac-600/10 blur-[140px]" />
-      </div>
-
-      <div className="container-x relative">
+      <div className="container-x">
         <SectionHeading
-          id="galerie-titel"
-          eyebrow="Galerie"
+          id="sets-titel"
+          eyebrow="Sets"
           title={
             <>
               Sets, die ich{" "}
-              <span className="text-gradient italic">gelegt habe</span>
+              <span className="text-beige-500 italic">gelegt habe</span>
             </>
           }
-          text="Echte Sets aus dem Studio. Blättere mit den Pfeilen durch – ein Klick zeigt das Bild groß."
+          text="Echte Arbeiten aus dem Studio. Blättere mit den Pfeilen durch – ein Klick zeigt das Bild groß."
         />
 
         <Reveal>
           <div
-            className="mt-16 flex flex-col items-center"
+            className="mt-14 flex flex-col items-center"
             role="group"
             aria-roledescription="Karussell"
             aria-label="Sets aus dem Studio"
@@ -101,12 +89,9 @@ export function Gallery() {
               }
             }}
           >
-            {/* Der Stapel: die vorderste Karte liegt mittig, die nächsten
-                versetzt dahinter */}
-            {/* Der Rahmen schneidet die schräg herausragenden Karten ab, damit
-                die Seite auf dem Telefon nicht seitlich scrollt */}
+            {/* Der Rahmen schneidet die schräg herausragenden Karten ab */}
             <div className="w-full overflow-hidden py-6">
-              <div className="relative mx-auto aspect-[3/4] w-full max-w-[340px] sm:max-w-[400px]">
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-[320px] sm:max-w-[380px]">
                 {gallery.map((item, i) => {
                   const d = abstand(i, aktiv, gallery.length);
                   const sichtbar = Math.abs(d) <= SICHTBAR;
@@ -123,7 +108,7 @@ export function Gallery() {
                         y: `${Math.abs(d) * 3}%`,
                         scale: 1 - Math.abs(d) * 0.09,
                         rotate: reduceMotion ? 0 : d * 3.5,
-                        opacity: sichtbar ? 1 - Math.abs(d) * 0.35 : 0,
+                        opacity: sichtbar ? 1 - Math.abs(d) * 0.3 : 0,
                       }}
                       transition={
                         reduceMotion
@@ -150,32 +135,31 @@ export function Gallery() {
                           setLightbox(true);
                         }}
                         aria-label={`${item.caption} – Bild vergrößern`}
-                        className="group relative block h-full w-full cursor-zoom-in overflow-hidden rounded-3xl border border-white/[0.08] shadow-[var(--shadow-card)]"
+                        className="group relative block h-full w-full cursor-zoom-in overflow-hidden rounded-[1.75rem] border border-beige-300 bg-beige-300 shadow-[var(--shadow-soft)]"
                       >
                         <Image
                           src={item.src}
                           alt={vorne ? item.alt : ""}
                           fill
                           draggable={false}
-                          sizes="(max-width: 640px) 90vw, 400px"
-                          className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
+                          sizes="(max-width: 640px) 85vw, 380px"
+                          className="object-cover"
                         />
                         <span
                           aria-hidden
-                          className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/10 to-transparent opacity-80 transition-opacity duration-700 group-hover:opacity-95"
+                          className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-transparent to-transparent"
                         />
-                        {/* Karten im Hintergrund treten zurück */}
                         {!vorne ? (
                           <span
                             aria-hidden
-                            className="absolute inset-0 bg-ink-950/45"
+                            className="absolute inset-0 bg-creme-100/40"
                           />
                         ) : null}
                         <span className="absolute inset-x-6 bottom-6 flex flex-col items-start text-left">
-                          <span className="text-[9px] tracking-[0.32em] text-lilac-300/90 uppercase">
+                          <span className="text-[9px] tracking-[0.3em] text-beige-300 uppercase">
                             {item.technique}
                           </span>
-                          <span className="mt-2 font-[family-name:var(--font-display)] text-xl text-white">
+                          <span className="mt-1.5 text-lg text-white">
                             {item.caption}
                           </span>
                         </span>
@@ -186,17 +170,14 @@ export function Gallery() {
               </div>
             </div>
 
-            {/* Steuerung unter dem Stapel */}
-            <div className="mt-9 flex items-center gap-5">
+            <div className="mt-8 flex items-center gap-5">
               <button
                 type="button"
                 onClick={() => step(-1)}
                 aria-label="Vorheriges Set"
-                className="glass flex h-12 w-12 items-center justify-center rounded-full text-white/75 transition-colors duration-300 hover:text-white"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-beige-300 bg-white text-ink-900 transition-colors duration-300 hover:bg-creme-50"
               >
-                <span aria-hidden className="text-lg leading-none">
-                  ←
-                </span>
+                <span aria-hidden>←</span>
               </button>
 
               <div className="flex items-center gap-2.5">
@@ -209,8 +190,8 @@ export function Gallery() {
                     aria-current={i === aktiv}
                     className={`h-1.5 rounded-full transition-all duration-500 ${
                       i === aktiv
-                        ? "w-6 bg-lilac-300"
-                        : "w-1.5 bg-white/25 hover:bg-white/50"
+                        ? "w-6 bg-ink-900"
+                        : "w-1.5 bg-beige-400 hover:bg-beige-500"
                     }`}
                   />
                 ))}
@@ -220,17 +201,15 @@ export function Gallery() {
                 type="button"
                 onClick={() => step(1)}
                 aria-label="Nächstes Set"
-                className="glass flex h-12 w-12 items-center justify-center rounded-full text-white/75 transition-colors duration-300 hover:text-white"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-beige-300 bg-white text-ink-900 transition-colors duration-300 hover:bg-creme-50"
               >
-                <span aria-hidden className="text-lg leading-none">
-                  →
-                </span>
+                <span aria-hidden>→</span>
               </button>
             </div>
 
             <p
               aria-live="polite"
-              className="mt-5 text-[10px] tracking-[0.3em] text-white/40 uppercase"
+              className="mt-5 text-[10px] tracking-[0.3em] text-ink-300 uppercase"
             >
               {aktiv + 1} / {gallery.length} · {current.caption}
             </p>
@@ -247,34 +226,32 @@ export function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-ink-950/92 p-4 backdrop-blur-xl sm:p-8"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-creme-100/95 p-4 backdrop-blur-md sm:p-8"
             onClick={close}
           >
             <motion.figure
               key={current.id}
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 10 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-4xl"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full max-w-3xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative mx-auto aspect-[3/4] w-full max-w-[min(100%,62vh)] overflow-hidden rounded-3xl border border-white/10 shadow-[var(--shadow-soft)]">
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-[min(100%,62vh)] overflow-hidden rounded-[1.75rem] border border-beige-300 bg-beige-200">
                 <Image
                   src={current.src}
                   alt={current.alt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 900px"
+                  sizes="(max-width: 1024px) 100vw, 800px"
                   className="object-contain"
                   priority
                 />
               </div>
               <figcaption className="mt-5 flex flex-wrap items-center justify-between gap-3">
-                <span className="font-[family-name:var(--font-display)] text-xl text-white">
-                  {current.caption}
-                </span>
-                <span className="text-[10px] tracking-[0.3em] text-white/40 uppercase">
+                <span className="text-lg text-ink-900">{current.caption}</span>
+                <span className="text-[10px] tracking-[0.3em] text-ink-300 uppercase">
                   {aktiv + 1} / {gallery.length}
                 </span>
               </figcaption>
@@ -285,13 +262,10 @@ export function Gallery() {
               type="button"
               onClick={close}
               aria-label="Galerie schließen"
-              className="glass absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full text-white/80 transition-colors hover:text-white"
+              className="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full border border-beige-300 bg-white text-ink-900 transition-colors hover:bg-creme-50"
             >
-              <span aria-hidden className="text-lg leading-none">
-                ✕
-              </span>
+              <span aria-hidden>✕</span>
             </button>
-
             <button
               type="button"
               onClick={(e) => {
@@ -299,7 +273,7 @@ export function Gallery() {
                 step(-1);
               }}
               aria-label="Vorheriges Bild"
-              className="glass absolute top-1/2 left-3 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full text-white/80 transition-colors hover:text-white sm:left-6"
+              className="absolute top-1/2 left-3 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-beige-300 bg-white text-ink-900 transition-colors hover:bg-creme-50 sm:left-6"
             >
               <span aria-hidden>←</span>
             </button>
@@ -310,7 +284,7 @@ export function Gallery() {
                 step(1);
               }}
               aria-label="Nächstes Bild"
-              className="glass absolute top-1/2 right-3 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full text-white/80 transition-colors hover:text-white sm:right-6"
+              className="absolute top-1/2 right-3 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-beige-300 bg-white text-ink-900 transition-colors hover:bg-creme-50 sm:right-6"
             >
               <span aria-hidden>→</span>
             </button>

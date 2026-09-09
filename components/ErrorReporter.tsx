@@ -24,7 +24,11 @@ export function ErrorReporter() {
   useEffect(() => {
     const handle = (raw: unknown, source: string) => {
       const text =
-        typeof raw === "string" ? raw : raw instanceof Error ? `${raw.name}: ${raw.message}` : String(raw);
+        typeof raw === "string"
+          ? raw
+          : raw instanceof Error
+            ? `${raw.name}: ${raw.message}`
+            : String(raw);
       if (!text || text === "undefined") return;
 
       if (isStaleBundleError(text)) {
@@ -43,7 +47,8 @@ export function ErrorReporter() {
     };
 
     const onError = (e: ErrorEvent) => handle(e.error ?? e.message, "error");
-    const onRejection = (e: PromiseRejectionEvent) => handle(e.reason, "promise");
+    const onRejection = (e: PromiseRejectionEvent) =>
+      handle(e.reason, "promise");
 
     window.addEventListener("error", onError);
     window.addEventListener("unhandledrejection", onRejection);
@@ -71,7 +76,9 @@ export function ErrorReporter() {
       role="alert"
       className="fixed inset-x-3 bottom-3 z-[999] rounded-2xl border border-red-400/30 bg-black/90 p-4 text-left backdrop-blur-xl sm:inset-x-auto sm:right-4 sm:max-w-md"
     >
-      <p className="text-[10px] tracking-[0.28em] text-red-300/80 uppercase">Technischer Fehler</p>
+      <p className="text-[10px] tracking-[0.28em] text-red-300/80 uppercase">
+        Technischer Fehler
+      </p>
       <pre className="mt-2 max-h-40 overflow-auto font-mono text-[11px] leading-relaxed break-words whitespace-pre-wrap text-white/70">
         {message}
       </pre>

@@ -14,14 +14,18 @@ export function RechtlichesLayout({
 }) {
   return (
     <>
-      <header className="border-b border-white/[0.07]">
+      <header className="border-b border-beige-200">
         <div className="container-x flex h-[var(--nav-h)] items-center justify-between">
-          <a href="/" aria-label="Zur Startseite" className="transition-opacity hover:opacity-80">
+          <a
+            href="/"
+            aria-label="Zur Startseite"
+            className="transition-opacity hover:opacity-80"
+          >
             <BrandMark />
           </a>
           <a
             href="/"
-            className="text-[11px] tracking-[0.24em] text-white/50 uppercase transition-colors hover:text-lilac-200"
+            className="text-[11px] tracking-[0.24em] text-ink-500 uppercase transition-colors hover:text-ink-900"
           >
             Zurück
           </a>
@@ -29,11 +33,15 @@ export function RechtlichesLayout({
       </header>
 
       <main className="container-x max-w-3xl py-20 sm:py-28">
-        <p className="text-[10px] tracking-[0.42em] text-lilac-300/80 uppercase">Rechtliches</p>
-        <h1 className="mt-5 font-[family-name:var(--font-display)] text-4xl font-light text-white sm:text-5xl">
+        <p className="label">
+          Rechtliches
+        </p>
+        <h1 className="mt-5 text-3xl text-ink-900 sm:text-4xl">
           {titel}
         </h1>
-        <p className="mt-4 text-xs tracking-[0.18em] text-white/35 uppercase">Stand: {stand}</p>
+        <p className="mt-4 text-xs tracking-[0.18em] text-ink-300 uppercase">
+          Stand: {stand}
+        </p>
 
         <div className="mt-14 space-y-12">{children}</div>
       </main>
@@ -44,13 +52,19 @@ export function RechtlichesLayout({
 }
 
 /** Ein Abschnitt mit Überschrift. */
-export function Abschnitt({ titel, children }: { titel: string; children: ReactNode }) {
+export function Abschnitt({
+  titel,
+  children,
+}: {
+  titel: string;
+  children: ReactNode;
+}) {
   return (
     <section>
-      <h2 className="font-[family-name:var(--font-display)] text-2xl font-light text-white">
+      <h2 className="text-xl text-ink-900">
         {titel}
       </h2>
-      <div className="mt-4 space-y-4 text-sm leading-relaxed text-white/60 [&_a]:text-lilac-200 [&_a]:underline [&_a]:underline-offset-4 [&_strong]:font-medium [&_strong]:text-white/85">
+      <div className="mt-4 space-y-4 text-sm leading-relaxed text-ink-500 [&_a]:text-ink-900 [&_a]:underline [&_a]:underline-offset-4 [&_strong]:font-bold [&_strong]:text-ink-900">
         {children}
       </div>
     </section>

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { Abschnitt, RechtlichesLayout } from "@/components/legal/RechtlichesLayout";
+import {
+  Abschnitt,
+  RechtlichesLayout,
+} from "@/components/legal/RechtlichesLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -47,26 +50,28 @@ export default function ImpressumPage() {
 
       <Abschnitt titel="Verbraucherstreitbeilegung">
         <p>
-          Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
-          Verbraucherschlichtungsstelle teilzunehmen.
+          Ich bin nicht bereit und nicht verpflichtet, an
+          Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+          teilzunehmen.
         </p>
       </Abschnitt>
 
       <Abschnitt titel="Haftung für Inhalte und Links">
         <p>
-          Die Inhalte dieser Seiten wurden mit Sorgfalt erstellt. Für die Richtigkeit,
-          Vollständigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen. Diese
-          Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss
-          habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+          Die Inhalte dieser Seiten wurden mit Sorgfalt erstellt. Für die
+          Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann ich
+          jedoch keine Gewähr übernehmen. Diese Website enthält Links zu
+          externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe.
+          Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
           verantwortlich.
         </p>
       </Abschnitt>
 
       <Abschnitt titel="Bildrechte">
         <p>
-          Alle auf dieser Website gezeigten Fotografien von Wimpernsets stammen aus dem Studio
-          {" "}
-          {site.name} und wurden mit Einverständnis der abgebildeten Personen veröffentlicht.
+          Alle auf dieser Website gezeigten Fotografien von Wimpernsets stammen
+          aus dem Studio {site.name} und wurden mit Einverständnis der
+          abgebildeten Personen veröffentlicht.
         </p>
       </Abschnitt>
     </RechtlichesLayout>

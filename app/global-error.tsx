@@ -17,8 +17,8 @@ export default function GlobalError({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#08070b",
-          color: "#ece9f3",
+          background: "#faf6f0",
+          color: "#191512",
           fontFamily: "ui-sans-serif, system-ui, sans-serif",
           textAlign: "center",
           padding: "2rem",
@@ -28,7 +28,13 @@ export default function GlobalError({
           <h1 style={{ fontWeight: 300, fontSize: "1.75rem", margin: 0 }}>
             Die Seite konnte nicht geladen werden
           </h1>
-          <p style={{ color: "rgba(236,233,243,0.55)", marginTop: "1rem", fontSize: "0.9rem" }}>
+          <p
+            style={{
+              color: "rgba(25,21,18,0.6)",
+              marginTop: "1rem",
+              fontSize: "0.9rem",
+            }}
+          >
             Bitte lade die Seite neu.
           </p>
           <button
@@ -39,8 +45,8 @@ export default function GlobalError({
               border: 0,
               borderRadius: "999px",
               padding: "0.9rem 1.9rem",
-              background: "linear-gradient(90deg,#7844cf,#a983f7)",
-              color: "#fff",
+              background: "#191512",
+              color: "#faf6f0",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               fontSize: "0.7rem",
@@ -50,7 +56,13 @@ export default function GlobalError({
             Neu laden
           </button>
           {error.digest ? (
-            <p style={{ marginTop: "2rem", fontSize: "0.65rem", color: "rgba(236,233,243,0.25)" }}>
+            <p
+              style={{
+                marginTop: "2rem",
+                fontSize: "0.65rem",
+                color: "rgba(25,21,18,0.35)",
+              }}
+            >
               Kennung: {error.digest}
             </p>
           ) : null}

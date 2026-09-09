@@ -4,7 +4,7 @@ import { Contact } from "@/components/sections/Contact";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Termin über WhatsApp, Instagram oder Telefon – das Studio liegt auf dem Riedberg in Frankfurt am Main.",
+    "Kontakt zu La Maison d'Ana Catarina: WhatsApp, Instagram oder Telefon. Das Studio liegt in Frankfurt am Main.",
   alternates: { canonical: "/kontakt" },
 };
 

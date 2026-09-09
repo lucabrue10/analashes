@@ -1,34 +1,35 @@
 export const site = {
-  name: "aanaa.lashes",
-  /** Wortmarke in zwei Teilen – der Punkt bleibt der Akzent dazwischen. */
-  nameParts: { first: "aanaa", second: "lashes" },
-  slogan: "Wimpernverlängerungen für deinen perfekten Look",
-  /** Claim und Augenzwinkern aus dem Instagram-Profil */
-  claim: "Sets with me · Lashes with Ana",
-  warning: "Warning: These lashes cause obsession.",
+  /** Finaler Name laut Kundin. */
+  name: "La Maison d'Ana Catarina",
+  /** Kurzform für enge Stellen (Kopfzeile, Titel). */
+  kurz: "La Maison",
+  claim: "girl supports girl",
+  slogan: "Wimpern, die dir stehen – im Studio von Ana Catarina.",
   description:
-    "aanaa.lashes – Wimpernverlängerung in Frankfurt am Main, Riedberg. Classic, Hybrid, Volume, Mega Volume und UV Lashes sowie Schulungen – individuell gestylt für einen natürlich eleganten Blick.",
+    "La Maison d'Ana Catarina – Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse kommt mit der Bestätigung.",
   url: "https://lashes.adversify.de",
   locale: "de_DE",
   phone: "0155 60878913",
   phoneHref: "+4915560878913",
   whatsapp: "4915560878913",
-  whatsappText: "Hallo Anna, ich möchte gerne einen Termin buchen.",
+  whatsappText: "Hallo Ana, ich möchte gerne einen Termin anfragen.",
   instagram: "https://instagram.com/aanaa.lashes",
   instagramHandle: "@aanaa.lashes",
   email: "ana.chickenwings@icloud.com",
   /** Inhaberin – für Impressum und verantwortliche Stelle */
   owner: "Ana Catarina De Oliveira Akhouaji",
+  /**
+   * Die genaue Anschrift steht bewusst nirgends auf der Seite – sie geht erst
+   * mit der Terminbestätigung an die Kundin. Im Impressum muss sie nach § 5
+   * DDG trotzdem stehen, dort wird sie deshalb weiterhin ausgegeben.
+   */
   street: "Ernst-Abbe-Straße 8",
   district: "Riedberg",
   postalCode: "60438",
   city: "Frankfurt am Main",
   country: "DE",
-  bookingUrl: "/kontakt",
-  mapsEmbed:
-    "https://www.google.com/maps?q=Ernst-Abbe-Stra%C3%9Fe+8,+60438+Frankfurt+am+Main&output=embed",
-  mapsLink:
-    "https://www.google.com/maps/search/?api=1&query=Ernst-Abbe-Stra%C3%9Fe+8,+60438+Frankfurt+am+Main",
+  /** Höhe der Anzahlung, die den Termin verbindlich macht. */
+  anzahlung: "50 €",
 } as const;
 
 export const whatsappLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
@@ -43,14 +44,12 @@ export type NavItem = { label: string; href: string };
  */
 export const navItems: NavItem[] = [
   { label: "Start", href: "/" },
-  { label: "Galerie", href: "/#galerie" },
-  { label: "Bewertungen", href: "/#bewertungen" },
-  { label: "Über mich", href: "/#ueber-mich" },
-  { label: "Leistungen", href: "/leistungen" },
+  { label: "Sets", href: "/#sets" },
   { label: "Preise", href: "/preise" },
-  { label: "Studio", href: "/studio" },
   { label: "Pflege", href: "/pflege" },
-  { label: "Kontakt", href: "/kontakt" },
+  { label: "Über mich", href: "/#ueber-mich" },
+  { label: "Stempelkarte", href: "/stempelkarte" },
+  { label: "Termin buchen", href: "/buchen" },
 ];
 
 export type Service = {
@@ -70,7 +69,11 @@ export const services: Service[] = [
     tagline: "Classic",
     description:
       "Auf jede Naturwimper kommt genau eine Extension. Das Ergebnis ist ein wacher, natürlich definierter Blick – wie ein perfekt getuschter Wimpernkranz, nur ohne Mascara.",
-    details: ["Natürlicher Look", "Ideal für den Anfang", "Sehr leicht zu tragen"],
+    details: [
+      "Natürlicher Look",
+      "Ideal für den Anfang",
+      "Sehr leicht zu tragen",
+    ],
     duration: "ca. 90 Min.",
     from: "70 €",
   },
@@ -90,7 +93,11 @@ export const services: Service[] = [
     tagline: "Mix aus beidem",
     description:
       "Einzelne Wimpern und Fächer im Wechsel. Das erzeugt Textur und Tiefe – elegant, aber mit spürbar mehr Ausdruck als ein reines Classic-Set.",
-    details: ["Texturierter Look", "Mehr Fülle als 1 : 1", "Für jede Augenform"],
+    details: [
+      "Texturierter Look",
+      "Mehr Fülle als 1 : 1",
+      "Für jede Augenform",
+    ],
     duration: "ca. 105 Min.",
     from: "95 €",
   },
@@ -110,7 +117,11 @@ export const services: Service[] = [
     tagline: "Geschlossene Spikes",
     description:
       "Dichte, zu Spitzen geschlossene Bündel – der Effekt erinnert an frisch getuschte Wimpern. Klar, modern und ein bisschen verwegen.",
-    details: ["Angesagter Spike-Effekt", "Definierte Linie", "Starker Auftritt"],
+    details: [
+      "Angesagter Spike-Effekt",
+      "Definierte Linie",
+      "Starker Auftritt",
+    ],
     duration: "ca. 120 Min.",
     from: "95 €",
   },
@@ -130,7 +141,11 @@ export const services: Service[] = [
     tagline: "Für Einsteigerinnen & Profis",
     description:
       "Lerne das Handwerk von Grund auf oder hebe deine Technik aufs nächste Level – in kleinen Gruppen oder als Einzelcoaching.",
-    details: ["Basis, Volumen und UV", "Kleine Gruppen", "Termine nach Absprache"],
+    details: [
+      "Basis, Volumen und UV",
+      "Kleine Gruppen",
+      "Termine nach Absprache",
+    ],
     duration: "nach Absprache",
     from: "auf Anfrage",
   },
@@ -148,7 +163,12 @@ export const priceGroups: PriceGroup[] = [
     note: "Neuanfertigung inklusive Beratung und Styling",
     items: [
       { name: "1 : 1 Technik", meta: "ca. 90 Min.", price: "70 €" },
-      { name: "Soft Volumen", meta: "ca. 105 Min.", price: "85 €", featured: true },
+      {
+        name: "Soft Volumen",
+        meta: "ca. 105 Min.",
+        price: "85 €",
+        featured: true,
+      },
       { name: "Wispy", meta: "ca. 120 Min.", price: "90 €" },
       { name: "Hybrid", meta: "ca. 105 Min.", price: "95 €" },
       { name: "Wet Look", meta: "ca. 120 Min.", price: "95 €" },
@@ -160,7 +180,12 @@ export const priceGroups: PriceGroup[] = [
     note: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt – darunter ist es eine Neuanfertigung",
     items: [
       { name: "1 : 1 Technik", meta: "ca. 60 Min.", price: "50 €" },
-      { name: "Soft Volumen", meta: "ca. 75 Min.", price: "60 €", featured: true },
+      {
+        name: "Soft Volumen",
+        meta: "ca. 75 Min.",
+        price: "60 €",
+        featured: true,
+      },
       { name: "Wispy", meta: "ca. 75 Min.", price: "70 €" },
       { name: "Hybrid", meta: "ca. 75 Min.", price: "75 €" },
       { name: "Wet Look", meta: "ca. 75 Min.", price: "75 €" },
@@ -172,7 +197,11 @@ export const priceGroups: PriceGroup[] = [
     note: "Einzelcoaching oder kleine Gruppe, Inhalte nach Vorkenntnissen",
     items: [
       { name: "Basis-Schulung", meta: "nach Absprache", price: "auf Anfrage" },
-      { name: "Volumen-Schulung", meta: "nach Absprache", price: "auf Anfrage" },
+      {
+        name: "Volumen-Schulung",
+        meta: "nach Absprache",
+        price: "auf Anfrage",
+      },
       { name: "UV-Technik", meta: "nach Absprache", price: "auf Anfrage" },
       { name: "Einzelcoaching", meta: "nach Absprache", price: "auf Anfrage" },
     ],
@@ -323,14 +352,15 @@ export const aftercare = {
     "Hitze und starke Dampfentwicklung vermeiden",
     "Nach starkem Schwitzen die Wimpern reinigen",
   ],
-  wichtig: "Vereinbare deinen Refill-Termin rechtzeitig – das erspart dir eine Neuanfertigung.",
+  wichtig:
+    "Vereinbare deinen Refill-Termin rechtzeitig – das erspart dir eine Neuanfertigung.",
 };
 
 /** Verbindliche Studioregeln. */
 export const studioregeln = [
   {
     titel: "Anzahlung",
-    text: "Für jeden Termin wird eine Anzahlung fällig. Erst damit ist der Termin verbindlich reserviert.",
+    text: "Für jeden Termin wird eine Anzahlung von 50 € fällig. Erst damit ist der Termin verbindlich reserviert – und erst dann bekommst du die genaue Adresse.",
   },
   {
     titel: "Absagen",
@@ -360,9 +390,9 @@ export const studioregeln = [
  */
 export const ueberMich = {
   bild: "/ana.jpg",
-  bildAlt: "Ana, Inhaberin von aanaa.lashes",
+  bildAlt: "Ana Catarina in ihrem Studio",
   absaetze: [
-    "Ich bin Ana. Hinter aanaa.lashes steht keine Kette und kein Großsalon, sondern mein eigenes Studio auf dem Riedberg – und bei jedem Termin sitzt genau eine Kundin auf dem Stuhl.",
+    "Ich bin Ana Catarina. La Maison ist kein Salon und keine Kette, sondern mein eigenes Studio in Frankfurt – und bei jedem Termin sitzt genau eine Kundin auf dem Stuhl.",
     "Mein Anspruch ist nicht das Set, das auf dem Foto am meisten hermacht, sondern das, das zu deinem Gesicht passt und im Alltag hält. Deshalb wird jedes Design vorher auf deine Augenform und deine Naturwimpern abgestimmt, statt eine Vorlage abzuarbeiten.",
     "Ein Studio zu Hause heißt: keine Wartezone, kein Termindruck im Nacken, keine fremden Blicke. Du liegst zwei Stunden in Ruhe, ich arbeite in Ruhe – und du gehst mit einem Blick raus, für den du morgens nichts mehr tun musst.",
   ],
@@ -386,6 +416,43 @@ export const studioFeatures = [
     text: "Nur ein Termin zur gleichen Zeit. Gedämpftes Licht, warme Decke, Musik nach Wunsch.",
   },
 ];
+
+/** Die drei Schritte von der Anfrage bis zur Adresse. */
+export const buchungsSchritte = [
+  {
+    nummer: "01",
+    titel: "Termin anfragen",
+    text: "Such dir dein Set aus und schreib mir deinen Wunschtag. Ich melde mich mit freien Zeiten zurück.",
+  },
+  {
+    nummer: "02",
+    titel: "Anzahlung",
+    text: "50 € sichern deinen Platz. Sie werden am Termin vom Preis abgezogen.",
+  },
+  {
+    nummer: "03",
+    titel: "Adresse kommt",
+    text: "Mit der Bestätigung bekommst du die genaue Adresse und alles, was du vorher wissen musst.",
+  },
+];
+
+/**
+ * Digitale Stempelkarte. Die Karte liegt im Browser der Kundin – sie ersetzt
+ * die Karte aus Papier, nicht die Buchhaltung.
+ */
+export const stempelkarte = {
+  felder: 8,
+  /** Von Ana zu bestätigen, bevor die Seite online geht. */
+  belohnung: "Die 8. Behandlung geht aufs Haus",
+  hinweis:
+    "Nach jedem Termin bekommst du von mir den Code für deinen Stempel. Die Karte liegt in deinem Browser – lösch die Browserdaten, ist sie weg.",
+};
+
+export const newsletter = {
+  titel: "Nichts verpassen",
+  text: "Freie Termine, neue Sets und kleine Aktionen – ein paar Mal im Jahr, nicht öfter.",
+  hinweis: "Abmelden geht jederzeit mit einem Klick.",
+};
 
 export const faqs = [
   {

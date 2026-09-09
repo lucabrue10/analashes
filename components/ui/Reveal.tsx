@@ -48,7 +48,11 @@ export function Reveal({
   const variants: Variants = reduceMotion
     ? { hidden: { opacity: 0 }, visible: { opacity: 1 } }
     : {
-        hidden: { opacity: 0, filter: "blur(6px)", ...offset(direction, distance) },
+        hidden: {
+          opacity: 0,
+          filter: "blur(6px)",
+          ...offset(direction, distance),
+        },
         visible: { opacity: 1, filter: "blur(0px)", x: 0, y: 0 },
       };
 
@@ -59,7 +63,11 @@ export function Reveal({
       whileInView="visible"
       viewport={{ once, amount: 0.25, margin: "0px 0px -80px 0px" }}
       variants={variants}
-      transition={{ duration: reduceMotion ? 0.2 : duration, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: reduceMotion ? 0.2 : duration,
+        delay,
+        ease: [0.22, 1, 0.36, 1],
+      }}
     >
       {children}
     </MotionTag>
@@ -86,7 +94,9 @@ export function RevealGroup({
       viewport={{ once: true, amount: 0.15 }}
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: stagger, delayChildren: delay } },
+        visible: {
+          transition: { staggerChildren: stagger, delayChildren: delay },
+        },
       }}
     >
       {children}

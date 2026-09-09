@@ -6,47 +6,45 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { navItems, site, whatsappLink } from "@/lib/site";
+import { useEffect, useRef, useState } from "react";
+import { BrandMark } from "@/components/ui/BrandMark";
+import { navItems, site } from "@/lib/site";
 
 const menuVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.4, staggerChildren: 0.06, delayChildren: 0.12 },
+    transition: { duration: 0.35, staggerChildren: 0.05, delayChildren: 0.1 },
   },
   exit: {
     opacity: 0,
-    transition: { duration: 0.3, when: "afterChildren", staggerChildren: 0.03 },
+    transition: {
+      duration: 0.25,
+      when: "afterChildren",
+      staggerChildren: 0.02,
+    },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 34, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
-  exit: {
-    opacity: 0,
-    y: 18,
-    filter: "blur(6px)",
-    transition: { duration: 0.25 },
-  },
+  exit: { opacity: 0, y: 12, transition: { duration: 0.2 } },
 };
 
-export function Navbar({ brand }: { brand: ReactNode }) {
+export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { scrollY, scrollYProgress } = useScroll();
-  const panelRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
-  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 24));
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 16));
 
-  // Menü schließen bei Escape, Fokus zurück auf den Button
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -59,67 +57,47 @@ export function Navbar({ brand }: { brand: ReactNode }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Scroll sperren, solange das Overlay offen ist
   useEffect(() => {
     const { style } = document.body;
-    const previous = style.overflow;
-    style.overflow = open ? "hidden" : previous || "";
+    const vorher = style.overflow;
+    style.overflow = open ? "hidden" : vorher || "";
     return () => {
-      style.overflow = previous || "";
+      style.overflow = vorher || "";
     };
   }, [open]);
 
   useEffect(() => {
-    if (open) {
-      const first =
-        panelRef.current?.querySelector<HTMLAnchorElement>("a[href]");
-      first?.focus({ preventScroll: true });
-    }
+    if (open)
+      panelRef.current
+        ?.querySelector<HTMLAnchorElement>("a[href]")
+        ?.focus({ preventScroll: true });
   }, [open]);
 
   return (
     <>
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
           scrolled || open
-            ? "border-b border-white/[0.07] bg-ink-950/70 backdrop-blur-xl"
-            : "border-b border-transparent bg-transparent"
+            ? "border-b border-beige-200 bg-creme-100/90 backdrop-blur-md"
+            : "border-b border-transparent"
         }`}
         style={{ height: "var(--nav-h)" }}
       >
-        <div className="container-x relative flex h-full items-center justify-between">
-          {/* Links: Preise – der einzige Bereich, der neben dem Menü einen
-              eigenen Knopf hat */}
-          <a
-            href="/preise"
-            onClick={() => setOpen(false)}
-            className="glass rounded-full px-3 py-2 text-[9px] font-medium tracking-[0.14em] text-white/80 uppercase transition-colors duration-500 hover:bg-white/[0.08] hover:text-white min-[400px]:px-4 min-[400px]:py-2.5 min-[400px]:text-[10px] min-[400px]:tracking-[0.2em] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
-          >
-            Preise
-          </a>
-
-          {/* Mitte: die Marke */}
+        <div className="container-x flex h-full items-center justify-between gap-3">
+          {/* Links: der Name, immer zurück zur Startseite */}
           <a
             href="/"
-            onClick={() => setOpen(false)}
             aria-label={`${site.name} – zur Startseite`}
-            className="absolute left-1/2 flex -translate-x-1/2 items-center transition-opacity duration-500 hover:opacity-80"
+            className="transition-opacity hover:opacity-70"
           >
-            {brand}
+            <BrandMark />
           </a>
 
-          {/* Rechts: Terminwunsch und Menü */}
-          <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-gradient-to-r from-lilac-600 to-lilac-400 px-3 py-2 text-[9px] font-medium tracking-[0.14em] text-white uppercase shadow-[0_16px_40px_-20px_rgba(144,97,232,0.95)] transition-transform duration-500 hover:-translate-y-0.5 min-[400px]:px-4 min-[400px]:py-2.5 min-[400px]:text-[10px] min-[400px]:tracking-[0.2em] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.24em]"
+              href="/buchen"
+              className="rounded-full bg-ink-900 px-4 py-2.5 text-[9px] font-medium tracking-[0.16em] text-creme-100 uppercase transition-colors duration-300 hover:bg-ink-700 min-[400px]:px-5 min-[400px]:text-[10px] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.22em]"
             >
-              {/* Auf dem Telefon reicht das kurze Wort neben dem Menüknopf */}
               <span className="sm:hidden">Termin</span>
               <span className="hidden sm:inline">Termin buchen</span>
             </a>
@@ -131,49 +109,30 @@ export function Navbar({ brand }: { brand: ReactNode }) {
               aria-expanded={open}
               aria-controls="hauptmenue"
               aria-label={open ? "Menü schließen" : "Menü öffnen"}
-              className="glass group relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-colors duration-500 hover:bg-white/[0.08]"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-beige-300 bg-white transition-colors duration-300 hover:bg-creme-50"
             >
-              <span className="sr-only">
-                {open ? "Menü schließen" : "Menü öffnen"}
-              </span>
-              <span aria-hidden className="relative block h-3.5 w-5">
+              <span aria-hidden className="relative block h-3 w-4.5">
                 <motion.span
-                  className="absolute left-0 block h-[1.5px] w-5 rounded-full bg-white"
+                  className="absolute left-0 block h-[1.5px] w-[18px] rounded-full bg-ink-900"
                   animate={
-                    open ? { top: 6, rotate: 45 } : { top: 0, rotate: 0 }
+                    open ? { top: 5, rotate: 45 } : { top: 0, rotate: 0 }
                   }
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 />
                 <motion.span
-                  className="absolute top-[6px] left-0 block h-[1.5px] w-5 rounded-full bg-white"
+                  className="absolute left-0 block h-[1.5px] rounded-full bg-ink-900"
                   animate={
                     open
-                      ? { opacity: 0, scaleX: 0.4 }
-                      : { opacity: 1, scaleX: 1 }
+                      ? { top: 5, rotate: -45, width: 18 }
+                      : { top: 10, rotate: 0, width: 12 }
                   }
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.span
-                  className="absolute left-0 block h-[1.5px] rounded-full bg-white"
-                  animate={
-                    open
-                      ? { top: 6, rotate: -45, width: 20 }
-                      : { top: 12, rotate: 0, width: 13 }
-                  }
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 />
               </span>
             </button>
           </div>
         </div>
-
-        {/* Lesefortschritt */}
-        <motion.div
-          aria-hidden
-          className="absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r from-lilac-500 via-lilac-300 to-champagne"
-          style={{ scaleX: scrollYProgress }}
-        />
-      </motion.header>
+      </header>
 
       <AnimatePresence>
         {open ? (
@@ -184,67 +143,38 @@ export function Navbar({ brand }: { brand: ReactNode }) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-40 overflow-y-auto bg-ink-950/95 backdrop-blur-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Hauptmenü"
+            className="fixed inset-0 z-40 overflow-y-auto bg-creme-100"
           >
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 overflow-hidden"
-            >
-              <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-lilac-600/20 blur-[140px]" />
-              <div className="absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-lilac-800/25 blur-[130px]" />
-            </div>
-
-            <nav className="container-x relative flex min-h-full flex-col justify-center pt-[calc(var(--nav-h)+2rem)] pb-14">
-              <ul className="flex flex-col gap-1 sm:gap-2">
+            <nav className="container-x flex min-h-full flex-col justify-center pt-[calc(var(--nav-h)+2rem)] pb-14">
+              <ul className="flex flex-col">
                 {navItems.map((item, i) => (
                   <motion.li key={item.href} variants={itemVariants}>
                     <a
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="group flex items-baseline gap-5 py-2 sm:py-2.5"
+                      className="group flex items-baseline gap-5 border-b border-beige-200 py-4"
                     >
-                      <span className="w-8 shrink-0 font-mono text-[10px] tracking-[0.3em] text-lilac-400/70">
+                      <span className="w-6 shrink-0 text-[10px] tracking-[0.26em] text-ink-300">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="relative font-[family-name:var(--font-display)] text-3xl font-light text-white/80 transition-colors duration-500 group-hover:text-white sm:text-4xl md:text-5xl">
+                      <span className="text-2xl text-ink-900 transition-colors duration-300 group-hover:text-ink-500 sm:text-3xl">
                         {item.label}
-                        <span
-                          aria-hidden
-                          className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-lilac-300 to-transparent transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
-                        />
                       </span>
                     </a>
                   </motion.li>
                 ))}
-                <motion.li variants={itemVariants} className="mt-5">
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setOpen(false)}
-                    className="group inline-flex items-center gap-4 rounded-full bg-gradient-to-r from-lilac-600 to-lilac-400 px-8 py-4 text-xs font-medium tracking-[0.24em] text-white uppercase shadow-[0_20px_60px_-24px_rgba(144,97,232,0.95)] transition-transform duration-500 hover:-translate-y-0.5"
-                  >
-                    Termin buchen
-                    <span
-                      aria-hidden
-                      className="transition-transform duration-500 group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
-                  </a>
-                </motion.li>
               </ul>
 
               <motion.div
                 variants={itemVariants}
-                className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-3 border-t border-white/10 pt-7 text-xs tracking-[0.22em] text-white/45 uppercase"
+                className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-[10px] tracking-[0.24em] text-ink-500 uppercase"
               >
                 <a
                   href={`tel:${site.phoneHref}`}
-                  className="transition-colors hover:text-lilac-200"
+                  className="hover:text-ink-900"
                 >
                   {site.phone}
                 </a>
@@ -252,13 +182,11 @@ export function Navbar({ brand }: { brand: ReactNode }) {
                   href={site.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-lilac-200"
+                  className="hover:text-ink-900"
                 >
                   Instagram {site.instagramHandle}
                 </a>
-                <span>
-                  {site.district} · {site.city}
-                </span>
+                <span>{site.city}</span>
               </motion.div>
             </nav>
           </motion.div>

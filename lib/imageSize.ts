@@ -25,7 +25,11 @@ export function hasTransparency(file: string): boolean {
   }
 
   // WebP: im erweiterten Format steckt die Angabe in den Merkmalsbits
-  if (buf.length > 21 && buf.toString("ascii", 0, 4) === "RIFF" && buf.toString("ascii", 8, 12) === "WEBP") {
+  if (
+    buf.length > 21 &&
+    buf.toString("ascii", 0, 4) === "RIFF" &&
+    buf.toString("ascii", 8, 12) === "WEBP"
+  ) {
     const format = buf.toString("ascii", 12, 16);
     if (format === "VP8X") return (buf[20] & 0x10) !== 0;
     if (format === "VP8L") return (buf[24] & 0x10) !== 0;

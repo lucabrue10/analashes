@@ -48,8 +48,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08070b",
-  colorScheme: "dark",
+  themeColor: "#faf6f0",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
@@ -62,7 +62,7 @@ const jsonLd = {
   url: site.url,
   telephone: site.phone,
   email: site.email,
-  image: `${site.url}/studio.svg`,
+  image: `${site.url}/ana.jpg`,
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
@@ -76,7 +76,11 @@ const jsonLd = {
   areaServed: site.city,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
@@ -95,7 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </noscript>
         <a
           href="#inhalt"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-lilac-500 focus:px-5 focus:py-3 focus:text-sm focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-ink-900 focus:px-5 focus:py-3 focus:text-sm focus:text-creme-100"
         >
           Zum Inhalt springen
         </a>

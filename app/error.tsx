@@ -20,26 +20,29 @@ export default function Error({
 
   return (
     <main className="flex min-h-screen items-center justify-center px-6 py-24">
-      <div className="glass w-full max-w-lg rounded-3xl p-10 text-center shadow-[var(--shadow-soft)]">
-        <p className="text-[10px] tracking-[0.42em] text-lilac-300/80 uppercase">Kurz gestolpert</p>
-        <h1 className="mt-5 font-[family-name:var(--font-display)] text-3xl font-light text-white sm:text-4xl">
+      <div className="karte w-full max-w-lg p-10 text-center">
+        <p className="label">
+          Kurz gestolpert
+        </p>
+        <h1 className="mt-5 text-3xl text-ink-900 sm:text-4xl">
           Die Seite konnte nicht geladen werden
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-white/55">
-          Meist hilft schon ein Neuladen. Bleibt es dabei, erreichst du uns jederzeit direkt.
+          Meist hilft schon ein Neuladen. Bleibt es dabei, erreichst du uns
+          jederzeit direkt.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <button
             type="button"
             onClick={reset}
-            className="rounded-full bg-gradient-to-r from-lilac-600 to-lilac-400 px-7 py-3.5 text-[11px] font-medium tracking-[0.24em] text-white uppercase transition-transform duration-500 hover:-translate-y-0.5"
+            className="rounded-full bg-ink-900 px-7 py-3.5 text-[11px] font-medium tracking-[0.22em] text-creme-100 uppercase transition-colors duration-300 hover:bg-ink-700"
           >
             Neu laden
           </button>
           <a
             href="/"
-            className="glass rounded-full px-7 py-3.5 text-[11px] font-medium tracking-[0.24em] text-white/85 uppercase transition-colors duration-500 hover:text-white"
+            className="rounded-full border border-beige-300 px-7 py-3.5 text-[11px] font-medium tracking-[0.22em] text-ink-700 uppercase transition-colors duration-300 hover:bg-white"
           >
             Zur Startseite
           </a>
