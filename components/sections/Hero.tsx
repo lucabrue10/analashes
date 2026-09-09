@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { BrandMark } from "@/components/ui/BrandMark";
+import { Wortmarke } from "@/components/ui/BrandMark";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SpruchWechsel } from "@/components/ui/SpruchWechsel";
@@ -33,7 +33,7 @@ export function Hero() {
 
           <Reveal delay={0.08}>
             <h1 id="hero-titel" className="mt-6">
-              <BrandMark size="gross" />
+              <Wortmarke className="text-[clamp(2.6rem,9vw,6rem)]" />
             </h1>
           </Reveal>
 
