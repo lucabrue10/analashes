@@ -12,7 +12,7 @@ export function Faq() {
   return (
     <section
       aria-labelledby="faq-titel"
-      className="bg-beige-200/60 py-20 sm:py-28"
+      className="bg-creme-100 py-20 sm:py-28"
     >
       <div className="container-x relative">
         <SectionHeading

@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { Ablauf3 } from "@/components/sections/Ablauf3";
+import { Faq } from "@/components/sections/Faq";
 import { Gallery } from "@/components/sections/Gallery";
 import { Hero } from "@/components/sections/Hero";
 import { Newsletter } from "@/components/sections/Newsletter";
@@ -15,11 +16,12 @@ export default function Home() {
       <main id="inhalt">
         <Hero />
         <Spruchband />
-        <Ablauf3 />
         <Gallery />
         <Testimonials />
         <Spruchband variante="hell" />
         <UeberMich />
+        <Faq />
+        <Ablauf3 />
         <Newsletter />
       </main>
       <Footer />

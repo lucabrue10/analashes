@@ -8,7 +8,7 @@ export function Ablauf3() {
     <section
       id="ablauf"
       aria-labelledby="ablauf-titel"
-      className="bg-creme-100 py-20 sm:py-28"
+      className="bg-beige-200/60 py-20 sm:py-28"
     >
       <div className="container-x">
         <SectionHeading

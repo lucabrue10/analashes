@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Buchung } from "@/components/sections/Buchung";
-import { Faq } from "@/components/sections/Faq";
 
 export const metadata: Metadata = {
   title: "Termin buchen",
@@ -10,10 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function BuchenSeite() {
-  return (
-    <>
-      <Buchung />
-      <Faq />
-    </>
-  );
+  return <Buchung />;
 }
