@@ -13,6 +13,7 @@ export function Pricing() {
         <SectionHeading
           id="preise-titel"
           eyebrow="Preise"
+          spruch="no hidden fees, ever"
           title={
             <>
               Transparent, fair,{" "}

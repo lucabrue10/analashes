@@ -33,12 +33,8 @@ export function RechtlichesLayout({
       </header>
 
       <main className="container-x max-w-3xl py-20 sm:py-28">
-        <p className="label">
-          Rechtliches
-        </p>
-        <h1 className="mt-5 text-3xl text-ink-900 sm:text-4xl">
-          {titel}
-        </h1>
+        <p className="label">Rechtliches</p>
+        <h1 className="mt-5 text-3xl text-ink-900 sm:text-4xl">{titel}</h1>
         <p className="mt-4 text-xs tracking-[0.18em] text-ink-300 uppercase">
           Stand: {stand}
         </p>
@@ -61,9 +57,7 @@ export function Abschnitt({
 }) {
   return (
     <section>
-      <h2 className="text-xl text-ink-900">
-        {titel}
-      </h2>
+      <h2 className="text-xl text-ink-900">{titel}</h2>
       <div className="mt-4 space-y-4 text-sm leading-relaxed text-ink-500 [&_a]:text-ink-900 [&_a]:underline [&_a]:underline-offset-4 [&_strong]:font-bold [&_strong]:text-ink-900">
         {children}
       </div>

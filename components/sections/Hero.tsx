@@ -2,6 +2,7 @@ import Image from "next/image";
 import { BrandMark } from "@/components/ui/BrandMark";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { SpruchWechsel } from "@/components/ui/SpruchWechsel";
 import { gallery, site } from "@/lib/site";
 
 /** Drei Aufnahmen über dem Namen – so von der Kundin gewünscht. */
@@ -22,8 +23,8 @@ export function Hero() {
 
       <div className="container-x relative pt-10 pb-20 sm:pt-14 sm:pb-24">
         <Reveal>
-          <p className="text-center text-[10px] tracking-[0.42em] text-ink-500 uppercase">
-            {site.claim}
+          <p className="flex justify-center text-[10px] tracking-[0.42em] text-ink-500 uppercase">
+            <SpruchWechsel />
           </p>
         </Reveal>
 

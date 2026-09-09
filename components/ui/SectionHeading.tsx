@@ -3,6 +3,8 @@ import { Reveal } from "./Reveal";
 
 type Props = {
   eyebrow?: string;
+  /** Englischer Spruch unter der Überschrift – setzt den Ton der Seite. */
+  spruch?: string;
   title: ReactNode;
   text?: ReactNode;
   align?: "left" | "center";
@@ -11,6 +13,7 @@ type Props = {
 
 export function SectionHeading({
   eyebrow,
+  spruch,
   title,
   text,
   align = "center",
@@ -32,6 +35,13 @@ export function SectionHeading({
           {title}
         </h2>
       </Reveal>
+      {spruch ? (
+        <Reveal delay={0.1}>
+          <p className="mt-3 font-[family-name:var(--font-script)] text-2xl text-beige-500 sm:text-[1.75rem]">
+            {spruch}
+          </p>
+        </Reveal>
+      ) : null}
       {text ? (
         <Reveal delay={0.12}>
           <p

@@ -63,6 +63,7 @@ export function Gallery() {
         <SectionHeading
           id="sets-titel"
           eyebrow="Sets"
+          spruch="the lashes are lashing"
           title={
             <>
               Sets, die ich{" "}

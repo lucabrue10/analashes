@@ -53,6 +53,7 @@ export function Stempelkarte() {
         <SectionHeading
           id="stempelkarte-titel"
           eyebrow="Treue"
+          spruch="loyalty looks good on you"
           title={
             <>
               Deine <span className="text-beige-500 italic">Stempelkarte</span>

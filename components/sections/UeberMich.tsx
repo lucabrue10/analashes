@@ -33,6 +33,7 @@ export function UeberMich() {
           <SectionHeading
             id="ueber-mich-titel"
             eyebrow="Über mich"
+            spruch="your girl, your look"
             align="left"
             title={
               <>

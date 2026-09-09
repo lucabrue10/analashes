@@ -14,6 +14,7 @@ export function Ablauf3() {
         <SectionHeading
           id="ablauf-titel"
           eyebrow="So läuft es"
+          spruch="three steps, zero stress"
           title="Drei Schritte, dann liegst du auf der Liege"
         />
 

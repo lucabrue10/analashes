@@ -18,6 +18,7 @@ export function Testimonials() {
         <SectionHeading
           id="feedback-titel"
           eyebrow="Feedback"
+          spruch="receipts, not promises"
           title={
             <>
               Was danach im{" "}

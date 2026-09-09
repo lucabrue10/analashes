@@ -76,6 +76,7 @@ export function Contact() {
         <SectionHeading
           id="kontakt-titel"
           eyebrow="Kontakt"
+          spruch="slide into my DMs"
           title={
             <>
               Bereit für deinen{" "}

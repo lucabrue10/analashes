@@ -37,6 +37,7 @@ export function Ablauf() {
         <SectionHeading
           id="pflege-titel"
           eyebrow="Vorbereitung & Pflege"
+          spruch="handle with care"
           title={
             <>
               Damit dein Set{" "}

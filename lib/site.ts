@@ -417,6 +417,32 @@ export const studioFeatures = [
   },
 ];
 
+/**
+ * Englische Sprüche als Ton der Seite: verspielt, ein bisschen frech, nie
+ * anzüglich. Sie laufen im Band zwischen den Abschnitten und wechseln unter
+ * dem Namen im Kopf der Startseite.
+ */
+export const sprueche = [
+  "girl supports girl",
+  "better than your ex",
+  "your face card never declines",
+  "blink and they stare",
+  "quality over quantity, always",
+  "petite, elegant, unbothered",
+  "wake up like this — for real",
+  "soft girl, sharp look",
+  "main character energy",
+  "no mascara, no problem",
+];
+
+/** Kurz und knackig – wechselt unter dem Namen. */
+export const heroSprueche = [
+  "girl supports girl",
+  "better than your ex",
+  "blink and they stare",
+  "main character energy",
+];
+
 /** Die drei Schritte von der Anfrage bis zur Adresse. */
 export const buchungsSchritte = [
   {

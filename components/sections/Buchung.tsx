@@ -55,6 +55,7 @@ export function Buchung() {
         <SectionHeading
           id="buchen-titel"
           eyebrow="Termin"
+          spruch="your seat, your rules"
           title={
             <>
               Deinen Platz{" "}
