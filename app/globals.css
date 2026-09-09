@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "./fonts-allura.css";
-@import "./fonts-bodoni.css";
 
 @theme {
   /* Creme, Beige, ein wenig Schwarz – mehr Farben hat die Seite nicht. */
@@ -21,9 +20,8 @@
   --color-ink-500: #6b5f54;
   --color-ink-300: #9c8f82;
 
-  /* Bodoni Moda – dieselbe Machart wie "MAISON" im Logo. Die Schreibschrift
-     bleibt dem Namen im Kopf vorbehalten. */
-  --font-sans: "Bodoni Moda", "Didot", Georgia, "Times New Roman", serif;
+  /* Arial für alles Gelesene, die Schreibschrift nur für den Namen. */
+  --font-sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
   --font-script: "Allura", "Snell Roundhand", "Brush Script MT", cursive;
 
   --shadow-soft: 0 30px 80px -50px rgb(61 53 46 / 0.55);
@@ -53,8 +51,6 @@ body {
   background-color: var(--color-creme-100);
   color: var(--color-ink-900);
   font-family: var(--font-sans);
-  /* Kleine Größen werden kräftiger gezeichnet als die Überschriften */
-  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -105,13 +101,3 @@ body {
   box-shadow: var(--shadow-card);
 }
 
-/**
- * Preise und Zahlen: Bodoni zeichnet die Querbalken des Euro-Zeichens als
- * Haarlinien – ab etwa 18 px verschwinden sie und aus "€" wird ein "C".
- * Etwas mehr Gewicht und eine kleinere optische Größe halten sie sichtbar.
- */
-@utility preis {
-  font-weight: 600;
-  font-optical-sizing: none;
-  font-variation-settings: "opsz" 12;
-}

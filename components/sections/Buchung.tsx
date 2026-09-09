@@ -188,7 +188,7 @@ export function Buchung() {
               <p className="label">Gut zu wissen</p>
               <dl className="mt-6 space-y-6 text-sm leading-relaxed text-ink-700">
                 <div>
-                  <dt className="font-bold">Anzahlung <span className="preis">{site.anzahlung}</span></dt>
+                  <dt className="font-bold">Anzahlung {site.anzahlung}</dt>
                   <dd className="mt-1.5 text-ink-500">
                     Sichert deinen Platz und wird am Termin vom Preis abgezogen.
                   </dd>
