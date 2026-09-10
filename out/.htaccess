@@ -22,3 +22,13 @@ ErrorDocument 404 /404.html
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 </IfModule>
+
+# Manche Server liefern Stylesheets und Schriften als "einfachen Text" aus.
+# Browser lehnen ein Stylesheet dann ab und die Seite erscheint ungestaltet.
+<IfModule mod_mime.c>
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType font/woff2 .woff2
+  AddType image/svg+xml .svg
+  AddType application/json .json
+</IfModule>
