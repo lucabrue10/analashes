@@ -1,0 +1,43 @@
+name: Auf maisonac.de veröffentlichen
+
+# Läuft bei jeder Änderung am Arbeitszweig – und lässt sich im Reiter
+# "Actions" auch von Hand auslösen.
+on:
+  push:
+    branches: [claude/anna-blush-lashes-site-r13pxp]
+  workflow_dispatch:
+
+jobs:
+  veroeffentlichen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Quellcode holen
+        uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Pakete installieren
+        run: npm ci
+
+      - name: Seite bauen
+        run: npm run build
+
+      # Lädt nur, was sich geändert hat – der erste Lauf überträgt alles,
+      # danach geht es in Sekunden.
+      - name: Per FTP hochladen
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: ./public_html/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/index.txt
