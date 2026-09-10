@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./fonts-allura.css";
+@import "./fonts-bodoni.css";
 
 @theme {
   /* Creme, Beige, ein wenig Schwarz – mehr Farben hat die Seite nicht. */
@@ -20,8 +21,10 @@
   --color-ink-500: #6b5f54;
   --color-ink-300: #9c8f82;
 
-  /* Arial für alles Gelesene, die Schreibschrift nur für den Namen. */
+  /* Arial für alles Gelesene. Bodoni Moda nur für den Namen im Kopf –
+     dieselbe Machart wie "MAISON" im Logo. */
   --font-sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-display: "Bodoni Moda", "Didot", Georgia, "Times New Roman", serif;
   --font-script: "Allura", "Snell Roundhand", "Brush Script MT", cursive;
 
   --shadow-soft: 0 30px 80px -50px rgb(61 53 46 / 0.55);

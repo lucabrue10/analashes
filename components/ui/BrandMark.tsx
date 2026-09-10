@@ -20,11 +20,14 @@ export function BrandMark({ size = "nav" }: { size?: "nav" | "footer" }) {
   );
 }
 
-/** Der Name in Schreibschrift – nur noch groß im Kopf der Startseite. */
+/**
+ * Der Name groß im Kopf der Startseite – in der Schrift des Logos, gesperrt
+ * gesetzt wie "MAISON" darin.
+ */
 export function Wortmarke({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`font-[family-name:var(--font-script)] leading-[1.3] text-ink-900 ${className}`}
+      className={`font-[family-name:var(--font-display)] leading-[1.15] font-normal tracking-[0.06em] text-ink-900 ${className}`}
     >
       {site.name}
     </span>
