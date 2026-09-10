@@ -38,19 +38,30 @@ jobs:
       - name: Seite bauen
         run: npm run build
 
-      # Lädt nur, was sich geändert hat – der erste Lauf überträgt alles,
-      # danach geht es in Sekunden.
+      # lftp statt einer fertigen Action: Es legt verschachtelte Ordner
+      # zuverlässig an, wiederholt abgebrochene Übertragungen selbst und
+      # kommt mit den Eigenheiten einfacher FTP-Server zurecht.
+      - name: lftp installieren
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
       - name: Per FTP hochladen
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          timeout: 60000
-          server-dir: ./public_html/
-          dangerous-clean-slate: ${{ inputs.sauber == 'ja' }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/index.txt
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set cmd:fail-exit true;
+            set ftp:ssl-allow true;
+            set ftp:ssl-force false;
+            set ssl:verify-certificate no;
+            set net:max-retries 5;
+            set net:reconnect-interval-base 5;
+            set net:timeout 30;
+            set ftp:use-mdtm false;
+            set mirror:parallel-transfer-count 1;
+            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
+            mirror --reverse --delete --verbose --ignore-time \
+                   --exclude-glob .ftp-deploy-sync-state.json \
+                   ./out/ /public_html/;
+          "
