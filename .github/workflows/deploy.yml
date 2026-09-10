@@ -17,6 +17,8 @@ concurrency:
 jobs:
   veroeffentlichen:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Quellcode holen
         uses: actions/checkout@v4
@@ -33,45 +35,18 @@ jobs:
       - name: Seite bauen
         run: npm run build
 
-      # Der FTP-Zugang von Hostinger verweigert nach wenigen angelegten
-      # Ordnern den Dienst. Deshalb geht die Seite als ein einziges Archiv
-      # hinüber – zwei Dateien, kein einziger Ordner – und der Server packt
-      # sie selbst aus.
-      - name: Archiv schnüren
-        run: |
-          KENNWORT="$(openssl rand -hex 24)"
-          echo "::add-mask::$KENNWORT"
-          echo "KENNWORT=$KENNWORT" >> "$GITHUB_ENV"
-          sed "s/__KENNWORT__/$KENNWORT/" tools/entpacken.php > out-entpacken.php
-          (cd out && zip -qr ../seite.zip .)
-          ls -lh seite.zip
-
-      - name: lftp installieren
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-
-      - name: Archiv hochladen
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          lftp -c "
-            set cmd:fail-exit true;
-            set ftp:ssl-allow true;
-            set ssl:verify-certificate no;
-            set net:max-retries 5;
-            set net:timeout 30;
-            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
-            cd /public_html;
-            put -O . seite.zip;
-            put -O . -o entpacken.php out-entpacken.php;
-          "
-
-      - name: Auf dem Server entpacken
-        run: |
-          ANTWORT="$(curl -sS --max-time 180 "https://maisonac.de/entpacken.php?t=$KENNWORT")"
-          echo "$ANTWORT"
-          case "$ANTWORT" in
-            OK*) echo "Veröffentlichung abgeschlossen." ;;
-            *) echo "::error::Entpacken fehlgeschlagen: $ANTWORT"; exit 1 ;;
-          esac
+      # Der FTP-Zugang von Hostinger bricht bei verschachtelten Ordnern ab
+      # und sperrt nach mehreren Versuchen ganz. Deshalb legt die Automatik
+      # das fertige Ergebnis in den Zweig "deploy"; Hostinger holt es sich
+      # von dort über seine eigene Git-Verbindung – ohne FTP.
+      - name: Fertige Seite in den Zweig "deploy" legen
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: deploy
+          publish_dir: ./out
+          force_orphan: true
+          enable_jekyll: true
+          commit_message: "Fertige Seite aktualisiert"
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
