@@ -26,7 +26,7 @@ export function Hero() {
 
             <Reveal delay={0.08}>
               <h1 id="hero-titel" className="mt-6">
-                <Wortmarke className="text-[clamp(2.6rem,9vw,6rem)]" />
+                <Wortmarke className="text-[clamp(1.7rem,5.6vw,3.9rem)]" />
               </h1>
             </Reveal>
 

@@ -27,7 +27,7 @@ export function BrandMark({ size = "nav" }: { size?: "nav" | "footer" }) {
 export function Wortmarke({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`font-[family-name:var(--font-display)] leading-[1.15] font-normal tracking-[0.06em] text-ink-900 ${className}`}
+      className={`font-[family-name:var(--font-display)] leading-[1.25] font-normal tracking-[0.18em] text-ink-900 uppercase ${className}`}
     >
       {site.name}
     </span>
