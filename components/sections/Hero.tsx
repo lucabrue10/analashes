@@ -73,7 +73,13 @@ export function Hero() {
         <div className="mt-12 flex flex-col items-center text-center sm:mt-14">
           <Reveal delay={0.3}>
             <div className="flex flex-col items-center gap-3 sm:flex-row">
-              <Button href="/buchen">Termin buchen</Button>
+              <Button
+                href={site.buchungUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Termin buchen
+              </Button>
               <Button href="/preise" variant="ghost">
                 Preise ansehen
               </Button>

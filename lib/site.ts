@@ -30,6 +30,13 @@ export const site = {
   country: "DE",
   /** Höhe der Anzahlung, die den Termin verbindlich macht. */
   anzahlung: "50 €",
+  /**
+   * Buchungskalender bei Fresha. Wir verlinken bewusst dorthin, statt den
+   * Kalender einzubetten: So fließen erst nach dem Klick Daten zu Fresha –
+   * ein Einwilligungsbanner wäre sonst nötig.
+   */
+  buchungUrl:
+    "https://www.fresha.com/book-now/la-maison-dana-catarina-bn7wun48/all-offer?share=true&pId=3091601",
 } as const;
 
 export const whatsappLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
@@ -447,13 +454,13 @@ export const heroSprueche = [
 export const buchungsSchritte = [
   {
     nummer: "01",
-    titel: "Termin anfragen",
-    text: "Such dir dein Set aus und schreib mir deinen Wunschtag. Ich melde mich mit freien Zeiten zurück.",
+    titel: "Termin wählen",
+    text: "Im Kalender siehst du meine freien Zeiten – such dir Leistung, Tag und Uhrzeit aus.",
   },
   {
     nummer: "02",
     titel: "Anzahlung",
-    text: "50 € sichern deinen Platz. Sie werden am Termin vom Preis abgezogen.",
+    text: "50 € sichern deinen Platz und werden am Termin vom Preis abgezogen.",
   },
   {
     nummer: "03",

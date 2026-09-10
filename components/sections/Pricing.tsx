@@ -77,7 +77,9 @@ export function Pricing() {
         <Reveal delay={0.2}>
           <div className="mt-12 flex flex-col items-center gap-4 text-center">
             <a
-              href="/buchen"
+              href={site.buchungUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-ink-900 px-8 py-4 text-[11px] font-medium tracking-[0.22em] text-creme-100 uppercase transition-colors duration-300 hover:bg-ink-700"
             >
               Termin buchen
