@@ -55,17 +55,25 @@ export default function GlobalError({
           >
             Neu laden
           </button>
-          {error.digest ? (
-            <p
-              style={{
-                marginTop: "2rem",
-                fontSize: "0.65rem",
-                color: "rgba(25,21,18,0.35)",
-              }}
-            >
-              Kennung: {error.digest}
-            </p>
-          ) : null}
+          <pre
+            style={{
+              marginTop: "2rem",
+              maxWidth: "34rem",
+              overflow: "auto",
+              textAlign: "left",
+              fontFamily: "ui-monospace, monospace",
+              fontSize: "0.65rem",
+              lineHeight: 1.6,
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-word",
+              background: "#efe4d6",
+              borderRadius: "1rem",
+              padding: "1rem",
+            }}
+          >
+            {error.message || "Kein Wortlaut vorhanden"}
+            {error.digest ? `\n\nKennung: ${error.digest}` : ""}
+          </pre>
         </div>
       </body>
     </html>

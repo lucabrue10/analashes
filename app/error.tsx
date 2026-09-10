@@ -27,7 +27,7 @@ export default function Error({
         <h1 className="mt-5 text-3xl text-ink-900 sm:text-4xl">
           Die Seite konnte nicht geladen werden
         </h1>
-        <p className="mt-4 text-sm leading-relaxed text-white/55">
+        <p className="mt-4 text-sm leading-relaxed text-ink-500">
           Meist hilft schon ein Neuladen. Bleibt es dabei, erreichst du uns
           jederzeit direkt.
         </p>
@@ -48,11 +48,12 @@ export default function Error({
           </a>
         </div>
 
-        {error.digest ? (
-          <p className="mt-8 font-mono text-[10px] tracking-widest text-white/25">
-            Kennung: {error.digest}
-          </p>
-        ) : null}
+        {/* Der Wortlaut hilft bei der Fehlersuche – ohne ihn ist jede
+            Ferndiagnose Raterei. */}
+        <pre className="mt-8 max-h-52 overflow-auto rounded-2xl bg-beige-200 p-4 text-left font-mono text-[10px] leading-relaxed break-words whitespace-pre-wrap text-ink-700">
+          {error.message || "Kein Wortlaut vorhanden"}
+          {error.digest ? `\n\nKennung: ${error.digest}` : ""}
+        </pre>
       </div>
     </main>
   );
