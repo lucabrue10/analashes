@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
+/** Für den statischen Export: Datei wird beim Build erzeugt. */
+export const dynamic = "force-static";
+
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
