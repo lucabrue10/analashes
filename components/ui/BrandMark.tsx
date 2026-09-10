@@ -27,7 +27,11 @@ export function BrandMark({ size = "nav" }: { size?: "nav" | "footer" }) {
 export function Wortmarke({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`font-[family-name:var(--font-display)] leading-[1.25] font-normal tracking-[0.18em] text-ink-900 uppercase ${className}`}
+      // Bodoni zeichnet große Grade mit haarfeinen Strichen. Kräftigeres
+      // Gewicht und eine kleinere optische Größe halten den Schriftzug
+      // lesbar, ohne die Machart des Logos zu verlieren.
+      style={{ fontOpticalSizing: "none", fontVariationSettings: '"opsz" 16' }}
+      className={`font-[family-name:var(--font-display)] leading-[1.25] font-semibold tracking-[0.16em] text-ink-900 uppercase ${className}`}
     >
       {site.name}
     </span>
