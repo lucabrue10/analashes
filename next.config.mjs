@@ -17,6 +17,14 @@ const nextConfig = {
   /** Jede Seite bekommt einen eigenen Ordner mit index.html – so findet
    *  Apache sie auch ohne Umschreiberegeln. */
   trailingSlash: true,
+
+  /**
+   * Fester Name für den Ordner der Programmdateien. Sonst erzeugt jeder Build
+   * einen neuen Zufallsnamen; beim Hochladen muss der alte Ordner gelöscht
+   * werden, und schlägt das fehl, bricht die Übertragung mittendrin ab – auf
+   * dem Server liegt dann eine Mischung aus altem und neuem Stand.
+   */
+  generateBuildId: () => "maison",
 };
 
 export default nextConfig;

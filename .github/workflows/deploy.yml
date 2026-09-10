@@ -6,6 +6,11 @@ on:
   push:
     branches: [claude/anna-blush-lashes-site-r13pxp]
   workflow_dispatch:
+    inputs:
+      sauber:
+        description: 'Zielordner vorher komplett leeren (ja/nein)'
+        default: 'nein'
+        required: false
 
 jobs:
   veroeffentlichen:
@@ -36,7 +41,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: ./public_html/
-          dangerous-clean-slate: false
+          dangerous-clean-slate: ${{ inputs.sauber == 'ja' }}
           exclude: |
             **/.git*
             **/.git*/**
