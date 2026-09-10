@@ -7,7 +7,7 @@ export const site = {
   slogan: "Wimpern, die dir stehen – im Studio von Ana Catarina.",
   description:
     "La Maison d'Ana Catarina – Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse kommt mit der Bestätigung.",
-  url: "https://lashes.adversify.de",
+  url: "https://maisonac.de",
   locale: "de_DE",
   phone: "0155 60878913",
   phoneHref: "+4915560878913",
