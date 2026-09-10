@@ -6,11 +6,6 @@ on:
   push:
     branches: [claude/anna-blush-lashes-site-r13pxp]
   workflow_dispatch:
-    inputs:
-      sauber:
-        description: 'Zielordner vorher komplett leeren (ja/nein)'
-        default: 'nein'
-        required: false
 
 # Hostinger lässt nur wenige FTP-Verbindungen gleichzeitig zu. Zwei
 # parallele Läufe blockieren sich gegenseitig, deshalb wird hier in
@@ -38,13 +33,23 @@ jobs:
       - name: Seite bauen
         run: npm run build
 
-      # lftp statt einer fertigen Action: Es legt verschachtelte Ordner
-      # zuverlässig an, wiederholt abgebrochene Übertragungen selbst und
-      # kommt mit den Eigenheiten einfacher FTP-Server zurecht.
+      # Der FTP-Zugang von Hostinger verweigert nach wenigen angelegten
+      # Ordnern den Dienst. Deshalb geht die Seite als ein einziges Archiv
+      # hinüber – zwei Dateien, kein einziger Ordner – und der Server packt
+      # sie selbst aus.
+      - name: Archiv schnüren
+        run: |
+          KENNWORT="$(openssl rand -hex 24)"
+          echo "::add-mask::$KENNWORT"
+          echo "KENNWORT=$KENNWORT" >> "$GITHUB_ENV"
+          sed "s/__KENNWORT__/$KENNWORT/" tools/entpacken.php > out-entpacken.php
+          (cd out && zip -qr ../seite.zip .)
+          ls -lh seite.zip
+
       - name: lftp installieren
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
-      - name: Per FTP hochladen
+      - name: Archiv hochladen
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -53,15 +58,20 @@ jobs:
           lftp -c "
             set cmd:fail-exit true;
             set ftp:ssl-allow true;
-            set ftp:ssl-force false;
             set ssl:verify-certificate no;
             set net:max-retries 5;
-            set net:reconnect-interval-base 5;
             set net:timeout 30;
-            set ftp:use-mdtm false;
-            set mirror:parallel-transfer-count 1;
             open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
-            mirror --reverse --delete --verbose --ignore-time \
-                   --exclude-glob .ftp-deploy-sync-state.json \
-                   ./out/ /public_html/;
+            cd /public_html;
+            put -O . seite.zip;
+            put -O . -o entpacken.php out-entpacken.php;
           "
+
+      - name: Auf dem Server entpacken
+        run: |
+          ANTWORT="$(curl -sS --max-time 180 "https://maisonac.de/entpacken.php?t=$KENNWORT")"
+          echo "$ANTWORT"
+          case "$ANTWORT" in
+            OK*) echo "Veröffentlichung abgeschlossen." ;;
+            *) echo "::error::Entpacken fehlgeschlagen: $ANTWORT"; exit 1 ;;
+          esac
