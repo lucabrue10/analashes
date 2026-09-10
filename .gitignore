@@ -1,6 +1,5 @@
 node_modules/
 .next/
-out/
 build/
 .DS_Store
 *.pem
@@ -12,3 +11,7 @@ yarn-error.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
+# Der fertige Export wird bewusst mitgeliefert, damit er ohne Build-Werkzeuge
+# heruntergeladen und auf einen Webspace gelegt werden kann.
+!/out
