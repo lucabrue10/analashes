@@ -1,13 +1,50 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { buchungsSchritte, site, whatsappLink } from "@/lib/site";
+import { priceGroups, site, whatsappLink } from "@/lib/site";
 
 /**
- * Der Weg zum Termin. Gebucht wird im Kalender bei Fresha – verlinkt,
- * nicht eingebettet: So verlässt erst mit dem Klick ein Datum diese Seite,
- * und es braucht kein Einwilligungsbanner.
+ * Terminanfrage in einem Formular.
+ *
+ * Die Anfrage geht bewusst über WhatsApp oder E-Mail hinaus: Es gibt keinen
+ * Server, der Daten entgegennimmt, also verlässt hier nichts den Browser,
+ * bevor die Kundin selbst auf Senden drückt. Ein echter Kalender mit
+ * Zahlung braucht ein Buchungssystem – siehe Hinweis unten auf der Seite.
  */
+const leistungen = priceGroups
+  .filter((g) => g.title !== "Schulungen")
+  .flatMap((g) => g.items.map((i) => `${g.title} · ${i.name} (${i.price})`));
+
+const tageszeiten = ["vormittags", "nachmittags", "abends", "egal"];
+
 export function Buchung() {
+  const [leistung, setLeistung] = useState(leistungen[1] ?? leistungen[0]);
+  const [datum, setDatum] = useState("");
+  const [zeit, setZeit] = useState(tageszeiten[3]);
+  const [name, setName] = useState("");
+  const [insta, setInsta] = useState("");
+  const [notiz, setNotiz] = useState("");
+
+  const nachricht = useMemo(() => {
+    const zeilen = [
+      "Hallo Ana, ich möchte gerne einen Termin anfragen.",
+      "",
+      `Leistung: ${leistung}`,
+      `Wunschtag: ${datum || "flexibel"}`,
+      `Uhrzeit: ${zeit}`,
+      `Name: ${name || "—"}`,
+    ];
+    if (insta.trim()) zeilen.push(`Instagram: ${insta.trim()}`);
+    if (notiz.trim()) zeilen.push(`Notiz: ${notiz.trim()}`);
+    return zeilen.join("\n");
+  }, [leistung, datum, zeit, name, insta, notiz]);
+
+  const waLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(nachricht)}`;
+  const mailLink = `mailto:${site.email}?subject=${encodeURIComponent("Terminanfrage")}&body=${encodeURIComponent(nachricht)}`;
+  const bereit = name.trim().length > 1;
+
   return (
     <section
       id="buchen"
@@ -25,44 +62,124 @@ export function Buchung() {
               <span className="text-beige-500 italic">reservieren</span>
             </>
           }
-          text="Im Kalender siehst du meine freien Zeiten und buchst direkt. Die Anzahlung macht den Termin verbindlich – danach kommt die Bestätigung mit der genauen Adresse."
+          text="Such dir dein Set aus, nenn mir deinen Wunschtag – den Rest klären wir im Chat. Die Anzahlung macht den Termin verbindlich, danach bekommst du die genaue Adresse."
         />
 
         <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal>
-            <div className="karte flex h-full flex-col px-7 py-9 sm:px-10 sm:py-11">
-              <ol className="space-y-7">
-                {buchungsSchritte.map((schritt) => (
-                  <li key={schritt.nummer} className="flex gap-5">
-                    <span className="mt-0.5 text-[11px] tracking-[0.3em] text-beige-500">
-                      {schritt.nummer}
-                    </span>
-                    <span>
-                      <span className="block text-lg text-ink-900">
-                        {schritt.titel}
-                      </span>
-                      <span className="mt-1.5 block text-sm leading-relaxed text-ink-500">
-                        {schritt.text}
-                      </span>
-                    </span>
-                  </li>
-                ))}
-              </ol>
+            <div className="karte px-7 py-8 sm:px-9 sm:py-10">
+              <div className="space-y-6">
+                <label className="block">
+                  <span className="label">Leistung</span>
+                  <select
+                    value={leistung}
+                    onChange={(e) => setLeistung(e.target.value)}
+                    className="mt-2.5 w-full rounded-2xl border border-beige-300 bg-creme-50 px-4 py-3.5 text-sm text-ink-900"
+                  >
+                    {leistungen.map((l) => (
+                      <option key={l} value={l}>
+                        {l}
+                      </option>
+                    ))}
+                  </select>
+                </label>
 
-              <div className="mt-9 border-t border-beige-200 pt-8">
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="label">Wunschtag</span>
+                    <input
+                      type="date"
+                      value={datum}
+                      onChange={(e) => setDatum(e.target.value)}
+                      className="mt-2.5 w-full rounded-2xl border border-beige-300 bg-creme-50 px-4 py-3.5 text-sm text-ink-900"
+                    />
+                  </label>
+
+                  <label className="block">
+                    <span className="label">Uhrzeit</span>
+                    <select
+                      value={zeit}
+                      onChange={(e) => setZeit(e.target.value)}
+                      className="mt-2.5 w-full rounded-2xl border border-beige-300 bg-creme-50 px-4 py-3.5 text-sm text-ink-900"
+                    >
+                      {tageszeiten.map((t) => (
+                        <option key={t} value={t}>
+                          {t}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="label">Dein Name</span>
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Vorname"
+                      autoComplete="given-name"
+                      className="mt-2.5 w-full rounded-2xl border border-beige-300 bg-creme-50 px-4 py-3.5 text-sm text-ink-900 placeholder:text-ink-300"
+                    />
+                  </label>
+
+                  <label className="block">
+                    <span className="label">Instagram (optional)</span>
+                    <input
+                      type="text"
+                      value={insta}
+                      onChange={(e) => setInsta(e.target.value)}
+                      placeholder="@deinname"
+                      className="mt-2.5 w-full rounded-2xl border border-beige-300 bg-creme-50 px-4 py-3.5 text-sm text-ink-900 placeholder:text-ink-300"
+                    />
+                  </label>
+                </div>
+
+                <label className="block">
+                  <span className="label">Noch etwas?</span>
+                  <textarea
+                    value={notiz}
+                    onChange={(e) => setNotiz(e.target.value)}
+                    rows={3}
+                    placeholder="Erstes Mal, Allergien, Wunsch-Look …"
+                    className="mt-2.5 w-full resize-none rounded-2xl border border-beige-300 bg-creme-50 px-4 py-3.5 text-sm text-ink-900 placeholder:text-ink-300"
+                  />
+                </label>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={site.buchungUrl}
+                  href={bereit ? waLink : undefined}
+                  aria-disabled={!bereit}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-full bg-ink-900 px-8 py-4.5 text-[11px] font-medium tracking-[0.22em] text-creme-100 uppercase transition-colors duration-300 hover:bg-ink-700"
+                  className={`inline-flex flex-1 items-center justify-center rounded-full px-7 py-4 text-[11px] font-medium tracking-[0.22em] uppercase transition-colors duration-300 ${
+                    bereit
+                      ? "bg-ink-900 text-creme-100 hover:bg-ink-700"
+                      : "pointer-events-none bg-beige-300 text-ink-300"
+                  }`}
                 >
-                  Freie Zeiten ansehen
+                  Über WhatsApp senden
                 </a>
-                <p className="mt-3.5 text-center text-xs text-ink-300">
-                  Öffnet den Kalender bei Fresha. Dort wählst du Leistung, Tag
-                  und Uhrzeit.
-                </p>
+                <a
+                  href={bereit ? mailLink : undefined}
+                  aria-disabled={!bereit}
+                  className={`inline-flex flex-1 items-center justify-center rounded-full border px-7 py-4 text-[11px] font-medium tracking-[0.22em] uppercase transition-colors duration-300 ${
+                    bereit
+                      ? "border-ink-900/20 text-ink-900 hover:border-ink-900/50 hover:bg-white"
+                      : "pointer-events-none border-beige-300 text-ink-300"
+                  }`}
+                >
+                  Per E-Mail senden
+                </a>
               </div>
+
+              {!bereit ? (
+                <p className="mt-4 text-xs text-ink-300">
+                  Trag deinen Namen ein, dann kannst du senden.
+                </p>
+              ) : null}
             </div>
           </Reveal>
 
@@ -79,8 +196,8 @@ export function Buchung() {
                 <div>
                   <dt className="font-bold">Adresse</dt>
                   <dd className="mt-1.5 text-ink-500">
-                    Steht in der Bestätigung – aus Rücksicht auf ein Studio zu
-                    Hause nicht öffentlich auf der Seite.
+                    Kommt mit der Bestätigung – aus Rücksicht auf ein Studio zu
+                    Hause steht sie nicht öffentlich auf der Seite.
                   </dd>
                 </div>
                 <div>
@@ -91,7 +208,7 @@ export function Buchung() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-bold">Passt keine Zeit?</dt>
+                  <dt className="font-bold">Lieber direkt schreiben?</dt>
                   <dd className="mt-1.5">
                     <a
                       href={whatsappLink}
@@ -99,9 +216,8 @@ export function Buchung() {
                       rel="noopener noreferrer"
                       className="underline underline-offset-4 hover:text-ink-900"
                     >
-                      Schreib mir auf WhatsApp
+                      WhatsApp {site.phone}
                     </a>
-                    , dann finden wir etwas.
                   </dd>
                 </div>
               </dl>

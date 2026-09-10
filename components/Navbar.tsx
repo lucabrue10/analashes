@@ -95,9 +95,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <a
-              href={site.buchungUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/buchen"
               className="rounded-full bg-ink-900 px-4 py-2.5 text-[9px] font-medium tracking-[0.16em] text-creme-100 uppercase transition-colors duration-300 hover:bg-ink-700 min-[400px]:px-5 min-[400px]:text-[10px] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.22em]"
             >
               <span className="sm:hidden">Termin</span>

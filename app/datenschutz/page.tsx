@@ -111,24 +111,6 @@ export default function DatenschutzPage() {
         </p>
       </Abschnitt>
 
-      <Abschnitt titel="Terminbuchung über Fresha">
-        <p>
-          Termine werden über den Kalender von Fresha gebucht. Der Kalender ist{" "}
-          <strong>nicht in diese Seite eingebettet</strong> – erst wenn du auf „Termin buchen"
-          klickst, öffnet sich die Seite von Fresha und es werden Daten dorthin übertragen.
-          Solange du nicht klickst, entsteht keine Verbindung.
-        </p>
-        <p>
-          Auf der Buchungsseite gibst du deine Daten direkt bei Fresha ein (Name, Kontaktdaten,
-          gewählte Leistung, Termin, Zahlungsdaten für die Anzahlung). Anbieter ist die Fresha Inc.
-          Für die Verarbeitung auf deren Seite gilt deren Datenschutzerklärung:{" "}
-          <a href="https://www.fresha.com/privacy-policy" target="_blank" rel="noopener noreferrer">
-            fresha.com/privacy-policy
-          </a>
-          . Rechtsgrundlage für die Terminvereinbarung ist Art. 6 Abs. 1 lit. b DSGVO.
-        </p>
-      </Abschnitt>
-
       <Abschnitt titel="Kontaktaufnahme">
         <p>
           Wenn du mich per Telefon, E-Mail, WhatsApp oder Instagram
