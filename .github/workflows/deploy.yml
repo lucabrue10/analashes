@@ -12,6 +12,13 @@ on:
         default: 'nein'
         required: false
 
+# Hostinger lässt nur wenige FTP-Verbindungen gleichzeitig zu. Zwei
+# parallele Läufe blockieren sich gegenseitig, deshalb wird hier in
+# Reihe gearbeitet.
+concurrency:
+  group: veroeffentlichen
+  cancel-in-progress: false
+
 jobs:
   veroeffentlichen:
     runs-on: ubuntu-latest
@@ -40,6 +47,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
+          timeout: 60000
           server-dir: ./public_html/
           dangerous-clean-slate: ${{ inputs.sauber == 'ja' }}
           exclude: |
