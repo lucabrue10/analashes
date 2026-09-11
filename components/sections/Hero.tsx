@@ -34,6 +34,15 @@ export function Hero() {
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink-500 text-pretty sm:text-lg">
               {site.slogan}
             </p>
+
+            {/* Zweiter Markerzug, in die andere Richtung gekippt */}
+            <p
+              aria-hidden
+              className="mt-4 rotate-2 font-[family-name:var(--font-marker)] text-[clamp(1rem,2.8vw,1.6rem)] text-ink-900 sm:mt-5 sm:rotate-1"
+            >
+              Only in Frankfurt
+            </p>
+            <span className="sr-only">Only in Frankfurt</span>
           </div>
         </div>
       </div>
@@ -48,7 +57,7 @@ export function Hero() {
             <figure
               key={bild.id} // Feste Höhe statt Seitenverhältnis: So bleiben die Knöpfe darunter
               // auch auf einem Laptop ohne Scrollen sichtbar.
-              className="relative h-[clamp(210px,36vh,380px)] overflow-hidden"
+              className="relative h-[clamp(200px,31vh,360px)] overflow-hidden"
             >
               <Image
                 src={bild.src}
@@ -74,7 +83,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="container-x relative pt-12 pb-14 sm:pt-14 sm:pb-20">
+      <div className="container-x relative pt-10 pb-14 sm:pt-12 sm:pb-20">
         <div className="flex flex-col items-center text-center">
           <div className="flex flex-col items-center gap-3 sm:flex-row">
             <Button href="/buchen">Termin buchen</Button>
