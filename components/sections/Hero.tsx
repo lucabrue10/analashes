@@ -2,10 +2,9 @@ import Image from "next/image";
 import { Wortmarke } from "@/components/ui/BrandMark";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { SpruchWechsel } from "@/components/ui/SpruchWechsel";
 import { gallery, site } from "@/lib/site";
 
-/** Drei Aufnahmen unter dem Namen – die mittlere steht größer im Bogen. */
+/** Drei Aufnahmen unter dem Namen. */
 const BILDER = [gallery[1], gallery[3], gallery[5]];
 
 export function Hero() {
@@ -16,71 +15,75 @@ export function Hero() {
       className="relative overflow-hidden bg-creme-100 pt-[var(--nav-h)]"
     >
       <div className="bg-beige-200">
-        <div className="container-x relative pt-12 pb-14 sm:pt-16 sm:pb-16">
+        <div className="container-x relative pt-8 pb-10 sm:pt-12 sm:pb-14">
           <div className="flex flex-col items-center text-center">
-            <Reveal>
-              <p className="flex justify-center text-[10px] tracking-[0.42em] text-ink-500 uppercase">
-                <SpruchWechsel />
-              </p>
-            </Reveal>
+            {/* Handgeschrieben und leicht schief – wie mit dem Marker
+                über den Namen gekritzelt. */}
+            <p
+              aria-hidden
+              className="-mb-2 -rotate-3 font-[family-name:var(--font-marker)] text-[clamp(1.1rem,3.4vw,2rem)] leading-[1.15] text-ink-900 sm:-mb-4 sm:-rotate-2"
+            >
+              Better than your f*cking Ex
+            </p>
+            <span className="sr-only">Better than your f*cking Ex</span>
 
-            <Reveal delay={0.08}>
-              <h1 id="hero-titel" className="mt-6">
-                <Wortmarke className="text-[clamp(1.7rem,5.6vw,3.9rem)]" />
-              </h1>
-            </Reveal>
+            <h1 id="hero-titel" className="mt-4">
+              <Wortmarke className="text-[clamp(1.7rem,5.6vw,3.9rem)]" />
+            </h1>
 
-            <Reveal delay={0.16}>
-              <p className="mt-5 max-w-md text-base leading-relaxed text-ink-500 text-pretty sm:text-lg">
-                {site.slogan}
-              </p>
-            </Reveal>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-ink-500 text-pretty sm:text-lg">
+              {site.slogan}
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Die Bilder laufen über die volle Breite – große Flächen, dazwischen
-          nur eine Fuge. Über jedem liegt ein leicht durchsichtiger schwarzer
-          Balken mit der Technik. */}
-      <div className="relative grid grid-cols-3 gap-[3px] sm:gap-1">
-        {BILDER.map((bild, i) => (
-          <Reveal key={bild.id} delay={0.2 + i * 0.08}>
-            <figure className="group relative aspect-[1/1.95] overflow-hidden sm:aspect-[3/4]">
+      {/* Die Bilder laufen über die volle Breite. Darüber liegt ein
+          durchsichtiger schwarzer Balken, der über das untere Drittel geht
+          und unten aus den Bildern herausragt – das legt die Reihe in
+          Ebenen, ganz ohne Beschriftung. */}
+      <div className="relative">
+        <div className="grid grid-cols-3 gap-[3px] sm:gap-1">
+          {BILDER.map((bild, i) => (
+            <figure
+              key={bild.id} // Feste Höhe statt Seitenverhältnis: So bleiben die Knöpfe darunter
+              // auch auf einem Laptop ohne Scrollen sichtbar.
+              className="relative h-[clamp(210px,36vh,380px)] overflow-hidden"
+            >
               <Image
                 src={bild.src}
                 alt={bild.alt}
                 fill
                 priority={i === 1}
                 sizes="33vw"
-                className="object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+                className="object-cover"
               />
-              {/* Tiefe von oben und unten, damit die Reihe zusammen wirkt */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.22)_0%,transparent_28%,transparent_58%,rgba(0,0,0,0.3)_100%)]"
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.2)_0%,transparent_26%)]"
               />
-              <figcaption className="absolute inset-x-0 bottom-[13%] border-y border-white/15 bg-black/45 py-3.5 text-center backdrop-blur-[2px] transition-colors duration-500 group-hover:bg-black/55 sm:py-5">
-                <span className="text-[9px] tracking-[0.3em] text-white uppercase sm:text-xs sm:tracking-[0.42em]">
-                  {bild.caption}
-                </span>
-              </figcaption>
             </figure>
-          </Reveal>
-        ))}
+          ))}
+        </div>
+
+        {/* Der Balken: ein Drittel hoch, über die volle Breite, unten ein
+            Stück über die Bilder hinaus. */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-[-18px] h-[36%] border-t border-white/20 bg-black/45 backdrop-blur-[1px]"
+        />
       </div>
 
-      <div className="container-x relative pb-20 sm:pb-24">
-        <div className="mt-12 flex flex-col items-center text-center sm:mt-14">
-          <Reveal delay={0.3}>
-            <div className="flex flex-col items-center gap-3 sm:flex-row">
-              <Button href="/buchen">Termin buchen</Button>
-              <Button href="/preise" variant="ghost">
-                Preise ansehen
-              </Button>
-            </div>
-          </Reveal>
+      <div className="container-x relative pt-12 pb-14 sm:pt-14 sm:pb-20">
+        <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center gap-3 sm:flex-row">
+            <Button href="/buchen">Termin buchen</Button>
+            <Button href="/preise" variant="ghost">
+              Preise ansehen
+            </Button>
+          </div>
 
-          <Reveal delay={0.38}>
+          <Reveal delay={0.1}>
             <p className="mt-7 text-xs leading-relaxed text-ink-300">
               {site.city} · Die genaue Adresse bekommst du mit der Bestätigung.
             </p>

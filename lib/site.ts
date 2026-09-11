@@ -435,13 +435,6 @@ export const sprueche = [
   "no mascara, no problem",
 ];
 
-/** Kurz und knackig – wechselt unter dem Namen. */
-export const heroSprueche = [
-  "girl supports girl",
-  "better than your ex",
-  "blink and they stare",
-  "main character energy",
-];
 
 /** Die drei Schritte von der Anfrage bis zur Adresse. */
 export const buchungsSchritte = [
