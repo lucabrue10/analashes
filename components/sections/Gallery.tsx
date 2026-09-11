@@ -62,12 +62,13 @@ export function Gallery() {
       <div className="container-x">
         <SectionHeading
           id="sets-titel"
+          marker
           eyebrow="Sets"
           spruch="the lashes are lashing"
           title={
             <>
               Sets, die ich{" "}
-              <span className="text-beige-500 italic">gelegt habe</span>
+              <span className="text-beige-500">gelegt habe</span>
             </>
           }
           text="Echte Arbeiten aus dem Studio. Blättere mit den Pfeilen durch – ein Klick zeigt das Bild groß."

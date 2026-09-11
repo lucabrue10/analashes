@@ -32,13 +32,14 @@ export function UeberMich() {
         <div>
           <SectionHeading
             id="ueber-mich-titel"
-            eyebrow="Über mich"
+            marker
+          eyebrow="Über mich"
             spruch="your girl, your look"
             align="left"
             title={
               <>
                 Hinter jedem Set{" "}
-                <span className="text-beige-500 italic">steht Ana</span>
+                <span className="text-beige-500">steht Ana</span>
               </>
             }
           />

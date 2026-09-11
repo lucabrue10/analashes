@@ -3,6 +3,8 @@ import { Reveal } from "./Reveal";
 
 type Props = {
   eyebrow?: string;
+  /** Überschrift in der Markerschrift statt in Arial. */
+  marker?: boolean;
   /** Englischer Spruch unter der Überschrift – setzt den Ton der Seite. */
   spruch?: string;
   title: ReactNode;
@@ -13,6 +15,7 @@ type Props = {
 
 export function SectionHeading({
   eyebrow,
+  marker = false,
   spruch,
   title,
   text,
@@ -30,7 +33,13 @@ export function SectionHeading({
       <Reveal delay={0.06}>
         <h2
           id={id}
-          className="mt-4 text-3xl leading-[1.15] font-normal text-balance text-ink-900 sm:text-4xl md:text-[2.75rem]"
+          className={
+            marker
+              ? // Die Markerschrift läuft breiter und steht tiefer – etwas
+                // kleiner gesetzt bleibt die Zeile im Rahmen.
+                "mt-4 font-[family-name:var(--font-marker)] text-[1.6rem] leading-[1.3] text-balance text-ink-900 sm:text-[2.1rem] md:text-[2.5rem]"
+              : "mt-4 text-3xl leading-[1.15] font-normal text-balance text-ink-900 sm:text-4xl md:text-[2.75rem]"
+          }
         >
           {title}
         </h2>

@@ -17,10 +17,11 @@ export function Faq() {
       <div className="container-x relative">
         <SectionHeading
           id="faq-titel"
+          marker
           eyebrow="Gut zu wissen"
           title={
             <>
-              Häufige <span className="text-beige-500 italic">Fragen</span>
+              Häufige <span className="text-beige-500">Fragen</span>
             </>
           }
         />

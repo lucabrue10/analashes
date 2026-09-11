@@ -17,12 +17,13 @@ export function Testimonials() {
       <div className="container-x">
         <SectionHeading
           id="feedback-titel"
+          marker
           eyebrow="Feedback"
           spruch="receipts, not promises"
           title={
             <>
               Was danach im{" "}
-              <span className="text-beige-500 italic">Postfach</span> landet
+              <span className="text-beige-500">Postfach</span> landet
             </>
           }
           text="Nachrichten von Kundinnen nach ihrem Termin – unverändert, so wie sie angekommen sind."
