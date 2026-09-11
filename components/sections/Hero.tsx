@@ -40,9 +40,9 @@ export function Hero() {
               aria-hidden
               className="mt-4 rotate-2 font-[family-name:var(--font-marker)] text-[clamp(1rem,2.8vw,1.6rem)] text-ink-900 sm:mt-5 sm:rotate-1"
             >
-              Only in Frankfurt
+              Only in Frankfurt...
             </p>
-            <span className="sr-only">Only in Frankfurt</span>
+            <span className="sr-only">Only in Frankfurt...</span>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ export function Hero() {
           und unten aus den Bildern herausragt – das legt die Reihe in
           Ebenen, ganz ohne Beschriftung. */}
       <div className="relative">
-        <div className="grid grid-cols-3 gap-[3px] sm:gap-1">
+        <div className="grid grid-cols-3">
           {BILDER.map((bild, i) => (
             <figure
               key={bild.id} // Feste Höhe statt Seitenverhältnis: So bleiben die Knöpfe darunter
@@ -79,7 +79,7 @@ export function Hero() {
             Stück über die Bilder hinaus. */}
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-[-18px] h-[36%] border-t border-white/20 bg-black/45 backdrop-blur-[1px]"
+          className="pointer-events-none absolute inset-x-0 bottom-[-18px] h-[36%] border-t border-white/20 bg-black/45"
         />
       </div>
 
