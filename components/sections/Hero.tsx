@@ -21,13 +21,13 @@ export function Hero() {
                 über den Namen gekritzelt. */}
             <p
               aria-hidden
-              className="-mb-2 -rotate-3 font-[family-name:var(--font-marker)] text-[clamp(1.1rem,3.4vw,2rem)] leading-[1.15] text-ink-900 sm:-mb-4 sm:-rotate-2"
+              className="-rotate-3 font-[family-name:var(--font-marker)] text-[clamp(1.1rem,3.4vw,2rem)] leading-[1.15] text-ink-900 sm:-rotate-2"
             >
               Better than your f*cking Ex
             </p>
             <span className="sr-only">Better than your f*cking Ex</span>
 
-            <h1 id="hero-titel" className="mt-4">
+            <h1 id="hero-titel" className="mt-3">
               <Wortmarke className="text-[clamp(1.7rem,5.6vw,3.9rem)]" />
             </h1>
 
