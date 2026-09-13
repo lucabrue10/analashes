@@ -17,32 +17,13 @@ export function Hero() {
       <div className="bg-beige-200">
         <div className="container-x relative pt-8 pb-10 sm:pt-12 sm:pb-14">
           <div className="flex flex-col items-center text-center">
-            {/* Handgeschrieben und leicht schief – wie mit dem Marker
-                über den Namen gekritzelt. */}
-            <p
-              aria-hidden
-              className="-rotate-3 font-[family-name:var(--font-marker)] text-[clamp(1.1rem,3.4vw,2rem)] leading-[1.15] text-ink-900 sm:-rotate-2"
-            >
-              Better than your f*cking Ex
-            </p>
-            <span className="sr-only">Better than your f*cking Ex</span>
-
-            <h1 id="hero-titel" className="mt-3">
+            <h1 id="hero-titel">
               <Wortmarke className="text-[clamp(1.7rem,5.6vw,3.9rem)]" />
             </h1>
 
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink-500 text-pretty sm:text-lg">
               {site.slogan}
             </p>
-
-            {/* Zweiter Markerzug, in die andere Richtung gekippt */}
-            <p
-              aria-hidden
-              className="mt-4 rotate-2 font-[family-name:var(--font-marker)] text-[clamp(1rem,2.8vw,1.6rem)] text-ink-900 sm:mt-5 sm:rotate-1"
-            >
-              Only in Frankfurt...
-            </p>
-            <span className="sr-only">Only in Frankfurt...</span>
           </div>
         </div>
       </div>
