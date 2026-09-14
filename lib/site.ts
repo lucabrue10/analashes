@@ -9,7 +9,7 @@ export const site = {
     "They said women belong in the kitchen, so I COOKED. Bon appétit, mon amour.",
   slogan: "Wimpern, die dir stehen – im Studio von Ana Catarina.",
   description:
-    "La Maison d'Ana Catarina – Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse kommt mit der Bestätigung.",
+    "La Maison d'Ana Catarina – Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse erhältst du mit der Terminbestätigung.",
   url: "https://maisonac.de",
   locale: "de_DE",
   phone: "0155 60878913",
@@ -379,7 +379,6 @@ export const aftercare = {
   titel: "Pflege danach",
   intro: "Für ein langanhaltendes und sauberes Ergebnis:",
   punkte: [
-    "In den ersten 24 bis 48 Stunden kein Wasser, kein Dampf, keine Sauna",
     "Keine ölhaltigen Produkte im Augenbereich",
     "Täglich mit einem geeigneten Lash Shampoo reinigen",
     "Regelmäßig und vorsichtig mit der Bürste in Form bringen",
@@ -398,7 +397,7 @@ export const aftercare = {
 export const studioregeln = [
   {
     titel: "Anzahlung",
-    text: "Für jeden Termin wird eine Anzahlung von 50 € fällig. Erst damit ist der Termin verbindlich reserviert – und erst dann bekommst du die genaue Adresse.",
+    text: "Für jeden Termin wird eine Anzahlung von 50 € fällig. Erst damit ist der Termin verbindlich reserviert – und erst dann erhältst du die genaue Adresse.",
   },
   {
     titel: "Absagen",
@@ -406,7 +405,7 @@ export const studioregeln = [
   },
   {
     titel: "Verspätungen",
-    text: "Sag mir rechtzeitig Bescheid, wenn es später wird. Je nach Restzeit passe ich das Set an oder wir verschieben.",
+    text: "Bitte sag mir rechtzeitig Bescheid, wenn es später wird. Ab 15 Minuten Verspätung berechne ich 10 €. Ab 30 Minuten muss ich den Termin absagen – der volle Preis wird dann fällig.",
   },
   {
     titel: "Begleitpersonen",
@@ -436,6 +435,34 @@ export const ueberMich = {
     "Da ich in einem Homestudio arbeite, nehme ich mir bewusst die Zeit, die wir für deine Wimpern brauchen. Ohne Zeitdruck, ohne Hektik und ganz entspannt.",
   ],
 };
+/**
+ * Warum im Studio mit UV-Kleber gearbeitet wird. Steht auf der Startseite
+ * direkt unter den Sets – es ist der Unterschied, den Kundinnen merken.
+ */
+export const uvVorteile = {
+  titel: "UV-Technik",
+  intro:
+    "Ich arbeite mit UV-Kleber. Der härtet unter Licht in Sekunden aus, statt über Stunden an der Luft zu trocknen – das ändert den Termin und die Zeit danach spürbar.",
+  punkte: [
+    {
+      titel: "Sofort fertig",
+      text: "Der Kleber ist am Ende des Termins vollständig ausgehärtet. Du musst danach nicht 24 bis 48 Stunden auf Wasser, Dampf und Sauna verzichten.",
+    },
+    {
+      titel: "Sanfter zum Auge",
+      text: "Es entstehen kaum Dämpfe. Kein Brennen, kein Tränen – auch bei empfindlichen Augen deutlich angenehmer.",
+    },
+    {
+      titel: "Hält länger",
+      text: "Die Verbindung zur Naturwimper ist stabiler. Das Set bleibt länger voll und du kommst seltener zum Auffüllen.",
+    },
+    {
+      titel: "Kürzere Termine",
+      text: "Kein Warten auf trocknenden Kleber. Du liegst weniger lang und kannst direkt in deinen Tag zurück.",
+    },
+  ],
+};
+
 export const studioFeatures = [
   {
     title: "UV-Technik",
@@ -488,7 +515,7 @@ export const buchungsSchritte = [
   {
     nummer: "03",
     titel: "Terminbestätigung",
-    text: "Mit der Bestätigung bekommst du die genaue Adresse und alles, was du vorher wissen musst.",
+    text: "Mit der Terminbestätigung erhältst du die genaue Adresse und alles, was du vorher wissen musst.",
   },
 ];
 
@@ -529,6 +556,6 @@ export const faqs = [
   },
   {
     q: "Kann ich mit Extensions duschen und Sport machen?",
-    a: "Nach den ersten 24 bis 48 Stunden ja. Vermeide ölhaltige Reiniger, Wimpernzangen und starkes Reiben; nach starkem Schwitzen die Wimpern reinigen.",
+    a: "Ja, und zwar sofort. Durch die UV-Technik ist der Kleber am Ende des Termins ausgehärtet – du musst keine 24 bis 48 Stunden warten. Vermeide ölhaltige Reiniger, Wimpernzangen und starkes Reiben; nach starkem Schwitzen die Wimpern reinigen.",
   },
 ];

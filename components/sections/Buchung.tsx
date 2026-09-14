@@ -61,7 +61,7 @@ export function Buchung() {
               Deinen Platz <span className="italic">reservieren</span>
             </>
           }
-          text="Such dir dein Set aus, nenn mir deinen Wunschtag – den Rest klären wir im Chat. Die Anzahlung macht den Termin verbindlich, danach bekommst du die genaue Adresse."
+          text="Such dir dein Set aus, nenn mir deinen Wunschtag – den Rest klären wir im Chat. Die Anzahlung macht den Termin verbindlich, danach erhältst du die genaue Adresse."
         />
 
         <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -196,8 +196,9 @@ export function Buchung() {
                 <div>
                   <dt className="font-bold">Adresse</dt>
                   <dd className="mt-1.5 text-ink-500">
-                    Kommt mit der Bestätigung – aus Rücksicht auf ein Studio zu
-                    Hause steht sie nicht öffentlich auf der Seite.
+                    Erhältst du mit der Terminbestätigung – aus Rücksicht auf
+                    ein Studio zu Hause steht sie nicht öffentlich auf der
+                    Seite.
                   </dd>
                 </div>
                 <div>
@@ -205,6 +206,13 @@ export function Buchung() {
                   <dd className="mt-1.5 text-ink-500">
                     Bis 24 Stunden vorher kostenlos. Danach wird der Termin in
                     voller Höhe berechnet.
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-bold">Verspätung</dt>
+                  <dd className="mt-1.5 text-ink-500">
+                    Ab 15 Minuten berechne ich 10 €. Ab 30 Minuten muss ich den
+                    Termin absagen – der volle Preis wird dann fällig.
                   </dd>
                 </div>
                 <div>

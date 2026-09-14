@@ -57,7 +57,8 @@ export function Hero() {
 
           <Reveal delay={0.1}>
             <p className="mt-7 text-xs leading-relaxed text-ink-300">
-              {site.city} · Die genaue Adresse bekommst du mit der Bestätigung.
+              {site.city} · Die genaue Adresse erhältst du mit der
+              Terminbestätigung.
             </p>
           </Reveal>
         </div>

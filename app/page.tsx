@@ -8,6 +8,7 @@ import { Newsletter } from "@/components/sections/Newsletter";
 import { Spruchband } from "@/components/ui/Spruchband";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { UeberMich } from "@/components/sections/UeberMich";
+import { UvVorteile } from "@/components/sections/UvVorteile";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Spruchband />
         <Gallery />
+        <UvVorteile />
         <Testimonials />
         <Spruchband variante="hell" />
         <UeberMich />
