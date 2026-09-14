@@ -32,6 +32,14 @@ jobs:
           curl -L --fail --retry 3 -o roh.mov "${{ inputs.url }}"
           ls -lh roh.mov
           file roh.mov
+          # Bei grossen Dateien schickt Google statt des Videos manchmal
+          # eine Warnseite. Die faellt hier sofort auf, statt erst beim
+          # Umrechnen.
+          if [ "$(stat -c%s roh.mov)" -lt 1000000 ]; then
+            echo "Datei zu klein - vermutlich eine HTML-Seite statt des Videos:"
+            head -c 400 roh.mov
+            exit 1
+          fi
 
       - name: Masse und Laenge ermitteln
         run: |
