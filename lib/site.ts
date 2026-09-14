@@ -51,6 +51,7 @@ export const navItems: NavItem[] = [
   { label: "Preise", href: "/preise" },
   { label: "Pflege", href: "/pflege" },
   { label: "Über mich", href: "/#ueber-mich" },
+  { label: "Schulungen", href: "/schulungen" },
   { label: "Termin buchen", href: "/buchen" },
 ];
 
@@ -435,6 +436,32 @@ export const ueberMich = {
     "Da ich in einem Homestudio arbeite, nehme ich mir bewusst die Zeit, die wir für deine Wimpern brauchen. Ohne Zeitdruck, ohne Hektik und ganz entspannt.",
   ],
 };
+/**
+ * Die Schulungen. Eigene Seite, erreichbar über das Menü oben rechts.
+ * Preise stehen bewusst nicht dabei, sie hängen an Vorkenntnissen und
+ * Umfang.
+ */
+export const schulungen = {
+  titel: "Schulungen",
+  intro:
+    "Du willst das Handwerk lernen oder deine Technik weiterbringen? Ich gebe mein Wissen in kleinen Runden weiter, in demselben Studio, in dem ich jeden Tag arbeite.",
+  absaetze: [
+    "Bei mir wird kein Programm abgespult. Du arbeitest von Anfang an selbst, ich schaue dir dabei über die Schulter und korrigiere sofort, bis der Griff sitzt.",
+    "Ob du ganz neu anfängst oder schon legst und an einer bestimmten Stelle hängst: Wir klären vorher, wo du stehst, und stellen die Inhalte danach zusammen.",
+  ],
+  inhalte: [
+    "Aufbau, Augenform und Mapping",
+    "Die 1 : 1 Technik von Grund auf",
+    "Volumen: Fächer legen, Gewicht und Haltbarkeit",
+    "Arbeiten mit UV-Kleber",
+    "Hygiene, Materialkunde und Kleberführung",
+    "Üben am Modell, mit Rückmeldung von mir",
+  ],
+  preis: "Preise auf Anfrage",
+  hinweis:
+    "Inhalte und Dauer stellen wir nach deinen Vorkenntnissen zusammen. Schreib mir, was du vorhast, dann melde ich mich mit einem Vorschlag und dem Preis.",
+};
+
 /** Kurzer Hinweis auf die UV-Technik, direkt unter den Sets. */
 export const uvVorteile = {
   titel: "UV-Technik",

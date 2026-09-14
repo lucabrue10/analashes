@@ -4,7 +4,6 @@ import { site } from "@/lib/site";
 /** Für den statischen Export: Datei wird beim Build erzeugt. */
 export const dynamic = "force-static";
 
-
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -13,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    ...["buchen", "preise", "pflege", "kontakt"].map((pfad) => ({
+    ...["buchen", "preise", "pflege", "schulungen", "kontakt"].map((pfad) => ({
       url: `${site.url}/${pfad}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
