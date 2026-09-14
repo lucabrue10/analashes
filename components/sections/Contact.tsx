@@ -1,18 +1,6 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { site, termine, whatsappLink } from "@/lib/site";
-
-function WhatsAppIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-5 w-5 fill-current"
-      aria-hidden="true"
-    >
-      <path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 4.99L2 22l5.19-1.36a9.9 9.9 0 0 0 4.85 1.26h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.83 14.14c-.25.7-1.44 1.34-2 1.38-.51.04-1.16.06-1.87-.12-.43-.11-.99-.33-1.7-.64-3-1.3-4.96-4.32-5.11-4.52-.15-.2-1.22-1.62-1.22-3.1 0-1.47.77-2.2 1.05-2.5.27-.3.6-.37.79-.37h.57c.18 0 .43-.07.67.51.25.6.85 2.07.92 2.22.08.15.13.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.75 1.24 1.61 2 1.11.99 2.04 1.3 2.34 1.45.3.15.47.13.65-.08.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42Z" />
-    </svg>
-  );
-}
+import { site, termine } from "@/lib/site";
 
 function InstagramIcon() {
   return (
@@ -26,34 +14,26 @@ function InstagramIcon() {
   );
 }
 
-function PhoneIcon() {
+function MailIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
       className="h-5 w-5 fill-current"
       aria-hidden="true"
     >
-      <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.3 21 3 12.7 3 2.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.3Z" />
+      <path d="M3 5.5h18c.55 0 1 .45 1 1v11c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1v-11c0-.55.45-1 1-1Zm1.6 2L12 12.2l7.4-4.7H4.6Zm15.4 1.9-7.47 4.74a1 1 0 0 1-1.06 0L4 9.4v7.1h16V9.4Z" />
     </svg>
   );
 }
 
 const kanaele = [
   {
-    label: "WhatsApp",
-    value: "Direkt schreiben",
-    href: whatsappLink,
-    extern: true,
-    icon: <WhatsAppIcon />,
-    note: "Antwort meist innerhalb weniger Stunden",
-  },
-  {
-    label: "Telefon",
-    value: site.phone,
-    href: `tel:${site.phoneHref}`,
+    label: "E-Mail",
+    value: site.email,
+    href: `mailto:${site.email}`,
     extern: false,
-    icon: <PhoneIcon />,
-    note: "Am besten nachmittags",
+    icon: <MailIcon />,
+    note: "Antwort meist innerhalb eines Tages",
   },
   {
     label: "Instagram",

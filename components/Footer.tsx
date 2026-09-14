@@ -37,14 +37,6 @@ export function Footer() {
             <ul className="mt-4 space-y-0 text-sm text-ink-500">
               <li>
                 <a
-                  href={`tel:${site.phoneHref}`}
-                  className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
-                >
-                  {site.phone}
-                </a>
-              </li>
-              <li>
-                <a
                   href={`mailto:${site.email}`}
                   className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
                 >

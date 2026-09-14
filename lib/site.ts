@@ -12,10 +12,6 @@ export const site = {
     "La Maison d'Ana Catarina, Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse erhältst du mit der Terminbestätigung.",
   url: "https://maisonac.de",
   locale: "de_DE",
-  phone: "0155 60878913",
-  phoneHref: "+4915560878913",
-  whatsapp: "4915560878913",
-  whatsappText: "Hallo Ana, ich möchte gerne einen Termin anfragen.",
   instagram: "https://instagram.com/lamaison.ac",
   instagramHandle: "@lamaison.ac",
   email: "ana.akhouaji@outlook.de",
@@ -34,10 +30,6 @@ export const site = {
   /** Höhe der Anzahlung, die den Termin verbindlich macht. */
   anzahlung: "50 €",
 } as const;
-
-export const whatsappLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
-  site.whatsappText,
-)}`;
 
 export type NavItem = { label: string; href: string };
 
@@ -357,7 +349,7 @@ export const feedback: Feedback[] = [
 /** Termine laufen ausschließlich nach Vereinbarung. */
 export const termine = {
   hinweis: "Termine ausschließlich nach Vereinbarung",
-  text: "Schreib mir per WhatsApp oder Instagram. Ich melde mich mit freien Zeiten zurück.",
+  text: "Schreib mir per E-Mail oder auf Instagram. Ich melde mich mit freien Zeiten zurück.",
 };
 
 /** Vorbereitung auf den Termin – so hält das Set am längsten. */

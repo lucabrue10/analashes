@@ -3,15 +3,15 @@
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { priceGroups, site, whatsappLink } from "@/lib/site";
+import { priceGroups, site } from "@/lib/site";
 
 /**
  * Terminanfrage in einem Formular.
  *
- * Die Anfrage geht bewusst über WhatsApp oder E-Mail hinaus: Es gibt keinen
+ * Die Anfrage geht per E-Mail oder Instagram hinaus: Es gibt keinen
  * Server, der Daten entgegennimmt, also verlässt hier nichts den Browser,
  * bevor die Kundin selbst auf Senden drückt. Ein echter Kalender mit
- * Zahlung braucht ein Buchungssystem – siehe Hinweis unten auf der Seite.
+ * Zahlung braucht ein Buchungssystem, siehe Hinweis unten auf der Seite.
  */
 const leistungen = priceGroups
   .filter((g) => g.title !== "Schulungen")
@@ -41,7 +41,6 @@ export function Buchung() {
     return zeilen.join("\n");
   }, [leistung, datum, zeit, name, insta, notiz]);
 
-  const waLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(nachricht)}`;
   const mailLink = `mailto:${site.email}?subject=${encodeURIComponent("Terminanfrage")}&body=${encodeURIComponent(nachricht)}`;
   const bereit = name.trim().length > 1;
 
@@ -149,28 +148,23 @@ export function Buchung() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={bereit ? waLink : undefined}
+                  href={bereit ? mailLink : undefined}
                   aria-disabled={!bereit}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className={`inline-flex flex-1 items-center justify-center rounded-full px-7 py-4 text-[11px] font-medium tracking-[0.22em] uppercase transition-colors duration-300 ${
                     bereit
                       ? "bg-ink-900 text-creme-100 hover:bg-ink-700"
                       : "pointer-events-none bg-beige-300 text-ink-300"
                   }`}
                 >
-                  Über WhatsApp senden
+                  Per E-Mail senden
                 </a>
                 <a
-                  href={bereit ? mailLink : undefined}
-                  aria-disabled={!bereit}
-                  className={`inline-flex flex-1 items-center justify-center rounded-full border px-7 py-4 text-[11px] font-medium tracking-[0.22em] uppercase transition-colors duration-300 ${
-                    bereit
-                      ? "border-ink-900/20 text-ink-900 hover:border-ink-900/50 hover:bg-white"
-                      : "pointer-events-none border-beige-300 text-ink-300"
-                  }`}
+                  href={site.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex flex-1 items-center justify-center rounded-full border border-ink-900/20 px-7 py-4 text-[11px] font-medium tracking-[0.22em] text-ink-900 uppercase transition-colors duration-300 hover:border-ink-900/50 hover:bg-white"
                 >
-                  Per E-Mail senden
+                  Auf Instagram schreiben
                 </a>
               </div>
 
@@ -218,12 +212,12 @@ export function Buchung() {
                   <dt className="font-bold">Lieber direkt schreiben?</dt>
                   <dd className="mt-1.5">
                     <a
-                      href={whatsappLink}
+                      href={site.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="underline underline-offset-4 hover:text-ink-900"
                     >
-                      WhatsApp {site.phone}
+                      Instagram {site.instagramHandle}
                     </a>
                   </dd>
                 </div>

@@ -60,7 +60,6 @@ const jsonLd = {
   name: site.name,
   description: site.description,
   url: site.url,
-  telephone: site.phone,
   email: site.email,
   image: `${site.url}/ana.jpg`,
   priceRange: "€€",

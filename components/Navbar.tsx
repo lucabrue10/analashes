@@ -172,11 +172,8 @@ export function Navbar() {
                 variants={itemVariants}
                 className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-[11px] tracking-[0.24em] text-ink-500 uppercase"
               >
-                <a
-                  href={`tel:${site.phoneHref}`}
-                  className="hover:text-ink-900"
-                >
-                  {site.phone}
+                <a href={`mailto:${site.email}`} className="hover:text-ink-900">
+                  {site.email}
                 </a>
                 <a
                   href={site.instagram}

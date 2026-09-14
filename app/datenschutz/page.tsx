@@ -24,8 +24,6 @@ export default function DatenschutzPage() {
           {site.postalCode} {site.city}
           <br />
           <br />
-          Telefon: <a href={`tel:${site.phoneHref}`}>{site.phone}</a>
-          <br />
           E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
         </p>
       </Abschnitt>
@@ -113,16 +111,16 @@ export default function DatenschutzPage() {
 
       <Abschnitt titel="Kontaktaufnahme">
         <p>
-          Wenn du mich per Telefon, E-Mail, WhatsApp oder Instagram
-          kontaktierst, verarbeite ich die von dir übermittelten Daten, um deine
-          Anfrage zu beantworten und Termine zu organisieren. Rechtsgrundlage
-          ist Art. 6 Abs. 1 lit. b DSGVO, soweit es um die Anbahnung oder
-          Durchführung eines Termins geht, ansonsten Art. 6 Abs. 1 lit. f DSGVO.
+          Wenn du mich per E-Mail oder Instagram kontaktierst, verarbeite ich
+          die von dir übermittelten Daten, um deine Anfrage zu beantworten und
+          Termine zu organisieren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b
+          DSGVO, soweit es um die Anbahnung oder Durchführung eines Termins
+          geht, ansonsten Art. 6 Abs. 1 lit. f DSGVO.
         </p>
         <p>
-          Die Links zu WhatsApp und Instagram auf dieser Seite sind einfache
-          Verweise. Es werden erst dann Daten übertragen, wenn du sie anklickst.
-          Betreiber beider Dienste ist Meta Platforms Ireland Limited. Bei der
+          Die Links zu Instagram auf dieser Seite sind einfache Verweise. Es
+          werden erst dann Daten übertragen, wenn du sie anklickst. Betreiber
+          beider Dienste ist Meta Platforms Ireland Limited. Bei der
           Kommunikation über diese Dienste gelten deren Datenschutzbestimmungen;
           auf die Verarbeitung durch Meta habe ich keinen Einfluss.
         </p>

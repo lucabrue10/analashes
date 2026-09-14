@@ -27,8 +27,6 @@ export default function ImpressumPage() {
 
       <Abschnitt titel="Kontakt">
         <p>
-          Telefon: <a href={`tel:${site.phoneHref}`}>{site.phone}</a>
-          <br />
           E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
           <br />
           Instagram:{" "}
