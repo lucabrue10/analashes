@@ -83,7 +83,17 @@ export function Footer() {
             >
               Bedingungen
             </a>
-            <span>Designed by Adversify Marketing</span>
+            <span>
+              Designed by{" "}
+              <a
+                href="https://adversify.de"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-300 hover:text-ink-900"
+              >
+                Adversify Marketing
+              </a>
+            </span>
           </div>
         </div>
       </div>
