@@ -22,7 +22,6 @@ export function Schulungen() {
           eyebrow="Lernen bei mir"
           spruch="pass it on"
           title={<>{schulungen.titel}</>}
-          text={schulungen.intro}
         />
       </div>
 
@@ -42,6 +41,13 @@ export function Schulungen() {
       </div>
 
       <div className="container-x pt-16 sm:pt-20">
+        {/* Der Einleitungssatz steht bewusst unter der Aufnahme. */}
+        <Reveal>
+          <p className="mx-auto max-w-2xl text-center text-base leading-relaxed text-ink-500 text-pretty sm:text-lg">
+            {schulungen.intro}
+          </p>
+        </Reveal>
+
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <Reveal direction="right">
             <div className="karte h-full px-7 py-9 sm:px-10 sm:py-10">
