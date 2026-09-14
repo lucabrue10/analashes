@@ -34,7 +34,7 @@ export function Buchung() {
       `Leistung: ${leistung}`,
       `Wunschtag: ${datum || "flexibel"}`,
       `Uhrzeit: ${zeit}`,
-      `Name: ${name || "—"}`,
+      `Name: ${name || "?"}`,
     ];
     if (insta.trim()) zeilen.push(`Instagram: ${insta.trim()}`);
     if (notiz.trim()) zeilen.push(`Notiz: ${notiz.trim()}`);
@@ -61,7 +61,7 @@ export function Buchung() {
               Deinen Platz <span className="italic">reservieren</span>
             </>
           }
-          text="Such dir dein Set aus, nenn mir deinen Wunschtag – den Rest klären wir im Chat. Die Anzahlung macht den Termin verbindlich, danach erhältst du die genaue Adresse."
+          text="Such dir dein Set aus und nenn mir deinen Wunschtag. Den Rest klären wir im Chat. Die Anzahlung macht den Termin verbindlich, danach erhältst du die genaue Adresse."
         />
 
         <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -196,9 +196,8 @@ export function Buchung() {
                 <div>
                   <dt className="font-bold">Adresse</dt>
                   <dd className="mt-1.5 text-ink-500">
-                    Erhältst du mit der Terminbestätigung – aus Rücksicht auf
-                    ein Studio zu Hause steht sie nicht öffentlich auf der
-                    Seite.
+                    Erhältst du mit der Terminbestätigung. Aus Rücksicht auf ein
+                    Studio zu Hause steht sie nicht öffentlich auf der Seite.
                   </dd>
                 </div>
                 <div>
@@ -212,7 +211,7 @@ export function Buchung() {
                   <dt className="font-bold">Verspätung</dt>
                   <dd className="mt-1.5 text-ink-500">
                     Ab 15 Minuten berechne ich 10 €. Ab 30 Minuten muss ich den
-                    Termin absagen – der volle Preis wird dann fällig.
+                    Termin absagen und der volle Preis wird fällig.
                   </dd>
                 </div>
                 <div>

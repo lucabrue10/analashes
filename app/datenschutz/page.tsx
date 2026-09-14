@@ -85,7 +85,7 @@ export default function DatenschutzPage() {
         </p>
       </Abschnitt>
 
-      <Abschnitt titel="Google Maps – nur auf Klick">
+      <Abschnitt titel="Google Maps, nur auf Klick">
         <p>
           Die Karte im Kontaktbereich wird{" "}
           <strong>nicht automatisch geladen</strong>. Zunächst ist nur eine
@@ -121,11 +121,10 @@ export default function DatenschutzPage() {
         </p>
         <p>
           Die Links zu WhatsApp und Instagram auf dieser Seite sind einfache
-          Verweise – es werden erst dann Daten übertragen, wenn du sie
-          anklickst. Betreiber beider Dienste ist Meta Platforms Ireland
-          Limited. Bei der Kommunikation über diese Dienste gelten deren
-          Datenschutzbestimmungen; auf die Verarbeitung durch Meta habe ich
-          keinen Einfluss.
+          Verweise. Es werden erst dann Daten übertragen, wenn du sie anklickst.
+          Betreiber beider Dienste ist Meta Platforms Ireland Limited. Bei der
+          Kommunikation über diese Dienste gelten deren Datenschutzbestimmungen;
+          auf die Verarbeitung durch Meta habe ich keinen Einfluss.
         </p>
       </Abschnitt>
 
@@ -136,9 +135,8 @@ export default function DatenschutzPage() {
           Screenshots sind so zugeschnitten, dass weder Namen noch Profilbilder
           oder sonstige identifizierende Angaben zu sehen sind. Rechtsgrundlage
           ist die Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Die Einwilligung
-          kann jederzeit für die Zukunft widerrufen werden – eine kurze
-          Nachricht an die oben genannte Adresse genügt, der Beitrag wird dann
-          entfernt.
+          kann jederzeit für die Zukunft widerrufen werden. Eine kurze Nachricht
+          an die oben genannte Adresse genügt, der Beitrag wird dann entfernt.
         </p>
       </Abschnitt>
 

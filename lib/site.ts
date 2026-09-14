@@ -7,9 +7,9 @@ export const site = {
   /** Englische Zeile unter dem Schriftzug im Kopf. */
   heroZeile:
     "They said women belong in the kitchen, so I COOKED. Bon appétit, mon amour.",
-  slogan: "Wimpern, die dir stehen – im Studio von Ana Catarina.",
+  slogan: "Wimpern, die dir stehen. Im Studio von Ana Catarina.",
   description:
-    "La Maison d'Ana Catarina – Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse erhältst du mit der Terminbestätigung.",
+    "La Maison d'Ana Catarina, Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse erhältst du mit der Terminbestätigung.",
   url: "https://maisonac.de",
   locale: "de_DE",
   phone: "0155 60878913",
@@ -70,7 +70,7 @@ export const services: Service[] = [
     title: "1 : 1 Technik",
     tagline: "Classic",
     description:
-      "Auf jede Naturwimper kommt genau eine Extension. Das Ergebnis ist ein wacher, natürlich definierter Blick – wie ein perfekt getuschter Wimpernkranz, nur ohne Mascara.",
+      "Auf jede Naturwimper kommt genau eine Extension. Das Ergebnis ist ein wacher, natürlich definierter Blick, wie ein perfekt getuschter Wimpernkranz, nur ohne Mascara.",
     details: [
       "Natürlicher Look",
       "Ideal für den Anfang",
@@ -84,7 +84,7 @@ export const services: Service[] = [
     title: "Soft Volumen",
     tagline: "Feine Fächer",
     description:
-      "Leichte, handgelegte Fächer geben deinem Wimpernkranz sanfte Dichte. Der Übergang von Classic zu Volumen – sichtbar voller, trotzdem zurückhaltend.",
+      "Leichte, handgelegte Fächer geben deinem Wimpernkranz sanfte Dichte. Der Übergang von Classic zu Volumen. Sichtbar voller, trotzdem zurückhaltend.",
     details: ["Weiche Fülle", "Alltagstauglich", "Sehr beliebt"],
     duration: "ca. 105 Min.",
     from: "85 €",
@@ -94,7 +94,7 @@ export const services: Service[] = [
     title: "Hybrid",
     tagline: "Mix aus beidem",
     description:
-      "Einzelne Wimpern und Fächer im Wechsel. Das erzeugt Textur und Tiefe – elegant, aber mit spürbar mehr Ausdruck als ein reines Classic-Set.",
+      "Einzelne Wimpern und Fächer im Wechsel. Das erzeugt Textur und Tiefe. Elegant, aber mit spürbar mehr Ausdruck als ein reines Classic-Set.",
     details: [
       "Texturierter Look",
       "Mehr Fülle als 1 : 1",
@@ -118,7 +118,7 @@ export const services: Service[] = [
     title: "Wet Look",
     tagline: "Geschlossene Spikes",
     description:
-      "Dichte, zu Spitzen geschlossene Bündel – der Effekt erinnert an frisch getuschte Wimpern. Klar, modern und ein bisschen verwegen.",
+      "Dichte, zu Spitzen geschlossene Bündel. Der Effekt erinnert an frisch getuschte Wimpern. Klar, modern und ein bisschen verwegen.",
     details: [
       "Angesagter Spike-Effekt",
       "Definierte Linie",
@@ -132,7 +132,7 @@ export const services: Service[] = [
     title: "Mega Volumen",
     tagline: "Maximale Dichte",
     description:
-      "Ultrafeine Wimpern werden zu voluminösen Fächern gelegt. Maximale Fülle für den großen Auftritt – dramatisch und trotzdem federleicht.",
+      "Ultrafeine Wimpern werden zu voluminösen Fächern gelegt. Maximale Fülle für den großen Auftritt, dramatisch und trotzdem federleicht.",
     details: ["Maximale Dichte", "Glamouröser Auftritt", "Perfekt für Events"],
     duration: "ca. 150 Min.",
     from: "100 €",
@@ -142,7 +142,7 @@ export const services: Service[] = [
     title: "Schulungen",
     tagline: "Für Einsteigerinnen & Profis",
     description:
-      "Lerne das Handwerk von Grund auf oder hebe deine Technik aufs nächste Level – in kleinen Gruppen oder als Einzelcoaching.",
+      "Lerne das Handwerk von Grund auf oder hebe deine Technik aufs nächste Level, in kleinen Gruppen oder als Einzelcoaching.",
     details: [
       "Basis, Volumen und UV",
       "Kleine Gruppen",
@@ -183,7 +183,7 @@ export const priceGroups: PriceGroup[] = [
   },
   {
     title: "Auffüllen",
-    note: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt – darunter ist es eine Neuanfertigung",
+    note: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt. Darunter ist es eine Neuanfertigung",
     items: [
       { name: "1 : 1 Technik", meta: "ca. 60 Min.", price: "50 €" },
       {
@@ -356,7 +356,7 @@ export const feedback: Feedback[] = [
 /** Termine laufen ausschließlich nach Vereinbarung. */
 export const termine = {
   hinweis: "Termine ausschließlich nach Vereinbarung",
-  text: "Schreib mir per WhatsApp oder Instagram – ich melde mich mit freien Zeiten zurück.",
+  text: "Schreib mir per WhatsApp oder Instagram. Ich melde mich mit freien Zeiten zurück.",
 };
 
 /** Vorbereitung auf den Termin – so hält das Set am längsten. */
@@ -366,7 +366,7 @@ export const vorbereitung = {
     "Bitte komm ungeschminkt und ohne Wimperntusche-Reste im Augenbereich. Das ist entscheidend für die Haltbarkeit deiner Verlängerung.",
   punkte: [
     "Ungeschminkt kommen, besonders am Auge",
-    "Keine Mascara-Reste – auch nicht vom Vortag",
+    "Keine Mascara-Reste, auch nicht vom Vortag",
     "Wasserfeste Produkte vorher gründlich entfernen",
     "Bekannte Allergien vorab mitteilen",
   ],
@@ -390,14 +390,14 @@ export const aftercare = {
     "Nach starkem Schwitzen die Wimpern reinigen",
   ],
   wichtig:
-    "Vereinbare deinen Refill-Termin rechtzeitig – das erspart dir eine Neuanfertigung.",
+    "Vereinbare deinen Refill-Termin rechtzeitig. Das erspart dir eine Neuanfertigung.",
 };
 
 /** Verbindliche Studioregeln. */
 export const studioregeln = [
   {
     titel: "Anzahlung",
-    text: "Für jeden Termin wird eine Anzahlung von 50 € fällig. Erst damit ist der Termin verbindlich reserviert – und erst dann erhältst du die genaue Adresse.",
+    text: "Für jeden Termin wird eine Anzahlung von 50 € fällig. Erst damit ist der Termin verbindlich reserviert, und erst dann erhältst du die genaue Adresse.",
   },
   {
     titel: "Absagen",
@@ -405,15 +405,15 @@ export const studioregeln = [
   },
   {
     titel: "Verspätungen",
-    text: "Bitte sag mir rechtzeitig Bescheid, wenn es später wird. Ab 15 Minuten Verspätung berechne ich 10 €. Ab 30 Minuten muss ich den Termin absagen – der volle Preis wird dann fällig.",
+    text: "Bitte sag mir rechtzeitig Bescheid, wenn es später wird. Ab 15 Minuten Verspätung berechne ich 10 €. Ab 30 Minuten muss ich den Termin absagen und der volle Preis wird fällig.",
   },
   {
     titel: "Begleitpersonen",
-    text: "Begleitpersonen und Kinder nur nach vorheriger Absprache – im Studio arbeite ich mit einem Termin zur Zeit.",
+    text: "Begleitpersonen und Kinder nur nach vorheriger Absprache. Im Studio arbeite ich mit einem Termin zur Zeit.",
   },
   {
     titel: "Auffüllen",
-    text: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt – darunter ist es eine Neuanfertigung.",
+    text: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt. Darunter ist es eine Neuanfertigung.",
   },
   {
     titel: "Haftung",
@@ -435,32 +435,10 @@ export const ueberMich = {
     "Da ich in einem Homestudio arbeite, nehme ich mir bewusst die Zeit, die wir für deine Wimpern brauchen. Ohne Zeitdruck, ohne Hektik und ganz entspannt.",
   ],
 };
-/**
- * Warum im Studio mit UV-Kleber gearbeitet wird. Steht auf der Startseite
- * direkt unter den Sets – es ist der Unterschied, den Kundinnen merken.
- */
+/** Kurzer Hinweis auf die UV-Technik, direkt unter den Sets. */
 export const uvVorteile = {
   titel: "UV-Technik",
-  intro:
-    "Ich arbeite mit UV-Kleber. Der härtet unter Licht in Sekunden aus, statt über Stunden an der Luft zu trocknen – das ändert den Termin und die Zeit danach spürbar.",
-  punkte: [
-    {
-      titel: "Sofort fertig",
-      text: "Der Kleber ist am Ende des Termins vollständig ausgehärtet. Du musst danach nicht 24 bis 48 Stunden auf Wasser, Dampf und Sauna verzichten.",
-    },
-    {
-      titel: "Sanfter zum Auge",
-      text: "Es entstehen kaum Dämpfe. Kein Brennen, kein Tränen – auch bei empfindlichen Augen deutlich angenehmer.",
-    },
-    {
-      titel: "Hält länger",
-      text: "Die Verbindung zur Naturwimper ist stabiler. Das Set bleibt länger voll und du kommst seltener zum Auffüllen.",
-    },
-    {
-      titel: "Kürzere Termine",
-      text: "Kein Warten auf trocknenden Kleber. Du liegst weniger lang und kannst direkt in deinen Tag zurück.",
-    },
-  ],
+  text: "Ich arbeite mit UV-Kleber. Der härtet unter Licht in Sekunden aus, statt über Stunden an der Luft zu trocknen. Das macht den Termin kürzer, ist sanfter zum Auge und du kannst danach sofort duschen.",
 };
 
 export const studioFeatures = [
@@ -474,7 +452,7 @@ export const studioFeatures = [
   },
   {
     title: "Individuelles Mapping",
-    text: "Jedes Design wird auf Augenform, Naturwimper und deinen Alltag abgestimmt – kein Look von der Stange.",
+    text: "Jedes Design wird auf Augenform, Naturwimper und deinen Alltag abgestimmt, kein Look von der Stange.",
   },
   {
     title: "Ruhe & Privatsphäre",
@@ -494,7 +472,7 @@ export const sprueche = [
   "blink and they stare",
   "quality over quantity, always",
   "petite, elegant, unbothered",
-  "wake up like this — for real",
+  "wake up like this, for real",
   "soft girl, sharp look",
   "main character energy",
   "no mascara, no problem",
@@ -521,7 +499,7 @@ export const buchungsSchritte = [
 
 export const newsletter = {
   titel: "Nichts verpassen",
-  text: "Freie Termine, neue Sets und kleine Aktionen – ein paar Mal im Jahr, nicht öfter.",
+  text: "Freie Termine, neue Sets und kleine Aktionen, ein paar Mal im Jahr und nicht öfter.",
   hinweis: "Abmelden geht jederzeit mit einem Klick.",
 };
 
@@ -536,7 +514,7 @@ export const faqs = [
   },
   {
     q: "Wie bereite ich mich auf den Termin vor?",
-    a: "Komm ungeschminkt und ohne Mascara-Reste im Augenbereich – auch nicht vom Vortag. Mascara beeinträchtigt die Haftung der Extensions deutlich.",
+    a: "Komm ungeschminkt und ohne Mascara-Reste im Augenbereich, auch nicht vom Vortag. Mascara beeinträchtigt die Haftung der Extensions deutlich.",
   },
   {
     q: "Warum eine Anzahlung?",
@@ -548,7 +526,7 @@ export const faqs = [
   },
   {
     q: "Wann ist es ein Refill, wann eine Neuanfertigung?",
-    a: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt – darunter ist es eine Neuanfertigung.",
+    a: "Sind noch mindestens zwei Drittel der Extensions vorhanden, wird aufgefüllt. Darunter ist es eine Neuanfertigung.",
   },
   {
     q: "Schadet die Behandlung meinen Naturwimpern?",
@@ -556,6 +534,6 @@ export const faqs = [
   },
   {
     q: "Kann ich mit Extensions duschen und Sport machen?",
-    a: "Ja, und zwar sofort. Durch die UV-Technik ist der Kleber am Ende des Termins ausgehärtet – du musst keine 24 bis 48 Stunden warten. Vermeide ölhaltige Reiniger, Wimpernzangen und starkes Reiben; nach starkem Schwitzen die Wimpern reinigen.",
+    a: "Ja, und zwar sofort. Durch die UV-Technik ist der Kleber am Ende des Termins ausgehärtet, du musst keine 24 bis 48 Stunden warten. Vermeide ölhaltige Reiniger, Wimpernzangen und starkes Reiben; nach starkem Schwitzen die Wimpern reinigen.",
   },
 ];

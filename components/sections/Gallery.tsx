@@ -70,7 +70,7 @@ export function Gallery() {
               Sets, die ich <span className="text-ink-900">gelegt habe</span>
             </>
           }
-          text="Echte Arbeiten aus dem Studio. Blättere mit den Pfeilen durch – ein Klick zeigt das Bild groß."
+          text="Echte Arbeiten aus dem Studio. Blättere mit den Pfeilen durch, ein Klick zeigt das Bild groß."
         />
 
         <Reveal>
@@ -135,7 +135,7 @@ export function Gallery() {
                           lastFocused.current = e.currentTarget;
                           setLightbox(true);
                         }}
-                        aria-label={`${item.caption} – Bild vergrößern`}
+                        aria-label={`${item.caption}, Bild vergrößern`}
                         className="group relative block h-full w-full cursor-zoom-in overflow-hidden rounded-[1.75rem] border border-beige-300 bg-beige-300 shadow-[var(--shadow-soft)]"
                       >
                         <Image

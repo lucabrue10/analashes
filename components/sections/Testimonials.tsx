@@ -26,7 +26,7 @@ export function Testimonials() {
               landet
             </>
           }
-          text="Nachrichten von Kundinnen nach ihrem Termin – unverändert, so wie sie angekommen sind."
+          text="Nachrichten von Kundinnen nach ihrem Termin, unverändert, so wie sie angekommen sind."
         />
 
         <div className="mt-14 columns-1 gap-7 md:columns-2 lg:columns-3 [&>*]:mb-7">

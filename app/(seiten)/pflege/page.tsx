@@ -4,7 +4,7 @@ import { Ablauf } from "@/components/sections/Ablauf";
 export const metadata: Metadata = {
   title: "Pflege",
   description:
-    "Vorbereitung auf den Termin, Pflege danach und die Regeln im Studio – damit dein Set lange schön bleibt.",
+    "Vorbereitung auf den Termin, Pflege danach und die Regeln im Studio, damit dein Set lange schön bleibt.",
   alternates: { canonical: "/pflege" },
 };
 

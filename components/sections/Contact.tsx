@@ -111,7 +111,7 @@ export function Contact() {
               <p className="label">Termine</p>
               <p className="mt-3 text-lg text-ink-900">{termine.hinweis}</p>
               <p className="mt-3 text-sm leading-relaxed text-ink-500">
-                Ich arbeite mit einem Termin zur gleichen Zeit – deshalb gibt es
+                Ich arbeite mit einem Termin zur gleichen Zeit, deshalb gibt es
                 keine festen Öffnungszeiten, sondern feste Plätze.
               </p>
               <a
@@ -126,7 +126,7 @@ export function Contact() {
               <p className="label">Wo</p>
               <p className="mt-3 text-lg text-ink-900">{site.city}</p>
               <p className="mt-3 text-sm leading-relaxed text-ink-500">
-                Das Studio liegt in einer Wohnung – die genaue Adresse bekommst
+                Das Studio liegt in einer Wohnung. Die genaue Adresse erhältst
                 du mit der Terminbestätigung, zusammen mit allem, was du vorher
                 wissen musst.
               </p>

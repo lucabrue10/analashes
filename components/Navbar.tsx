@@ -87,7 +87,7 @@ export function Navbar() {
           {/* Links: der Name, immer zurück zur Startseite */}
           <a
             href="/"
-            aria-label={`${site.name} – zur Startseite`}
+            aria-label={`${site.name}, zur Startseite`}
             className="transition-opacity hover:opacity-70"
           >
             <BrandMark />
