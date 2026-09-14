@@ -4,6 +4,9 @@ export const site = {
   /** Kurzform für enge Stellen (Kopfzeile, Titel). */
   kurz: "La Maison",
   claim: "girl supports girl",
+  /** Englische Zeile unter dem Schriftzug im Kopf. */
+  heroZeile:
+    "They said women belong in the kitchen, so I COOKED. Bon appétit, mon amour.",
   slogan: "Wimpern, die dir stehen – im Studio von Ana Catarina.",
   description:
     "La Maison d'Ana Catarina – Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse kommt mit der Bestätigung.",
@@ -15,7 +18,7 @@ export const site = {
   whatsappText: "Hallo Ana, ich möchte gerne einen Termin anfragen.",
   instagram: "https://instagram.com/lamaison.ac",
   instagramHandle: "@lamaison.ac",
-  email: "ana.chickenwings@icloud.com",
+  email: "ana.akhouaji@outlook.de",
   /** Inhaberin – für Impressum und verantwortliche Stelle */
   owner: "Ana Catarina De Oliveira Akhouaji",
   /**
@@ -48,7 +51,6 @@ export const navItems: NavItem[] = [
   { label: "Preise", href: "/preise" },
   { label: "Pflege", href: "/pflege" },
   { label: "Über mich", href: "/#ueber-mich" },
-  { label: "Stempelkarte", href: "/stempelkarte" },
   { label: "Termin buchen", href: "/buchen" },
 ];
 
@@ -392,12 +394,13 @@ export const ueberMich = {
   bild: "/ana.jpg",
   bildAlt: "Ana Catarina in ihrem Studio",
   absaetze: [
-    "Ich bin Ana Catarina. La Maison ist kein Salon und keine Kette, sondern mein eigenes Studio in Frankfurt – und bei jedem Termin sitzt genau eine Kundin auf dem Stuhl.",
-    "Mein Anspruch ist nicht das Set, das auf dem Foto am meisten hermacht, sondern das, das zu deinem Gesicht passt und im Alltag hält. Deshalb wird jedes Design vorher auf deine Augenform und deine Naturwimpern abgestimmt, statt eine Vorlage abzuarbeiten.",
-    "Ein Studio zu Hause heißt: keine Wartezone, kein Termindruck im Nacken, keine fremden Blicke. Du liegst zwei Stunden in Ruhe, ich arbeite in Ruhe – und du gehst mit einem Blick raus, für den du morgens nichts mehr tun musst.",
+    "Ich bin Ana Catarina. La Maison ist kein Salon und keine Kette, sondern mein eigenes Studio in Frankfurt – und bei jedem Termin sitzt genau eine Kundin auf dem Stuhl: du.",
+    "Ich mache diese Arbeit mit Herz. Jede Wimper, die ich setze, ist eine Entscheidung für dich und nicht für ein Foto. Und dass ich meinen Traum heute wirklich zum Beruf machen darf, verdanke ich euch – meinen Kundinnen. Jeder Termin, jede Weiterempfehlung, jede Nachricht hat dieses Studio möglich gemacht.",
+    "Bei mir hast du zwei Stunden für dich. Ich habe für euch immer ein offenes Ohr, und alles, was ihr mir erzählt, bleibt natürlich zwischen uns. Secrets never leave the room.",
+    "Mein Anspruch ist nicht das Set, das auf dem Foto am meisten hermacht, sondern das, das zu deinem Gesicht passt und im Alltag hält. Deshalb wird jedes Design vorher auf deine Augenform und deine Naturwimpern abgestimmt – keine Vorlage, die ich abarbeite.",
+    "Kein Wartebereich, kein Termindruck im Nacken, keine fremden Blicke. Du liegst in Ruhe, ich arbeite in Ruhe – und du gehst mit einem Blick raus, für den du morgens nichts mehr tun musst.",
   ],
 };
-
 export const studioFeatures = [
   {
     title: "UV-Technik",
@@ -435,7 +438,6 @@ export const sprueche = [
   "no mascara, no problem",
 ];
 
-
 /** Die drei Schritte von der Anfrage bis zur Adresse. */
 export const buchungsSchritte = [
   {
@@ -446,26 +448,14 @@ export const buchungsSchritte = [
   {
     nummer: "02",
     titel: "Anzahlung",
-    text: "50 € sichern deinen Platz und werden am Termin vom Preis abgezogen.",
+    text: "50 € sichern deinen Platz und werden am Termin mit dem Preis verrechnet.",
   },
   {
     nummer: "03",
-    titel: "Adresse kommt",
+    titel: "Terminbestätigung",
     text: "Mit der Bestätigung bekommst du die genaue Adresse und alles, was du vorher wissen musst.",
   },
 ];
-
-/**
- * Digitale Stempelkarte. Die Karte liegt im Browser der Kundin – sie ersetzt
- * die Karte aus Papier, nicht die Buchhaltung.
- */
-export const stempelkarte = {
-  felder: 8,
-  /** Von Ana zu bestätigen, bevor die Seite online geht. */
-  belohnung: "Die 8. Behandlung geht aufs Haus",
-  hinweis:
-    "Nach jedem Termin bekommst du von mir den Code für deinen Stempel. Die Karte liegt in deinem Browser – lösch die Browserdaten, ist sie weg.",
-};
 
 export const newsletter = {
   titel: "Nichts verpassen",

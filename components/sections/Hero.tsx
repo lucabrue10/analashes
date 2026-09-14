@@ -21,8 +21,8 @@ export function Hero() {
               <Wortmarke className="text-[clamp(1.7rem,5.6vw,3.9rem)]" />
             </h1>
 
-            <p className="mt-5 max-w-md text-base leading-relaxed text-ink-500 text-pretty sm:text-lg">
-              {site.slogan}
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-700 text-pretty sm:text-lg">
+              {site.heroZeile}
             </p>
           </div>
         </div>

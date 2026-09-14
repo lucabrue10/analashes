@@ -32,7 +32,7 @@ export function UeberMich() {
         <div>
           <SectionHeading
             id="ueber-mich-titel"
-            marker
+            edel
           eyebrow="Über mich"
             spruch="your girl, your look"
             align="left"

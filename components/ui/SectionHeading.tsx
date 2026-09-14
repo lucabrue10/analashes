@@ -3,8 +3,8 @@ import { Reveal } from "./Reveal";
 
 type Props = {
   eyebrow?: string;
-  /** Überschrift in der Markerschrift statt in Arial. */
-  marker?: boolean;
+  /** Überschrift in der Bodoni des Schriftzugs statt in Arial. */
+  edel?: boolean;
   /** Englischer Spruch unter der Überschrift – setzt den Ton der Seite. */
   spruch?: string;
   title: ReactNode;
@@ -15,7 +15,7 @@ type Props = {
 
 export function SectionHeading({
   eyebrow,
-  marker = false,
+  edel = false,
   spruch,
   title,
   text,
@@ -33,11 +33,20 @@ export function SectionHeading({
       <Reveal delay={0.06}>
         <h2
           id={id}
+          style={
+            edel
+              ? {
+                  fontOpticalSizing: "none",
+                  fontVariationSettings: '"opsz" 16',
+                }
+              : undefined
+          }
           className={
-            marker
-              ? // Die Markerschrift läuft breiter und steht tiefer – etwas
-                // kleiner gesetzt bleibt die Zeile im Rahmen.
-                "mt-4 font-[family-name:var(--font-marker)] text-[1.6rem] leading-[1.3] text-balance text-ink-900 sm:text-[2.1rem] md:text-[2.5rem]"
+            edel
+              ? // Dieselbe Bodoni wie der Schriftzug im Kopf: klein gesetzt,
+                // in Versalien und weit gesperrt. Das bindet die Abschnitte
+                // an die Marke, ohne dem Namen die Größe streitig zu machen.
+                "mt-4 font-[family-name:var(--font-display)] text-[1.35rem] leading-[1.35] font-medium tracking-[0.14em] text-balance text-ink-900 uppercase sm:text-[1.7rem] md:text-[2rem]"
               : "mt-4 text-3xl leading-[1.15] font-normal text-balance text-ink-900 sm:text-4xl md:text-[2.75rem]"
           }
         >

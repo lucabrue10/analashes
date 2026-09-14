@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    ...["buchen", "preise", "pflege", "stempelkarte", "kontakt"].map((pfad) => ({
+    ...["buchen", "preise", "pflege", "kontakt"].map((pfad) => ({
       url: `${site.url}/${pfad}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,

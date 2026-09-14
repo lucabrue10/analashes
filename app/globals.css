@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "./fonts-allura.css";
 @import "./fonts-bodoni.css";
-@import "./fonts-marker.css";
 
 @theme {
   /* Creme, Beige, ein wenig Schwarz – mehr Farben hat die Seite nicht. */
@@ -27,8 +26,6 @@
   --font-sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
   --font-display: "Bodoni Moda", "Didot", Georgia, "Times New Roman", serif;
   --font-script: "Allura", "Snell Roundhand", "Brush Script MT", cursive;
-  /* Handgeschriebener Zug über dem Namen */
-  --font-marker: "Permanent Marker", "Bradley Hand", cursive;
 
   --shadow-soft: 0 30px 80px -50px rgb(61 53 46 / 0.55);
   --shadow-card:
@@ -106,4 +103,3 @@ body {
   border-radius: 1.75rem;
   box-shadow: var(--shadow-card);
 }
-

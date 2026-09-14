@@ -17,7 +17,7 @@ export function Testimonials() {
       <div className="container-x">
         <SectionHeading
           id="feedback-titel"
-          marker
+          edel
           eyebrow="Feedback"
           spruch="receipts, not promises"
           title={

@@ -190,7 +190,8 @@ export function Buchung() {
                 <div>
                   <dt className="font-bold">Anzahlung {site.anzahlung}</dt>
                   <dd className="mt-1.5 text-ink-500">
-                    Sichert deinen Platz und wird am Termin vom Preis abgezogen.
+                    Sichert deinen Platz und wird am Termin mit dem Preis
+                    verrechnet.
                   </dd>
                 </div>
                 <div>

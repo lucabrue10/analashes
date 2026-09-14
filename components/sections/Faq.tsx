@@ -17,7 +17,7 @@ export function Faq() {
       <div className="container-x relative">
         <SectionHeading
           id="faq-titel"
-          marker
+          edel
           eyebrow="Gut zu wissen"
           title={
             <>

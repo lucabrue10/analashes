@@ -62,7 +62,7 @@ export function Gallery() {
       <div className="container-x">
         <SectionHeading
           id="sets-titel"
-          marker
+          edel
           eyebrow="Sets"
           spruch="the lashes are lashing"
           title={
