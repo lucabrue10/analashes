@@ -462,7 +462,7 @@ export const studioFeatures = [
  * dem Namen im Kopf der Startseite.
  */
 export const sprueche = [
-  "girls supports girls",
+  "girls support girls",
   "better than your ex",
   "your face card never declines",
   "blink and they stare",
