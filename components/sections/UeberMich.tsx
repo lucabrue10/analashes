@@ -45,7 +45,7 @@ export function UeberMich() {
 
           <div className="mt-7 space-y-5">
             {ueberMich.absaetze.map((absatz, i) => (
-              <Reveal key={absatz.slice(0, 24)} delay={0.08 + i * 0.06}>
+              <Reveal key={absatz.slice(0, 24)} delay={0.04 + i * 0.03}>
                 <p className="text-base leading-relaxed text-ink-500 text-pretty">
                   {absatz}
                 </p>

@@ -63,7 +63,7 @@ export function Ablauf() {
             </div>
           </Reveal>
 
-          <Reveal direction="left" delay={0.08}>
+          <Reveal direction="left" delay={0.04}>
             <div className="karte h-full px-7 py-9 sm:px-10 sm:py-10">
               <span className="label">Nach dem Termin</span>
               <h3 className="mt-4 text-2xl text-ink-900">{aftercare.titel}</h3>
@@ -84,7 +84,7 @@ export function Ablauf() {
           </Reveal>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {studioregeln.map((regel, i) => (
-              <Reveal key={regel.titel} delay={(i % 3) * 0.07}>
+              <Reveal key={regel.titel} delay={(i % 3) * 0.04}>
                 <div className="h-full rounded-[1.5rem] bg-beige-200/70 px-6 py-7">
                   <p className="text-[10px] tracking-[0.28em] text-ink-700 uppercase">
                     {regel.titel}

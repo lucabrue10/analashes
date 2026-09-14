@@ -75,7 +75,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.04}>
             <p className="mt-7 text-xs leading-relaxed text-ink-300">
               {site.ort} · Die genaue Adresse erhältst du mit der
               Terminbestätigung.

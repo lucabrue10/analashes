@@ -63,7 +63,7 @@ export function Schulungen() {
             </div>
           </Reveal>
 
-          <Reveal direction="left" delay={0.08}>
+          <Reveal direction="left" delay={0.04}>
             <div className="karte h-full px-7 py-9 sm:px-10 sm:py-10">
               <span className="label">Inhalte</span>
               <ul className="mt-6 space-y-3">

@@ -85,7 +85,7 @@ export function Contact() {
           ))}
         </div>
 
-        <Reveal delay={0.2}>
+        <Reveal delay={0.08}>
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
             <div className="rounded-[1.75rem] bg-beige-200 px-7 py-8 sm:px-9">
               <p className="label">Termine</p>

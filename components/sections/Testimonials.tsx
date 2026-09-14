@@ -33,7 +33,7 @@ export function Testimonials() {
           {feedback.map((f, i) => (
             <Reveal
               key={f.src}
-              delay={(i % 3) * 0.08}
+              delay={(i % 3) * 0.04}
               className="break-inside-avoid"
             >
               <figure>
@@ -48,7 +48,7 @@ export function Testimonials() {
           ))}
         </div>
 
-        <Reveal delay={0.15}>
+        <Reveal delay={0.06}>
           <p className="mt-12 text-center text-sm text-ink-500">
             Mehr davon täglich auf{" "}
             <a

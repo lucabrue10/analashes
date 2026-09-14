@@ -39,7 +39,7 @@ export function SectionHeading({
           <span className="label">{eyebrow}</span>
         </Huelle>
       ) : null}
-      <Huelle delay={0.06}>
+      <Huelle delay={0.03}>
         <h2
           id={id}
           style={
@@ -63,14 +63,14 @@ export function SectionHeading({
         </h2>
       </Huelle>
       {spruch ? (
-        <Huelle delay={0.1}>
+        <Huelle delay={0.05}>
           <p className="mt-3 font-[family-name:var(--font-script)] text-2xl text-ink-700 sm:text-[1.75rem]">
             {spruch}
           </p>
         </Huelle>
       ) : null}
       {text ? (
-        <Huelle delay={0.12}>
+        <Huelle delay={0.07}>
           <p
             className={`mt-5 text-base leading-relaxed text-ink-500 text-pretty ${zentriert ? "mx-auto" : ""}`}
           >

@@ -72,7 +72,7 @@ export function Pricing() {
           ))}
         </div>
 
-        <Reveal delay={0.2}>
+        <Reveal delay={0.08}>
           <div className="mt-12 flex flex-col items-center gap-4 text-center">
             <a
               href="/buchen"
