@@ -31,10 +31,17 @@ export function Hero() {
           begrenzt die Breite die Hoehe, sonst wuerde das Bild die halbe
           Seite fuellen. */}
       <div className="bg-ink-900">
-        <div className="mx-auto aspect-video w-full max-w-[1100px]">
+        <div className="relative mx-auto aspect-video w-full max-w-[1100px]">
           <StudioVideo
             label="Aufnahme aus dem Studio von Ana Catarina"
             className="h-full w-full object-cover"
+          />
+          {/* Dunkler Schleier ueber der Aufnahme: nimmt dem hellen
+              Material die Haerte und bindet es an das Schwarz der
+              Knoepfe. */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-black/30"
           />
         </div>
       </div>
