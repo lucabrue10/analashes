@@ -22,7 +22,7 @@ export function Ablauf3() {
           {buchungsSchritte.map((schritt, i) => (
             <Reveal key={schritt.nummer} delay={i * 0.08}>
               <li className="karte h-full px-8 py-9">
-                <p className="text-[11px] tracking-[0.3em] text-beige-500">
+                <p className="text-[11px] tracking-[0.3em] text-ink-500">
                   {schritt.nummer}
                 </p>
                 <h3 className="mt-4 text-xl text-ink-900">{schritt.titel}</h3>

@@ -3,7 +3,7 @@ export const site = {
   name: "La Maison d'Ana Catarina",
   /** Kurzform für enge Stellen (Kopfzeile, Titel). */
   kurz: "La Maison",
-  claim: "girl supports girl",
+  claim: "sets with me",
   /** Englische Zeile unter dem Schriftzug im Kopf. */
   heroZeile:
     "They said women belong in the kitchen, so I COOKED. Bon appétit, mon amour.",
@@ -426,7 +426,7 @@ export const studioFeatures = [
  * dem Namen im Kopf der Startseite.
  */
 export const sprueche = [
-  "girl supports girl",
+  "girls supports girls",
   "better than your ex",
   "your face card never declines",
   "blink and they stare",

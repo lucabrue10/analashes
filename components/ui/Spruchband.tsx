@@ -37,9 +37,7 @@ export function Spruchband({
             <span className="px-6 text-[11px] tracking-[0.32em] whitespace-nowrap uppercase sm:text-xs">
               {spruch}
             </span>
-            <span className={dunkel ? "text-beige-400" : "text-beige-500"}>
-              ✦
-            </span>
+            <span aria-hidden>✦</span>
           </span>
         ))}
       </motion.div>

@@ -58,8 +58,7 @@ export function Buchung() {
           spruch="your seat, your rules"
           title={
             <>
-              Deinen Platz{" "}
-              <span className="text-beige-500 italic">reservieren</span>
+              Deinen Platz <span className="italic">reservieren</span>
             </>
           }
           text="Such dir dein Set aus, nenn mir deinen Wunschtag – den Rest klären wir im Chat. Die Anzahlung macht den Termin verbindlich, danach bekommst du die genaue Adresse."

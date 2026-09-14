@@ -17,9 +17,7 @@ export function Pricing() {
           title={
             <>
               Transparent, fair,{" "}
-              <span className="text-beige-500 italic">
-                ohne Kleingedrucktes
-              </span>
+              <span className="italic">ohne Kleingedrucktes</span>
             </>
           }
           text={`Alle Preise inklusive Beratung, Mapping und Pflegeempfehlung. Die Anzahlung von ${site.anzahlung} sichert deinen Termin und wird verrechnet.`}
@@ -52,7 +50,7 @@ export function Pricing() {
                         <span className="text-[15px] text-ink-900">
                           {item.name}
                           {item.featured ? (
-                            <span className="ml-2 text-[9px] tracking-[0.2em] text-beige-500 uppercase">
+                            <span className="ml-2 text-[9px] tracking-[0.2em] text-ink-500 uppercase">
                               beliebt
                             </span>
                           ) : null}

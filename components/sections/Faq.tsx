@@ -21,7 +21,7 @@ export function Faq() {
           eyebrow="Gut zu wissen"
           title={
             <>
-              Häufige <span className="text-beige-500">Fragen</span>
+              Häufige <span className="text-ink-900">Fragen</span>
             </>
           }
         />

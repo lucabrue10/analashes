@@ -40,8 +40,7 @@ export function Ablauf() {
           spruch="handle with care"
           title={
             <>
-              Damit dein Set{" "}
-              <span className="text-beige-500 italic">lange hält</span>
+              Damit dein Set <span className="italic">lange hält</span>
             </>
           }
           text="Zwei Dinge entscheiden über die Haltbarkeit: wie du zum Termin kommst und wie du die Wimpern danach behandelst."

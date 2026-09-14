@@ -67,8 +67,7 @@ export function Gallery() {
           spruch="the lashes are lashing"
           title={
             <>
-              Sets, die ich{" "}
-              <span className="text-beige-500">gelegt habe</span>
+              Sets, die ich <span className="text-ink-900">gelegt habe</span>
             </>
           }
           text="Echte Arbeiten aus dem Studio. Blättere mit den Pfeilen durch – ein Klick zeigt das Bild groß."
@@ -158,7 +157,7 @@ export function Gallery() {
                           />
                         ) : null}
                         <span className="absolute inset-x-6 bottom-6 flex flex-col items-start text-left">
-                          <span className="text-[9px] tracking-[0.3em] text-beige-300 uppercase">
+                          <span className="text-[9px] tracking-[0.3em] text-white/75 uppercase">
                             {item.technique}
                           </span>
                           <span className="mt-1.5 text-lg text-white">

@@ -55,7 +55,7 @@ export function SectionHeading({
       </Reveal>
       {spruch ? (
         <Reveal delay={0.1}>
-          <p className="mt-3 font-[family-name:var(--font-script)] text-2xl text-beige-500 sm:text-[1.75rem]">
+          <p className="mt-3 font-[family-name:var(--font-script)] text-2xl text-ink-700 sm:text-[1.75rem]">
             {spruch}
           </p>
         </Reveal>

@@ -33,13 +33,12 @@ export function UeberMich() {
           <SectionHeading
             id="ueber-mich-titel"
             edel
-          eyebrow="Über mich"
-            spruch="your girl, your look"
+            eyebrow="Über mich"
+            spruch="Aus einem Traum wurde mein Beruf"
             align="left"
             title={
               <>
-                Hinter jedem Set{" "}
-                <span className="text-beige-500">steht Ana</span>
+                Hinter jedem Set <span className="text-ink-900">steht Ana</span>
               </>
             }
           />

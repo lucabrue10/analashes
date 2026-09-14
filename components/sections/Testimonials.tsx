@@ -22,8 +22,8 @@ export function Testimonials() {
           spruch="receipts, not promises"
           title={
             <>
-              Was danach im{" "}
-              <span className="text-beige-500">Postfach</span> landet
+              Was danach im <span className="text-ink-900">Postfach</span>{" "}
+              landet
             </>
           }
           text="Nachrichten von Kundinnen nach ihrem Termin – unverändert, so wie sie angekommen sind."

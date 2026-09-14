@@ -79,8 +79,7 @@ export function Contact() {
           spruch="slide into my DMs"
           title={
             <>
-              Bereit für deinen{" "}
-              <span className="text-beige-500 italic">neuen Blick?</span>
+              Bereit für deinen <span className="italic">neuen Blick?</span>
             </>
           }
           text={termine.text}
