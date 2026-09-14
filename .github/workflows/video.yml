@@ -1,0 +1,65 @@
+# Holt das Studio-Video einmalig, rechnet es fuers Web klein und legt es
+# ins Projekt. Danach liegt es als fertige Datei im Zweig und wird bei
+# jeder Veroeffentlichung mit ausgeliefert.
+name: Studio-Video einbauen
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Direkter Download-Link zum Video"
+        required: true
+        type: string
+
+concurrency:
+  group: video
+  cancel-in-progress: false
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Quellcode holen
+        uses: actions/checkout@v4
+        with:
+          ref: claude/anna-blush-lashes-site-r13pxp
+
+      - name: Video herunterladen
+        run: |
+          set -e
+          curl -L --fail --retry 3 -o roh.mov "${{ inputs.url }}"
+          ls -lh roh.mov
+          file roh.mov
+
+      - name: Masse und Laenge ermitteln
+        run: |
+          ffprobe -v error -select_streams v:0 \
+            -show_entries stream=width,height,r_frame_rate,duration \
+            -show_entries format=duration -of default=noprint_wrappers=1 roh.mov
+
+      - name: Fuers Web rechnen
+        run: |
+          set -e
+          mkdir -p public/video
+          # Kein Ton, hoechstens 1080 px lange Kante, gerade Masse (H.264
+          # braucht das), schneller Start (faststart), Farbraum, den auch
+          # aeltere iPhones sicher zeigen.
+          ffmpeg -y -i roh.mov -an \
+            -vf "scale='if(gt(iw,ih),-2,min(1080,iw))':'if(gt(iw,ih),min(1080,ih),-2)'" \
+            -c:v libx264 -profile:v high -level 4.0 -pix_fmt yuv420p \
+            -crf 26 -preset slow -movflags +faststart \
+            public/video/studio.mp4
+          # Standbild aus der ersten Sekunde als Vorschau, bis das Video laeuft.
+          ffmpeg -y -ss 0.5 -i roh.mov -frames:v 1 -q:v 4 \
+            public/video/studio-poster.jpg
+          ls -lh public/video
+
+      - name: Ins Projekt legen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f public/video/studio.mp4 public/video/studio-poster.jpg
+          git commit -m "Studio-Video fuers Web eingebaut"
+          git push origin HEAD:claude/anna-blush-lashes-site-r13pxp

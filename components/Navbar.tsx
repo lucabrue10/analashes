@@ -96,7 +96,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 sm:gap-3">
             <a
               href="/buchen"
-              className="rounded-full bg-ink-900 px-4 py-2.5 text-[9px] font-medium tracking-[0.16em] text-creme-100 uppercase transition-colors duration-300 hover:bg-ink-700 min-[400px]:px-5 min-[400px]:text-[10px] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.22em]"
+              className="rounded-full bg-ink-900 px-4 py-3.5 text-[10px] font-medium tracking-[0.16em] text-creme-100 uppercase transition-colors duration-300 hover:bg-ink-700 min-[400px]:px-5 min-[400px]:text-[11px] sm:px-6 sm:py-3 sm:text-[11px] sm:tracking-[0.22em]"
             >
               <span className="sm:hidden">Termin</span>
               <span className="hidden sm:inline">Termin buchen</span>
@@ -170,7 +170,7 @@ export function Navbar() {
 
               <motion.div
                 variants={itemVariants}
-                className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-[10px] tracking-[0.24em] text-ink-500 uppercase"
+                className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-[11px] tracking-[0.24em] text-ink-500 uppercase"
               >
                 <a
                   href={`tel:${site.phoneHref}`}

@@ -11,19 +11,19 @@ export function Footer() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-500">
               {site.slogan}
             </p>
-            <p className="mt-6 text-[10px] tracking-[0.3em] text-ink-300 uppercase">
+            <p className="mt-6 text-[11px] tracking-[0.3em] text-ink-300 uppercase">
               {site.claim}
             </p>
           </div>
 
           <nav aria-label="Fußzeile">
             <p className="label">Seiten</p>
-            <ul className="mt-5 space-y-2.5 text-sm text-ink-500">
+            <ul className="mt-4 space-y-0 text-sm text-ink-500">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="transition-colors duration-300 hover:text-ink-900"
+                    className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
                   >
                     {item.label}
                   </a>
@@ -34,11 +34,11 @@ export function Footer() {
 
           <div>
             <p className="label">Kontakt</p>
-            <ul className="mt-5 space-y-2.5 text-sm text-ink-500">
+            <ul className="mt-4 space-y-0 text-sm text-ink-500">
               <li>
                 <a
                   href={`tel:${site.phoneHref}`}
-                  className="transition-colors duration-300 hover:text-ink-900"
+                  className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
                 >
                   {site.phone}
                 </a>
@@ -46,7 +46,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="transition-colors duration-300 hover:text-ink-900"
+                  className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
                 >
                   {site.email}
                 </a>
@@ -56,7 +56,7 @@ export function Footer() {
                   href={site.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors duration-300 hover:text-ink-900"
+                  className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
                 >
                   Instagram {site.instagramHandle}
                 </a>
@@ -68,20 +68,20 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-beige-300 pt-7 text-[10px] tracking-[0.22em] text-ink-300 uppercase sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-beige-300 pt-7 text-[11px] tracking-[0.22em] text-ink-300 uppercase sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>
           <div className="flex flex-wrap gap-x-7 gap-y-2">
             <a
               href="/impressum"
-              className="transition-colors duration-300 hover:text-ink-900"
+              className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
             >
               Impressum
             </a>
             <a
               href="/datenschutz"
-              className="transition-colors duration-300 hover:text-ink-900"
+              className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
             >
               Datenschutz
             </a>

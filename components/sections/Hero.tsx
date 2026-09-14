@@ -1,11 +1,8 @@
-import Image from "next/image";
 import { Wortmarke } from "@/components/ui/BrandMark";
+import { StudioVideo } from "@/components/ui/StudioVideo";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { gallery, site } from "@/lib/site";
-
-/** Drei Aufnahmen unter dem Namen. */
-const BILDER = [gallery[1], gallery[3], gallery[5]];
+import { site } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -28,40 +25,17 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Die Bilder laufen über die volle Breite. Darüber liegt ein
-          durchsichtiger schwarzer Balken, der über das untere Drittel geht
-          und unten aus den Bildern herausragt – das legt die Reihe in
-          Ebenen, ganz ohne Beschriftung. */}
-      <div className="relative">
-        <div className="grid grid-cols-3">
-          {BILDER.map((bild, i) => (
-            <figure
-              key={bild.id} // Feste Höhe statt Seitenverhältnis: So bleiben die Knöpfe darunter
-              // auch auf einem Laptop ohne Scrollen sichtbar.
-              className="relative h-[clamp(200px,31vh,360px)] overflow-hidden"
-            >
-              <Image
-                src={bild.src}
-                alt={bild.alt}
-                fill
-                priority={i === 1}
-                sizes="33vw"
-                className="object-cover"
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.2)_0%,transparent_26%)]"
-              />
-            </figure>
-          ))}
+      {/* Das Studio-Video läuft stumm in Schleife über die volle Breite.
+          Auf dem Handy füllt es die Breite und wird oben und unten nur
+          minimal beschnitten; auf großen Bildschirmen steht es mittig in
+          seinem eigenen Format, damit nichts abgeschnitten wirkt. */}
+      <div className="relative w-full overflow-hidden bg-ink-900">
+        <div className="mx-auto h-[58svh] max-h-[560px] min-h-[300px] w-full sm:h-[62svh] sm:max-w-[min(100%,calc(62svh*0.5625))]">
+          <StudioVideo
+            label="Aufnahme aus dem Studio von Ana Catarina"
+            className="h-full w-full object-cover"
+          />
         </div>
-
-        {/* Der Balken: ein Drittel hoch, über die volle Breite, unten ein
-            Stück über die Bilder hinaus. */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-[-18px] h-[36%] border-t border-white/20 bg-black/45"
-        />
       </div>
 
       <div className="container-x relative pt-10 pb-14 sm:pt-12 sm:pb-20">
