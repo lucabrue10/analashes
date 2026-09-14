@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { Reveal } from "./Reveal";
 
 type Props = {
@@ -10,6 +10,8 @@ type Props = {
   title: ReactNode;
   text?: ReactNode;
   align?: "left" | "center";
+  /** Ohne Einblenden: Die Überschrift steht sofort da. */
+  ruhig?: boolean;
   id?: string;
 };
 
@@ -20,17 +22,24 @@ export function SectionHeading({
   title,
   text,
   align = "center",
+  ruhig = false,
   id,
 }: Props) {
   const zentriert = align === "center";
+  // Auf ruhigen Seiten blendet nichts ein, der Text steht beim Laden da.
+  const Huelle = ruhig
+    ? ({ children }: { children: ReactNode; delay?: number }) => (
+        <Fragment>{children}</Fragment>
+      )
+    : Reveal;
   return (
     <div className={zentriert ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       {eyebrow ? (
-        <Reveal>
+        <Huelle>
           <span className="label">{eyebrow}</span>
-        </Reveal>
+        </Huelle>
       ) : null}
-      <Reveal delay={0.06}>
+      <Huelle delay={0.06}>
         <h2
           id={id}
           style={
@@ -52,22 +61,22 @@ export function SectionHeading({
         >
           {title}
         </h2>
-      </Reveal>
+      </Huelle>
       {spruch ? (
-        <Reveal delay={0.1}>
+        <Huelle delay={0.1}>
           <p className="mt-3 font-[family-name:var(--font-script)] text-2xl text-ink-700 sm:text-[1.75rem]">
             {spruch}
           </p>
-        </Reveal>
+        </Huelle>
       ) : null}
       {text ? (
-        <Reveal delay={0.12}>
+        <Huelle delay={0.12}>
           <p
             className={`mt-5 text-base leading-relaxed text-ink-500 text-pretty ${zentriert ? "mx-auto" : ""}`}
           >
             {text}
           </p>
-        </Reveal>
+        </Huelle>
       ) : null}
     </div>
   );
