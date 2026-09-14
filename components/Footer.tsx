@@ -54,7 +54,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="pt-2 text-ink-300">
-                {site.city} · Adresse mit der Terminbestätigung
+                {site.ort} · Adresse mit der Terminbestätigung
               </li>
             </ul>
           </div>

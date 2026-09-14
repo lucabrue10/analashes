@@ -9,7 +9,7 @@ export const site = {
     "They said women belong in the kitchen, so I COOKED. Bon appétit, mon amour.",
   slogan: "Wimpern, die dir stehen. Im Studio von Ana Catarina.",
   description:
-    "La Maison d'Ana Catarina, Wimpernverlängerung in Frankfurt am Main. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse erhältst du mit der Terminbestätigung.",
+    "La Maison d'Ana Catarina, Wimpernverlängerung in Frankfurt Riedberg. Termin online anfragen, Anzahlung sichert den Platz, die genaue Adresse erhältst du mit der Terminbestätigung.",
   url: "https://maisonac.de",
   locale: "de_DE",
   instagram: "https://instagram.com/lamaison.ac",
@@ -26,6 +26,11 @@ export const site = {
   district: "Riedberg",
   postalCode: "60438",
   city: "Frankfurt am Main",
+  /**
+   * Was auf der Seite steht. Im Impressum und in der Postanschrift bleibt
+   * "Frankfurt am Main" stehen, das ist der amtliche Ortsname.
+   */
+  ort: "Frankfurt Riedberg",
   country: "DE",
   /** Höhe der Anzahlung, die den Termin verbindlich macht. */
   anzahlung: "50 €",
@@ -515,12 +520,6 @@ export const buchungsSchritte = [
     text: "Mit der Terminbestätigung erhältst du die genaue Adresse und alles, was du vorher wissen musst.",
   },
 ];
-
-export const newsletter = {
-  titel: "Nichts verpassen",
-  text: "Freie Termine, neue Sets und kleine Aktionen, ein paar Mal im Jahr und nicht öfter.",
-  hinweis: "Abmelden geht jederzeit mit einem Klick.",
-};
 
 export const faqs = [
   {

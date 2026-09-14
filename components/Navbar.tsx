@@ -183,7 +183,7 @@ export function Navbar() {
                 >
                   Instagram {site.instagramHandle}
                 </a>
-                <span>{site.city}</span>
+                <span>{site.ort}</span>
               </motion.div>
             </nav>
           </motion.div>

@@ -6,14 +6,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name}, Wimpernverlängerung in ${site.city}`,
+    default: `${site.name}, Wimpernverlängerung in ${site.ort}`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   keywords: [
     "Wimpernverlängerung",
     "Lash Extensions",
-    `Wimpern ${site.city}`,
+    `Wimpern ${site.ort}`,
     "Volume Lashes",
     "Mega Volume",
     "UV Lashes",

@@ -23,7 +23,7 @@ export function UeberMich() {
             />
             <div className="absolute right-6 bottom-6 left-6">
               <p className="rounded-full bg-creme-100/90 px-5 py-2.5 text-center text-[10px] tracking-[0.3em] text-ink-700 uppercase">
-                Ana Catarina · {site.city}
+                Ana Catarina · {site.ort}
               </p>
             </div>
           </div>
