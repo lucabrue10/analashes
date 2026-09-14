@@ -41,10 +41,6 @@ jobs:
           }
 
           hole 119khwHK9O4TAuKh9LI1ZJNr0UxpKN5zT wispy-01
-          hole 1-MhECRM8ODgYFZBK5gxDCCJRm1vjqKVg wispy-02
-          hole 1SwgDv0B5leNoMXmBokHbDKesyqQSo930 wispy-03
-          hole 1t0aAxCLLg6d9yjkOKumkrIZc22X5K-3K wispy-04
-          hole 1mQH5b4SGcnWqz1Isa-EcmyVgEhEujtW1 wispy-05
           hole 1Wl4SOY3t6TOAkeM5GpLNP6wFd-jaCvS6 soft-01
           hole 1IinEvWZGackL3iPmqaATFmZOyMzPF_Rf softvolumen-01
           hole 1K7zt0laS2q-M3kytXOkNVLsS7J5QHLWX wet-01
@@ -52,9 +48,7 @@ jobs:
           hole 11CCckRLkIHegBHisSZ1n8rPYWZlC6tL4 wet-03
           hole 1h3J7nn8niPL7m03DPJ5-1qxdQGmYpJZ0 wet-04
           hole 1DwHr9RF67cmGFmdzwEskaQpcQlD64QNm wetlook-01
-          hole 1G5tnlsm8ihuJcse_Z4OlHlixd2e7m6Wn wetlook-02
           hole 1p_7KrNe_e-yGf1VPfhH2BauKDDNwzhQ- megavolumen-01
-          hole 1Fv7rAAzHgstxdkt703FqGaSY0BymEyBQ megavolumen-02
           hole 1NE_MVgZau9RKbAvrFVp2nfd3ancxhTw3 megavolumen-03
           hole 1YnItxpI2mXwaiyJXzk2qb-8pNCOT34KW megavolumen-04
           hole 1Y0EfBpPyUsaihjjFvnHy7ga9_pb7B-oK megavolumen-05
@@ -78,7 +72,7 @@ jobs:
               print(datei.name, bild.width, "x", bild.height, datei.stat().st_size // 1024, "KB")
           PYCODE
 
-          # Die sieben Platzhalter von vorher werden nicht mehr gebraucht.
+          # Platzhalter von frueher, falls noch welche herumliegen.
           rm -f public/galerie/set-0*.jpg
           ls -lh public/galerie
 
