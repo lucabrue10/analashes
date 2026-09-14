@@ -21,7 +21,7 @@ export function Pricing() {
               <span className="italic">ohne Kleingedrucktes</span>
             </>
           }
-          text={`Alle Preise inklusive Beratung, Mapping und Pflegeempfehlung. Die Anzahlung von ${site.anzahlung} sichert deinen Termin und wird verrechnet.`}
+          text={`Alle Preise sind Endpreise inklusive Umsatzsteuer und enthalten Beratung, Mapping und Pflegeempfehlung. Die Anzahlung von ${site.anzahlung} sichert deinen Termin und wird verrechnet.`}
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">

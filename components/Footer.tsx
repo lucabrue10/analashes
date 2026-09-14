@@ -77,6 +77,12 @@ export function Footer() {
             >
               Datenschutz
             </a>
+            <a
+              href="/bedingungen"
+              className="inline-block py-2.5 transition-colors duration-300 hover:text-ink-900"
+            >
+              Bedingungen
+            </a>
             <span>Designed by Adversify Marketing</span>
           </div>
         </div>
