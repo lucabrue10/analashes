@@ -25,12 +25,13 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Das Studio-Video läuft stumm in Schleife über die volle Breite.
-          Auf dem Handy füllt es die Breite und wird oben und unten nur
-          minimal beschnitten; auf großen Bildschirmen steht es mittig in
-          seinem eigenen Format, damit nichts abgeschnitten wirkt. */}
-      <div className="relative w-full overflow-hidden bg-ink-900">
-        <div className="mx-auto h-[58svh] max-h-[560px] min-h-[300px] w-full sm:h-[62svh] sm:max-w-[min(100%,calc(62svh*0.5625))]">
+      {/* Das Studio-Video laeuft stumm in Schleife. Die Aufnahme ist im
+          Querformat 16:9; der Rahmen hat genau dieses Verhaeltnis, damit
+          auf dem Handy nichts beschnitten wird. Auf grossen Bildschirmen
+          begrenzt die Breite die Hoehe, sonst wuerde das Bild die halbe
+          Seite fuellen. */}
+      <div className="bg-ink-900">
+        <div className="mx-auto aspect-video w-full max-w-[1100px]">
           <StudioVideo
             label="Aufnahme aus dem Studio von Ana Catarina"
             className="h-full w-full object-cover"
