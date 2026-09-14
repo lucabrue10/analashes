@@ -430,11 +430,10 @@ export const ueberMich = {
   bild: "/ana.jpg",
   bildAlt: "Ana Catarina in ihrem Studio",
   absaetze: [
-    "Ich bin Ana Catarina. La Maison ist kein Salon und keine Kette, sondern mein eigenes Studio in Frankfurt – und bei jedem Termin sitzt genau eine Kundin auf dem Stuhl: du.",
-    "Ich mache diese Arbeit mit Herz. Jede Wimper, die ich setze, ist eine Entscheidung für dich und nicht für ein Foto. Und dass ich meinen Traum heute wirklich zum Beruf machen darf, verdanke ich euch – meinen Kundinnen. Jeder Termin, jede Weiterempfehlung, jede Nachricht hat dieses Studio möglich gemacht.",
-    "Bei mir hast du zwei Stunden für dich. Ich habe für euch immer ein offenes Ohr, und alles, was ihr mir erzählt, bleibt natürlich zwischen uns. Secrets never leave the room.",
-    "Mein Anspruch ist nicht das Set, das auf dem Foto am meisten hermacht, sondern das, das zu deinem Gesicht passt und im Alltag hält. Deshalb wird jedes Design vorher auf deine Augenform und deine Naturwimpern abgestimmt – keine Vorlage, die ich abarbeite.",
-    "Kein Wartebereich, kein Termindruck im Nacken, keine fremden Blicke. Du liegst in Ruhe, ich arbeite in Ruhe – und du gehst mit einem Blick raus, für den du morgens nichts mehr tun musst.",
+    "Mein Name ist Ana Catarina.",
+    "Ich habe mich dazu entschieden, als zertifizierte Wimpernstylistin zu arbeiten, weil ich Kosmetik liebe und es mir Freude macht, Menschen noch schöner und selbstbewusster fühlen zu lassen.",
+    "Qualität, Respekt, Vertrauen und Sauberkeit sind mir bei meiner Arbeit besonders wichtig. Ich bin ein offener, extrovertierter und herzlicher Mensch und liebe es, mich mit meinen Kundinnen auszutauschen. Bei mir darf gelacht, geredet oder einfach entspannt werden. Ich habe immer ein offenes Ohr und alles, was wir miteinander besprechen, bleibt selbstverständlich unter uns.",
+    "Da ich in einem Homestudio arbeite, nehme ich mir bewusst die Zeit, die wir für deine Wimpern brauchen. Ohne Zeitdruck, ohne Hektik und ganz entspannt.",
   ],
 };
 export const studioFeatures = [
