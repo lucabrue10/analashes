@@ -22,8 +22,10 @@ jobs:
 
       - name: Werkzeuge installieren
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq libheif-examples imagemagick
+          # pillow-heif bringt eine neuere HEIF-Bibliothek mit. Die von
+          # Ubuntu stolpert ueber die Tiefenkarte, die iPhones in ihre
+          # Aufnahmen legen.
+          python3 -m pip install --quiet --break-system-packages pillow pillow-heif
 
       - name: Bilder holen und umrechnen
         run: |
@@ -36,14 +38,6 @@ jobs:
             if [ "$(stat -c%s "roh/$ziel.bin")" -lt 20000 ]; then
               echo "Datei $ziel zu klein - vermutlich keine Freigabe:"; head -c 300 "roh/$ziel.bin"; exit 1
             fi
-            case "$(file -b --mime-type "roh/$ziel.bin")" in
-              image/heic|image/heif) heif-convert -q 92 "roh/$ziel.bin" "roh/$ziel.jpg" >/dev/null ;;
-              image/jpeg) cp "roh/$ziel.bin" "roh/$ziel.jpg" ;;
-              *) echo "Unbekanntes Format bei $ziel"; file "roh/$ziel.bin"; exit 1 ;;
-            esac
-            # Hochkant-Fotos: lange Kante hoechstens 1400 px, Metadaten raus.
-            convert "roh/$ziel.jpg" -auto-orient -resize '1400x1400>' \
-              -quality 82 -strip "public/galerie/$ziel.jpg"
           }
 
           hole 119khwHK9O4TAuKh9LI1ZJNr0UxpKN5zT wispy-01
@@ -65,10 +59,28 @@ jobs:
           hole 1YnItxpI2mXwaiyJXzk2qb-8pNCOT34KW megavolumen-04
           hole 1Y0EfBpPyUsaihjjFvnHy7ga9_pb7B-oK megavolumen-05
 
+          python3 - <<'PYCODE'
+          import pathlib
+          from PIL import Image, ImageOps
+          import pillow_heif
+
+          pillow_heif.register_heif_opener()
+
+          ziel = pathlib.Path("public/galerie")
+          ziel.mkdir(parents=True, exist_ok=True)
+
+          for quelle in sorted(pathlib.Path("roh").glob("*.bin")):
+              bild = Image.open(quelle)
+              bild = ImageOps.exif_transpose(bild).convert("RGB")
+              bild.thumbnail((1400, 1400), Image.LANCZOS)
+              datei = ziel / (quelle.stem + ".jpg")
+              bild.save(datei, "JPEG", quality=82, optimize=True, progressive=True)
+              print(datei.name, bild.width, "x", bild.height, datei.stat().st_size // 1024, "KB")
+          PYCODE
+
           # Die sieben Platzhalter von vorher werden nicht mehr gebraucht.
           rm -f public/galerie/set-0*.jpg
           ls -lh public/galerie
-          identify -format '%f %wx%h\n' public/galerie/*.jpg
 
       - name: Ins Projekt legen
         run: |
