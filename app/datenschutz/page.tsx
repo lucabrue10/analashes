@@ -81,6 +81,13 @@ export default function DatenschutzPage() {
           Betrieb der Website. Eine Zusammenführung dieser Daten mit anderen
           Datenquellen findet nicht statt.
         </p>
+        <p>
+          Der Hosting-Anbieter erstellt aus diesen Logdateien eine
+          zusammengefasste Statistik über Seitenaufrufe. Sie enthält keine
+          Angaben, die einzelnen Personen zugeordnet werden können. Dafür wird
+          nichts auf deinem Gerät gespeichert oder ausgelesen, es kommt also
+          weder ein Cookie noch ein Analysedienst zum Einsatz.
+        </p>
       </Abschnitt>
 
       <Abschnitt titel="Google Maps, nur auf Klick">
