@@ -150,19 +150,14 @@ export function Navbar() {
           >
             <nav className="container-x flex min-h-full flex-col justify-center pt-[calc(var(--nav-h)+2rem)] pb-14">
               <ul className="flex flex-col">
-                {navItems.map((item, i) => (
+                {navItems.map((item) => (
                   <motion.li key={item.href} variants={itemVariants}>
                     <a
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="group flex items-baseline gap-5 border-b border-beige-200 py-4"
+                      className="block border-b border-beige-200 py-4 text-2xl text-ink-900 transition-colors duration-300 hover:text-ink-500 sm:text-3xl"
                     >
-                      <span className="w-6 shrink-0 text-[10px] tracking-[0.26em] text-ink-300">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-2xl text-ink-900 transition-colors duration-300 group-hover:text-ink-500 sm:text-3xl">
-                        {item.label}
-                      </span>
+                      {item.label}
                     </a>
                   </motion.li>
                 ))}
