@@ -235,13 +235,6 @@ export const gallery: GalleryItem[] = [
     technique: "Soft & natürlich",
   },
   {
-    id: "soft-01",
-    src: "/galerie/soft-01.jpg",
-    alt: "Weiches Set mit natürlichem Schwung",
-    caption: "Soft",
-    technique: "Natürlich definiert",
-  },
-  {
     id: "softvolumen-01",
     src: "/galerie/softvolumen-01.jpg",
     alt: "Soft-Volumen-Set mit weicher Fülle",
