@@ -15,6 +15,17 @@ export function Schulungen() {
       aria-labelledby="schulungen-titel"
       className="bg-creme-100 pb-20 sm:pb-28"
     >
+      <div className="container-x pt-14 pb-12 sm:pt-16 sm:pb-14">
+        <SectionHeading
+          id="schulungen-titel"
+          edel
+          eyebrow="Lernen bei mir"
+          spruch="pass it on"
+          title={<>{schulungen.titel}</>}
+          text={schulungen.intro}
+        />
+      </div>
+
       {/* Die Aufnahme ist im Querformat 16:9. Der Rahmen hat genau dieses
           Verhältnis, damit auf dem Handy nichts beschnitten wird. */}
       <div className="bg-ink-900">
@@ -31,15 +42,6 @@ export function Schulungen() {
       </div>
 
       <div className="container-x pt-16 sm:pt-20">
-        <SectionHeading
-          id="schulungen-titel"
-          edel
-          eyebrow="Lernen bei mir"
-          spruch="pass it on"
-          title={<>{schulungen.titel}</>}
-          text={schulungen.intro}
-        />
-
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <Reveal direction="right">
             <div className="karte h-full px-7 py-9 sm:px-10 sm:py-10">
