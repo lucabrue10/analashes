@@ -1,0 +1,79 @@
+# Holt die Set-Fotos aus dem Drive-Ordner "07_Website", wandelt sie von
+# HEIC in JPEG, rechnet sie fuers Web klein und legt sie ins Projekt.
+name: Set-Bilder einbauen
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: set-bilder
+  cancel-in-progress: false
+
+jobs:
+  bilder:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Quellcode holen
+        uses: actions/checkout@v4
+        with:
+          ref: claude/anna-blush-lashes-site-r13pxp
+
+      - name: Werkzeuge installieren
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libheif-examples imagemagick
+
+      - name: Bilder holen und umrechnen
+        run: |
+          set -e
+          mkdir -p public/galerie roh
+          hole () {
+            id="$1"; ziel="$2"
+            curl -L --fail --retry 3 -o "roh/$ziel.bin" \
+              "https://drive.usercontent.google.com/download?id=$id&export=download&confirm=t"
+            if [ "$(stat -c%s "roh/$ziel.bin")" -lt 20000 ]; then
+              echo "Datei $ziel zu klein - vermutlich keine Freigabe:"; head -c 300 "roh/$ziel.bin"; exit 1
+            fi
+            case "$(file -b --mime-type "roh/$ziel.bin")" in
+              image/heic|image/heif) heif-convert -q 92 "roh/$ziel.bin" "roh/$ziel.jpg" >/dev/null ;;
+              image/jpeg) cp "roh/$ziel.bin" "roh/$ziel.jpg" ;;
+              *) echo "Unbekanntes Format bei $ziel"; file "roh/$ziel.bin"; exit 1 ;;
+            esac
+            # Hochkant-Fotos: lange Kante hoechstens 1400 px, Metadaten raus.
+            convert "roh/$ziel.jpg" -auto-orient -resize '1400x1400>' \
+              -quality 82 -strip "public/galerie/$ziel.jpg"
+          }
+
+          hole 119khwHK9O4TAuKh9LI1ZJNr0UxpKN5zT wispy-01
+          hole 1-MhECRM8ODgYFZBK5gxDCCJRm1vjqKVg wispy-02
+          hole 1SwgDv0B5leNoMXmBokHbDKesyqQSo930 wispy-03
+          hole 1t0aAxCLLg6d9yjkOKumkrIZc22X5K-3K wispy-04
+          hole 1mQH5b4SGcnWqz1Isa-EcmyVgEhEujtW1 wispy-05
+          hole 1Wl4SOY3t6TOAkeM5GpLNP6wFd-jaCvS6 soft-01
+          hole 1IinEvWZGackL3iPmqaATFmZOyMzPF_Rf softvolumen-01
+          hole 1K7zt0laS2q-M3kytXOkNVLsS7J5QHLWX wet-01
+          hole 1Rd0ts5XAPEcoSVGWovyiykpAM2Y9v7Uq wet-02
+          hole 11CCckRLkIHegBHisSZ1n8rPYWZlC6tL4 wet-03
+          hole 1h3J7nn8niPL7m03DPJ5-1qxdQGmYpJZ0 wet-04
+          hole 1DwHr9RF67cmGFmdzwEskaQpcQlD64QNm wetlook-01
+          hole 1G5tnlsm8ihuJcse_Z4OlHlixd2e7m6Wn wetlook-02
+          hole 1p_7KrNe_e-yGf1VPfhH2BauKDDNwzhQ- megavolumen-01
+          hole 1Fv7rAAzHgstxdkt703FqGaSY0BymEyBQ megavolumen-02
+          hole 1NE_MVgZau9RKbAvrFVp2nfd3ancxhTw3 megavolumen-03
+          hole 1YnItxpI2mXwaiyJXzk2qb-8pNCOT34KW megavolumen-04
+          hole 1Y0EfBpPyUsaihjjFvnHy7ga9_pb7B-oK megavolumen-05
+
+          # Die sieben Platzhalter von vorher werden nicht mehr gebraucht.
+          rm -f public/galerie/set-0*.jpg
+          ls -lh public/galerie
+          identify -format '%f %wx%h\n' public/galerie/*.jpg
+
+      - name: Ins Projekt legen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A public/galerie
+          git commit -m "Set-Fotos aus dem Drive eingebaut"
+          git push origin HEAD:claude/anna-blush-lashes-site-r13pxp
