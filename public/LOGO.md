@@ -13,7 +13,7 @@ Alphakanal hat:
   weggerechnet. Das ist eine Notlösung, deren Ergebnis von der Umgebung
   abhängt – besser ist eine freigestellte Datei
 
-Ohne Logo zeigt die Seite die gesetzte Wortmarke aanaa.lashes.
+Ohne Logo zeigt die Seite den gesetzten Schriftzug La Maison d'Ana Catarina.
 
 Hinweis: Liegt viel leerer Rand um die Zeichnung, wirkt die Marke in der
 oberen Leiste klein. Dann eine zugeschnittene Fassung als

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const RELOAD_KEY = "aanaa-chunk-reload";
+const RELOAD_KEY = "maison-chunk-reload";
 
 /** Fehler, die nach einem Deploy auftreten, weil der Browser noch alte Dateien hat. */
 const isStaleBundleError = (message: string) =>

@@ -13,8 +13,8 @@ export const site = {
   phoneHref: "+4915560878913",
   whatsapp: "4915560878913",
   whatsappText: "Hallo Ana, ich möchte gerne einen Termin anfragen.",
-  instagram: "https://instagram.com/aanaa.lashes",
-  instagramHandle: "@aanaa.lashes",
+  instagram: "https://instagram.com/lamaison.ac",
+  instagramHandle: "@lamaison.ac",
   email: "ana.chickenwings@icloud.com",
   /** Inhaberin – für Impressum und verantwortliche Stelle */
   owner: "Ana Catarina De Oliveira Akhouaji",
