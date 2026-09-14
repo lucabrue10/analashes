@@ -35,6 +35,7 @@ export function Ablauf() {
     >
       <div className="container-x">
         <SectionHeading
+          hauptueberschrift
           id="pflege-titel"
           eyebrow="Vorbereitung & Pflege"
           spruch="handle with care"

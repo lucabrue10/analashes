@@ -54,6 +54,7 @@ export function Contact() {
     >
       <div className="container-x">
         <SectionHeading
+          hauptueberschrift
           id="kontakt-titel"
           eyebrow="Kontakt"
           spruch="slide into my DMs"

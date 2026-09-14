@@ -51,6 +51,7 @@ export function Buchung() {
     >
       <div className="container-x">
         <SectionHeading
+          hauptueberschrift
           id="buchen-titel"
           eyebrow="Termin"
           spruch="your seat, your rules"

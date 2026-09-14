@@ -17,6 +17,7 @@ export function Schulungen() {
     >
       <div className="container-x pt-14 pb-12 sm:pt-16 sm:pb-14">
         <SectionHeading
+          hauptueberschrift
           id="schulungen-titel"
           edel
           eyebrow="Lernen bei mir"

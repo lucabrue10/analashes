@@ -11,6 +11,7 @@ export function Pricing() {
     >
       <div className="container-x">
         <SectionHeading
+          hauptueberschrift
           id="preise-titel"
           eyebrow="Preise"
           spruch="no hidden fees, ever"

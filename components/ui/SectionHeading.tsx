@@ -12,6 +12,8 @@ type Props = {
   align?: "left" | "center";
   /** Ohne Einblenden: Die Überschrift steht sofort da. */
   ruhig?: boolean;
+  /** Auf eigenen Seiten ist diese Überschrift die Hauptüberschrift. */
+  hauptueberschrift?: boolean;
   id?: string;
 };
 
@@ -23,10 +25,14 @@ export function SectionHeading({
   text,
   align = "center",
   ruhig = false,
+  hauptueberschrift = false,
   id,
 }: Props) {
   const zentriert = align === "center";
   // Auf ruhigen Seiten blendet nichts ein, der Text steht beim Laden da.
+  // Unterseiten brauchen genau eine h1, sonst fehlt Suchmaschinen und
+  // Vorleseprogrammen die Ebene darüber.
+  const Ueberschrift = hauptueberschrift ? "h1" : "h2";
   const Huelle = ruhig
     ? ({ children }: { children: ReactNode; delay?: number }) => (
         <Fragment>{children}</Fragment>
@@ -40,7 +46,7 @@ export function SectionHeading({
         </Huelle>
       ) : null}
       <Huelle delay={0.03}>
-        <h2
+        <Ueberschrift
           id={id}
           style={
             edel
@@ -60,7 +66,7 @@ export function SectionHeading({
           }
         >
           {title}
-        </h2>
+        </Ueberschrift>
       </Huelle>
       {spruch ? (
         <Huelle delay={0.05}>
