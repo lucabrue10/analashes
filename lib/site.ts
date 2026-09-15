@@ -142,7 +142,7 @@ export const services: Service[] = [
     description:
       "Lerne das Handwerk von Grund auf oder hebe deine Technik aufs nächste Level, in kleinen Gruppen oder als Einzelcoaching.",
     details: [
-      "Basis, Volumen und UV",
+      "Basis, Volumen und Mapping",
       "Kleine Gruppen",
       "Termine nach Absprache",
     ],
@@ -210,7 +210,6 @@ export const priceGroups: PriceGroup[] = [
         meta: "nach Absprache",
         price: "auf Anfrage",
       },
-      { name: "UV-Technik", meta: "nach Absprache", price: "auf Anfrage" },
       { name: "Einzelcoaching", meta: "nach Absprache", price: "auf Anfrage" },
     ],
   },
@@ -450,7 +449,7 @@ export const schulungen = {
     "Aufbau, Augenform und Mapping",
     "Die 1 : 1 Technik von Grund auf",
     "Volumen: Fächer legen, Gewicht und Haltbarkeit",
-    "Arbeiten mit UV-Kleber",
+    "Arbeiten mit klassischem Kleber",
     "Hygiene, Materialkunde und Kleberführung",
     "Üben am Modell, mit Rückmeldung von mir",
   ],
